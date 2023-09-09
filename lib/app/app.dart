@@ -1,10 +1,11 @@
-import 'package:receipe_app/ui/bottom_sheets/notice/notice_sheet.dart';
-import 'package:receipe_app/ui/dialogs/info_alert/info_alert_dialog.dart';
-import 'package:receipe_app/ui/views/home/home_view.dart';
-import 'package:receipe_app/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:receipe_app/services/event_service.dart';
+
+import '../services/event_service.dart';
+import '../ui/bottom_sheets/notice/notice_sheet.dart';
+import '../ui/dialogs/info_alert/info_alert_dialog.dart';
+import '../ui/views/home/home_view.dart';
+import '../ui/views/startup/startup_view.dart';
 // @stacked-import
 
 @StackedApp(
