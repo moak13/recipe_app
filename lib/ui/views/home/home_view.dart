@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 
+import '../../widgets/common/primary_button/primary_button.dart';
 import 'home_viewmodel.dart';
 
 class HomeView extends StackedView<HomeViewModel> {
@@ -68,7 +69,11 @@ class HomeView extends StackedView<HomeViewModel> {
                       ),
                     ),
                   ],
-                )
+                ),
+                PrimaryButton(
+                  buttonText: 'Hello World',
+                  onTap: () {},
+                ),
               ],
             ),
           ),

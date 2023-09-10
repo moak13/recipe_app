@@ -15,6 +15,7 @@ class AppThemes {
         AppTypography(
           headlineBold24: AppTextStyles.headlineBold24,
           titleRegular16: AppTextStyles.titleRegular16,
+          titleBold16: AppTextStyles.titleBold16,
         ),
         const Palette(
           gray1: AppColors.gray1,

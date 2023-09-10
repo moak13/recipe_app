@@ -21,22 +21,21 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      theme: AppThemes.lightTheme,
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      ensureScreenSize: true,
       builder: (context, child) {
-        return ScreenUtilInit(
-          designSize: const Size(390, 844),
-          minTextAdapt: true,
-          splitScreenMode: true,
-          ensureScreenSize: true,
-          child: child,
+        return MaterialApp(
+          onGenerateRoute: StackedRouter().onGenerateRoute,
+          navigatorKey: StackedService.navigatorKey,
+          theme: AppThemes.lightTheme,
+          navigatorObservers: [
+            StackedService.routeObserver,
+          ],
         );
       },
-      navigatorObservers: [
-        StackedService.routeObserver,
-      ],
     );
   }
 }
