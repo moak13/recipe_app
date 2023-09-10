@@ -15,4 +15,11 @@ class AppTextStyles {
     fontFamily: 'Satoshi',
     fontSize: 16.sp,
   );
+
+  static TextStyle titleBold16 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+    fontFamily: 'Satoshi',
+    fontSize: 16.sp,
+  );
 }
