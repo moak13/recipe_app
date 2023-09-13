@@ -7,9 +7,13 @@ environment:
   sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
+  dots_indicator: ^3.0.0
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.7
   stacked: ^3.4.0
   stacked_services: ^1.1.0
 
@@ -23,6 +27,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/svg/
+    - assets/png/
   fonts:
     - family: Satoshi
       fonts:
@@ -36,3 +43,5 @@ flutter:
           weight: 700
         - asset: assets/fonts/Satoshi-Black.otf
           weight: 900
+flutter_intl:
+  enabled: true

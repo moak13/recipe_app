@@ -6,13 +6,15 @@ import '../ui/bottom_sheets/notice/notice_sheet.dart';
 import '../ui/dialogs/info_alert/info_alert_dialog.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/startup/startup_view.dart';
+import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     AdaptiveRoute(page: HomeView),
     AdaptiveRoute(page: StartupView, initial: true),
-    // @stacked-route
+    MaterialRoute(page: OnboardingView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),

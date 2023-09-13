@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:receipe_app/generated/l10n.dart';
 import 'package:stacked/stacked.dart';
 import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
@@ -71,7 +72,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   ],
                 ),
                 PrimaryButton(
-                  buttonText: 'Hello World',
+                  buttonText: S.current.hello_word,
                   onTap: () {},
                 ),
               ],
