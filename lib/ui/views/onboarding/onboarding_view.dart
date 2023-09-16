@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
+import 'package:receipe_app/ui/views/onboarding/widgets/dot_widget.dart';
 import 'package:receipe_app/ui/views/onboarding/widgets/slider_content.dart';
 import 'package:receipe_app/ui/widgets/common/primary_button/primary_button.dart';
 import 'package:stacked/stacked.dart';
@@ -41,6 +42,11 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
                 itemCount: viewModel.sliderItems.length,
               ),
             ),
+            const Spacer(),
+            DotWidget(
+              index: viewModel.currentIndex,
+              length: viewModel.sliderItems.length,
+            ),
             SizedBox(
               height: 24.h,
             ),
@@ -50,6 +56,9 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
                 buttonText: S.current.get_started,
                 onTap: viewModel.getStarted,
               ),
+            ),
+            SizedBox(
+              height: 10.h,
             ),
           ],
         ),
