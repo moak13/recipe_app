@@ -16,10 +16,13 @@ class AppThemes {
           headlineBold24: AppTextStyles.headlineBold24,
           titleRegular16: AppTextStyles.titleRegular16,
           titleBold16: AppTextStyles.titleBold16,
+          labelRegular12: AppTextStyles.labelRegular12,
         ),
         const Palette(
           gray1: AppColors.gray1,
+          gray6: AppColors.gray6,
           gray7: AppColors.gray7,
+          gray9: AppColors.gray9,
           gray11: AppColors.gray11,
           primary6: AppColors.primary6,
         ),

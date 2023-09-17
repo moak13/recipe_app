@@ -7,13 +7,15 @@ import '../ui/dialogs/info_alert/info_alert_dialog.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/startup/startup_view.dart';
 import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart';
+import 'package:receipe_app/ui/views/login/login_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     AdaptiveRoute(page: HomeView),
     AdaptiveRoute(page: StartupView, initial: true),
-    MaterialRoute(page: OnboardingView),
+    AdaptiveRoute(page: OnboardingView),
+    AdaptiveRoute(page: LoginView),
 // @stacked-route
   ],
   dependencies: [

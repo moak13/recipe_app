@@ -22,4 +22,11 @@ class AppTextStyles {
     fontFamily: 'Satoshi',
     fontSize: 16.sp,
   );
+
+  static TextStyle labelRegular12 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontFamily: 'Satoshi',
+    fontSize: 12.sp,
+  );
 }

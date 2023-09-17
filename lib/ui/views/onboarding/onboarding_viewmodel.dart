@@ -1,9 +1,14 @@
+import 'package:receipe_app/app/app.locator.dart';
+import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/slider_data.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class OnboardingViewModel extends IndexTrackingViewModel {
+  final _navigationService = locator<NavigationService>();
+
   List<SliderData> sliderItems = [
     SliderData(
       image: AppImages.onboardOne,
@@ -22,5 +27,7 @@ class OnboardingViewModel extends IndexTrackingViewModel {
     ),
   ];
 
-  void getStarted() {}
+  void getStarted() {
+    _navigationService.navigateToLoginView();
+  }
 }
