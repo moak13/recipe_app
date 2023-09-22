@@ -14,6 +14,7 @@ dependencies:
     sdk: flutter
   flutter_screenutil: ^5.9.0
   flutter_svg: ^2.0.7
+  intl: ^0.18.1
   stacked: ^3.4.0
   stacked_services: ^1.1.0
 

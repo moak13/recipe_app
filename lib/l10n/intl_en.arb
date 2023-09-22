@@ -7,5 +7,12 @@
     "onboarding_title_two": "Seamless Order",
     "onboarding_subtitle_two": "With Kally Dish you can place your order from the comfort of your home by calling any of our hotlines",
     "onboarding_title_three": "Subscribe To Our Store",
-    "onboarding_subtitle_three": "Kally Dish provides exclusive access to cost-cutting, time saving and stress-reducing benefits through it's membership plan"
+    "onboarding_subtitle_three": "Kally Dish provides exclusive access to cost-cutting, time saving and stress-reducing benefits through it's membership plan",
+    "welcome": "Welcome",
+    "please_sign_in_to_continue": "Please sign in to continue",
+    "email_address": "Email Address",
+    "password": "Password",
+    "login": "Login",
+    "dont_have_an_account": "Don’t have an account?",
+    "sign_up": "Sign Up"
 }
