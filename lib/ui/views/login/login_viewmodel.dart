@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:receipe_app/ui/views/login/login_view.form.dart';
 import 'package:stacked/stacked.dart';
 
-class LoginViewModel extends BaseViewModel {
-
+class LoginViewModel extends FormViewModel {
+  
   bool hideText = true;
 
   void toggleVisibility() {
@@ -9,5 +11,12 @@ class LoginViewModel extends BaseViewModel {
     rebuildUi();
   }
 
-  void actionRouteToSignUpView() {}
+  void login() {
+    debugPrint(emailValue);
+    debugPrint(passwordValue);
+  }
+
+  void actionRouteToSignUpView() {
+    debugPrint("====here====");
+  }
 }
