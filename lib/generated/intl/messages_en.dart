@@ -22,8 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "dont_have_an_account":
+            MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
+        "email_address": MessageLookupByLibrary.simpleMessage("Email Address"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(
             "Kally Dish offers non-perishable foodstuff at the lowest wholesale price delivered to your doorstep for free"),
         "onboarding_subtitle_three": MessageLookupByLibrary.simpleMessage(
@@ -35,6 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_title_three":
             MessageLookupByLibrary.simpleMessage("Subscribe To Our Store"),
         "onboarding_title_two":
-            MessageLookupByLibrary.simpleMessage("Seamless Order")
+            MessageLookupByLibrary.simpleMessage("Seamless Order"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "please_sign_in_to_continue":
+            MessageLookupByLibrary.simpleMessage("Please sign in to continue"),
+        "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }
