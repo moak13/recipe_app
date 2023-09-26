@@ -40,4 +40,12 @@ flutter run
 
 5. make changes
 
+6. create a branch
+
+7. cheackout to your branck
+
+8. commit changes 
+
+9. push your code 
+ 
 
