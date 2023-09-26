@@ -16,10 +16,6 @@ click the fork button on the top right corner and give it a name you want
 ...
 2. clone your fork
 
-.....//TODO
-git clone https://github.com/DreXuri/recipe_app.git
-.....
-
 2. Navigate to the project directory
 
 ....//TODO
@@ -42,7 +38,7 @@ flutter run
 
 6. create a branch
 
-7. cheackout to your branch
+7. checkout to your branch
 
 8. commit changes 
 
