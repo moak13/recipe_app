@@ -42,7 +42,7 @@ flutter run
 
 6. create a branch
 
-7. cheackout to your branck
+7. cheackout to your branch
 
 8. commit changes 
 
