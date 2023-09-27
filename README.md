@@ -3,7 +3,7 @@
 How to contribute to this open source project
  Prerequisites
 * You will need to have flutter set up on your system  [https://docs.flutter.dev/get-started/install]
-* You Should know this project was build using stacked as a statemanagement tool  check this for info on stacked[https://stacked.filledstacks.com/docs/getting-started/overview/]
+* You Should know this project was built using stacked as a state management tool  check this for info on stacked[https://stacked.filledstacks.com/docs/getting-started/overview/]
  
 Installation
 
@@ -15,10 +15,6 @@ To get started with the code follow this steps
 click the fork button on the top right corner and give it a name you want
 ...
 2. clone your fork
-
-.....//TODO
-git clone https://github.com/DreXuri/recipe_app.git
-.....
 
 2. Navigate to the project directory
 
@@ -42,7 +38,7 @@ flutter run
 
 6. create a branch
 
-7. cheackout to your branch
+7. checkout to your branch
 
 8. commit changes 
 
