@@ -6,8 +6,7 @@ import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 
-PreferredSizeWidget 
-customAppBar(
+PreferredSizeWidget customAppBar(
   BuildContext context, {
   String titleText = '',
   String leadText = '',
@@ -30,47 +29,44 @@ customAppBar(
   Color? titleColor,
   FontWeight? fontWeight = FontWeight.bold,
 }) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
-    return  AppBar(
-          backgroundColor: kcBackground,
-          elevation: 0,
-          leading: InkWell(
-            onTap: onTap ??
-                () {
-                  //  TODO open drawer
-                  Drawer();
-                },
-            child: leading ??
-                SizedBox(
-                  height: 30,
-                  width: 30,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        left: 25.0.w,
-                        top: 8.h,
-                      ),
-                      child: SvgPicture.asset(
-                        AppImages.burgerLog,
-                        width: 24.7.w,
-                        height: 24.h,
-                
-                      ),
-                    ),
+  ThemeData theme = Theme.of(context);
+  AppTypography? typography = theme.extension<AppTypography>();
+  Palette? palette = theme.extension<Palette>();
+  return AppBar(
+      backgroundColor: kcBackground,
+      elevation: 0,
+      leading: InkWell(
+        onTap: onTap ??
+            () {
+              //  TODO open drawer
+              Drawer();
+            },
+        child: leading ??
+            SizedBox(
+              height: 30,
+              width: 30,
+              child: Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 25.0.w,
+                    top: 8.h,
+                  ),
+                  child: SvgPicture.asset(
+                    AppImages.burgerLog,
+                    width: 24.7.w,
+                    height: 24.h,
                   ),
                 ),
-          ),
-          title: Padding(
-            padding: EdgeInsets.only(top: 5.0.h),
-            child: title ??
-                Text(
-                  titleText,
-                  style:
-                      typography?.titleBold16?.copyWith(color: palette?.gray11),
-                ),
-          ))
-    ;
-  }
+              ),
+            ),
+      ),
+      title: Padding(
+        padding: EdgeInsets.only(top: 5.0.h),
+        child: title ??
+            Text(
+              titleText,
+              style: typography?.titleBold16?.copyWith(color: palette?.gray11),
+            ),
+      ));
+}

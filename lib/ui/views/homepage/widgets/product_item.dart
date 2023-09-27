@@ -32,21 +32,15 @@ class ProductItem extends StatelessWidget {
                 height: 200.h,
                 width: double.infinity,
               ),
-             productModel.isLiked? 
-             Padding(
-       padding:  EdgeInsets.all(12.0.h),
-               child: SvgPicture.asset(
-                  AppImages.unLikedIcon
-    
-                ),
-             ):
-                        Padding(
-       padding:  EdgeInsets.all(12.0.h),
-               child: SvgPicture.asset(
-                  AppImages.lkedIcon
-    
-                ),
-             )
+              productModel.isLiked
+                  ? Padding(
+                      padding: EdgeInsets.all(12.0.h),
+                      child: SvgPicture.asset(AppImages.unLikedIcon),
+                    )
+                  : Padding(
+                      padding: EdgeInsets.all(12.0.h),
+                      child: SvgPicture.asset(AppImages.lkedIcon),
+                    )
             ],
           ),
           SizedBox(
@@ -109,9 +103,9 @@ class LikedWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(12.0.h),
       child: Image.asset(
-         productModel.image,
-         height: 20.h,
-       ),
+        productModel.image,
+        height: 20.h,
+      ),
     );
   }
 }
