@@ -32,15 +32,18 @@ class ProductItem extends StatelessWidget {
                 height: 200.h,
                 width: double.infinity,
               ),
-              productModel.isLiked
-                  ? Padding(
-                      padding: EdgeInsets.all(12.0.h),
-                      child: SvgPicture.asset(AppImages.unLikedIcon),
-                    )
-                  : Padding(
-                      padding: EdgeInsets.all(12.0.h),
-                      child: SvgPicture.asset(AppImages.lkedIcon),
-                    )
+              Builder(builder: (context) {
+                if (productModel.isLiked) {
+                  return Padding(
+                    padding: EdgeInsets.all(12.0.h),
+                    child: SvgPicture.asset(AppImages.unLikedIcon),
+                  );
+                }
+                return Padding(
+                  padding: EdgeInsets.all(12.0.h),
+                  child: SvgPicture.asset(AppImages.lkedIcon),
+                );
+              })
             ],
           ),
           SizedBox(

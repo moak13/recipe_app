@@ -7,8 +7,8 @@ import 'package:stacked_services/stacked_services.dart';
 class HomepageViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
-  List<ProductModel> productItems() {
-    return [
+  List<ProductModel> productItems=[
+    
       ProductModel(
         date: 'May 28, 2023',
         image: AppImages.spagLog,
@@ -46,5 +46,5 @@ class HomepageViewModel extends BaseViewModel {
         title: 'Spaghetti',
       ),
     ];
-  }
+  
 }
