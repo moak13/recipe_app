@@ -31,6 +31,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email cannot be empty"),
         "email_must_be_a_valid_email": MessageLookupByLibrary.simpleMessage(
             "Email must be a valid email address"),
+        "enter_your_email":
+            MessageLookupByLibrary.simpleMessage("Enter your email address"),
+        "enter_your_first_name":
+            MessageLookupByLibrary.simpleMessage("Enter your first name"),
+        "enter_your_last_name":
+            MessageLookupByLibrary.simpleMessage("Enter your last name"),
+        "enter_your_password":
+            MessageLookupByLibrary.simpleMessage("Enter your password"),
         "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),

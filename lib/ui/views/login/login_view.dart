@@ -76,7 +76,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 validator: Validation.validateEmail,
                 decoration:  InputDecoration(
                   labelText: S.current.email_address,
-                  hintText: S.current.email_address,
+                  hintText: S.current.enter_your_email,
                 ),
               ),
               SizedBox(
@@ -89,7 +89,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 validator: Validation.validateField,
                 decoration: InputDecoration(
                   labelText: S.current.password,
-                  hintText: S.current.password,
+                  hintText: S.current.enter_your_password,
                   suffixIcon: IconButton(
                     onPressed: viewModel.toggleVisibility,
                     icon: Icon(viewModel.hideText

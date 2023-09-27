@@ -160,11 +160,31 @@ class S {
     );
   }
 
+  /// `Enter your email address`
+  String get enter_your_email {
+    return Intl.message(
+      'Enter your email address',
+      name: 'enter_your_email',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password`
   String get password {
     return Intl.message(
       'Password',
       name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get enter_your_password {
+    return Intl.message(
+      'Enter your password',
+      name: 'enter_your_password',
       desc: '',
       args: [],
     );
@@ -180,11 +200,31 @@ class S {
     );
   }
 
+  /// `Enter your first name`
+  String get enter_your_first_name {
+    return Intl.message(
+      'Enter your first name',
+      name: 'enter_your_first_name',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Last name`
   String get last_name {
     return Intl.message(
       'Last name',
       name: 'last_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your last name`
+  String get enter_your_last_name {
+    return Intl.message(
+      'Enter your last name',
+      name: 'enter_your_last_name',
       desc: '',
       args: [],
     );
