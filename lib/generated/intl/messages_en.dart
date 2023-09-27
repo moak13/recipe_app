@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "please_sign_in_to_continue":
             MessageLookupByLibrary.simpleMessage("Please sign in to continue"),
+        "required": MessageLookupByLibrary.simpleMessage("Required"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
       };

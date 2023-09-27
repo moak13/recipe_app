@@ -14,7 +14,7 @@ class Validation {
 
   static String? validateField(String? s, {String? errorMessage}) {
     if (StringUtil.isEmpty(s)) {
-      return errorMessage ?? "Required";
+      return errorMessage ?? S.current.required;
     } else {
       return null;
     }

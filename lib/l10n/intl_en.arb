@@ -23,5 +23,6 @@
     "already_have_an_account": "Already have an account?",
     "sign_up": "Sign Up",
     "email_cannot_be_empty": "Email cannot be empty",
-    "email_must_be_a_valid_email": "Email must be a valid email address"
+    "email_must_be_a_valid_email": "Email must be a valid email address",
+    "required": "Required"
 }
