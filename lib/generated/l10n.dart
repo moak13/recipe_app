@@ -170,6 +170,26 @@ class S {
     );
   }
 
+  /// `First Name`
+  String get first_name {
+    return Intl.message(
+      'First Name',
+      name: 'first_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last name`
+  String get last_name {
+    return Intl.message(
+      'Last name',
+      name: 'last_name',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message(
@@ -190,11 +210,41 @@ class S {
     );
   }
 
+  /// `Already have an account?`
+  String get already_have_an_account {
+    return Intl.message(
+      'Already have an account?',
+      name: 'already_have_an_account',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign Up`
   String get sign_up {
     return Intl.message(
       'Sign Up',
       name: 'sign_up',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email cannot be empty`
+  String get email_cannot_be_empty {
+    return Intl.message(
+      'Email cannot be empty',
+      name: 'email_cannot_be_empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email must be a valid email address`
+  String get email_must_be_a_valid_email {
+    return Intl.message(
+      'Email must be a valid email address',
+      name: 'email_must_be_a_valid_email',
       desc: '',
       args: [],
     );

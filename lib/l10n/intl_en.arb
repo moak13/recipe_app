@@ -12,7 +12,12 @@
     "please_sign_in_to_continue": "Please sign in to continue",
     "email_address": "Email Address",
     "password": "Password",
+    "first_name": "First Name",
+    "last_name": "Last name",
     "login": "Login",
     "dont_have_an_account": "Don’t have an account?",
-    "sign_up": "Sign Up"
+    "already_have_an_account": "Already have an account?",
+    "sign_up": "Sign Up",
+    "email_cannot_be_empty": "Email cannot be empty",
+    "email_must_be_a_valid_email": "Email must be a valid email address"
 }

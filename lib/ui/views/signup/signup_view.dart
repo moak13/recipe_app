@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
@@ -52,7 +53,7 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Sign up",
+                  S.current.sign_up,
                   style: typography?.headlineBold28
                       ?.copyWith(color: palette?.gray11),
                 ),
@@ -76,8 +77,10 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 focusNode: firstNameFocusNode,
                 validator: Validation.validateField,
                 textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(
-                    labelText: "First Name", hintText: "First Name"),
+                decoration:  InputDecoration(
+                    labelText: S.current.first_name, 
+                    hintText: S.current.first_name,
+                    ),
               ),
               SizedBox(
                 height: 16.h,
@@ -87,8 +90,10 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 focusNode: lastNameFocusNode,
                 validator: Validation.validateField,
                 textInputAction: TextInputAction.next,
-                decoration: const InputDecoration(
-                    labelText: "Last Name", hintText: "Last Name"),
+                decoration:  InputDecoration(
+                    labelText: S.current.last_name, 
+                    hintText: S.current.last_name,
+                    ),
               ),
               SizedBox(
                 height: 16.h,
@@ -100,9 +105,9 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 validator: Validation.validateEmail,
-                decoration: const InputDecoration(
-                    labelText: "Email Address", 
-                    hintText: "Email Address"),
+                decoration:  InputDecoration(
+                    labelText: S.current.email_address, 
+                    hintText: S.current.email_address),
               ),
               SizedBox(
                 height: 16.h,
@@ -114,8 +119,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                   textInputAction: TextInputAction.done,
                 validator: Validation.validateField,
                 decoration: InputDecoration(
-                  labelText: "Password",
-                  hintText: "Password",
+                  labelText: S.current.password,
+                  hintText: S.current.password,
                   suffixIcon: IconButton(
                     onPressed: viewModel.togglePassword,
                     icon: Icon(
@@ -130,7 +135,7 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 height: 129.h,
               ),
               PrimaryButton(
-                buttonText: "Sign up",
+                buttonText: S.current.sign_up,
                 onTap: () {
                   if (_signupKey.currentState?.validate() ?? false) {
                     viewModel.signup();
@@ -141,13 +146,13 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 height: 16.h,
               ),
               Text.rich(TextSpan(
-                  text: "Already have an account?",
+                  text: S.current.already_have_an_account,
                   style: typography?.titleRegular16
                       ?.copyWith(color: palette?.gray8, fontSize: 14.sp),
                   children: [
                     const TextSpan(text: " "),
                     TextSpan(
-                        text: "Login",
+                        text: S.current.login,
                         style: typography?.titleBold16?.copyWith(
                           color: palette?.primary6,
                           fontSize: 14.sp,

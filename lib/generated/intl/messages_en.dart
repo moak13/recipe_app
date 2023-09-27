@@ -22,11 +22,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "already_have_an_account":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
         "email_address": MessageLookupByLibrary.simpleMessage("Email Address"),
+        "email_cannot_be_empty":
+            MessageLookupByLibrary.simpleMessage("Email cannot be empty"),
+        "email_must_be_a_valid_email": MessageLookupByLibrary.simpleMessage(
+            "Email must be a valid email address"),
+        "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "last_name": MessageLookupByLibrary.simpleMessage("Last name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(
             "Kally Dish offers non-perishable foodstuff at the lowest wholesale price delivered to your doorstep for free"),

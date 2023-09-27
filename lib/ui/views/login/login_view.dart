@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
@@ -48,7 +49,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Welcome",
+                  S.current.welcome,
                   style: typography?.headlineBold28
                       ?.copyWith(color: palette?.gray11),
                 ),
@@ -59,7 +60,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Please sign in to continue",
+                  S.current.please_sign_in_to_continue,
                   style: typography?.titleRegular16
                       ?.copyWith(color: palette?.gray8),
                 ),
@@ -73,9 +74,9 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 autofillHints: const [AutofillHints.email],
                 keyboardType: TextInputType.emailAddress,
                 validator: Validation.validateEmail,
-                decoration: const InputDecoration(
-                  labelText: "Email Address",
-                  hintText: "Email Address",
+                decoration:  InputDecoration(
+                  labelText: S.current.email_address,
+                  hintText: S.current.email_address,
                 ),
               ),
               SizedBox(
@@ -87,8 +88,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 obscureText: viewModel.hideText,
                 validator: Validation.validateField,
                 decoration: InputDecoration(
-                  labelText: "Password",
-                  hintText: "Password",
+                  labelText: S.current.password,
+                  hintText: S.current.password,
                   suffixIcon: IconButton(
                     onPressed: viewModel.toggleVisibility,
                     icon: Icon(viewModel.hideText
@@ -101,7 +102,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 height: 253.h,
               ),
               PrimaryButton(
-                buttonText: "Login",
+                buttonText: S.current.login,
                 onTap: () {
                   if (_formKey.currentState?.validate() ?? false) {
                     viewModel.login();
@@ -113,7 +114,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               ),
               Text.rich(
                 TextSpan(
-                    text: "Don’t have an account?",
+                    text: S.current.dont_have_an_account,
                     style: typography?.titleRegular16?.copyWith(
                       color: palette?.gray8,
                       fontSize: 14.sp,
@@ -121,7 +122,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                     children: [
                       const TextSpan(text: " "),
                       TextSpan(
-                          text: "Sign Up",
+                          text: S.current.sign_up,
                           style: typography?.titleBold16?.copyWith(
                             color: palette?.primary6,
                             fontSize: 14.sp,
