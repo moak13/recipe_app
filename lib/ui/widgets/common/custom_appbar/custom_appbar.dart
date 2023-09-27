@@ -25,7 +25,7 @@ customAppBar(
   List<Widget>? action,
   bool hasLeading = true,
   VoidCallback? onBackTap,
-  double preferredSize = 106.0,
+  double preferredSize = 56.0,
   bool centerTitle = true,
   Color? titleColor,
   FontWeight? fontWeight = FontWeight.bold,
@@ -57,6 +57,7 @@ customAppBar(
                         AppImages.burgerLog,
                         width: 24.7.w,
                         height: 24.h,
+                
                       ),
                     ),
                   ),

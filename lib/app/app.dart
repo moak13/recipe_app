@@ -1,6 +1,5 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
-
 import '../services/event_service.dart';
 import '../ui/bottom_sheets/notice/notice_sheet.dart';
 import '../ui/dialogs/info_alert/info_alert_dialog.dart';
@@ -8,6 +7,7 @@ import '../ui/views/home/home_view.dart';
 import '../ui/views/startup/startup_view.dart';
 import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart';
 import 'package:receipe_app/ui/views/login/login_view.dart';
+import 'package:receipe_app/ui/views/homepage/homepage_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -16,6 +16,7 @@ import 'package:receipe_app/ui/views/login/login_view.dart';
     AdaptiveRoute(page: StartupView, initial: true),
     AdaptiveRoute(page: OnboardingView),
     AdaptiveRoute(page: LoginView),
+    MaterialRoute(page: HomepageView),
 // @stacked-route
   ],
   dependencies: [

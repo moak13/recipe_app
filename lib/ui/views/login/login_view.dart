@@ -32,7 +32,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     final Palette? palette = theme.extension<Palette>();
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.only(left: sidePadding, right: sidePadding, bottom: sidePadding + 20.h),
+        padding: EdgeInsets.only(
+            left: sidePadding, right: sidePadding, bottom: sidePadding + 20.h),
         child: Form(
           key: _formKey,
           child: Column(
@@ -48,7 +49,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Welcome",
-                  style: typography?.headlineBold28?.copyWith(color: palette?.gray11),
+                  style: typography?.headlineBold28
+                      ?.copyWith(color: palette?.gray11),
                 ),
               ),
               SizedBox(
@@ -58,7 +60,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Please sign in to continue",
-                  style: typography?.titleRegular16?.copyWith(color: palette?.gray8),
+                  style: typography?.titleRegular16
+                      ?.copyWith(color: palette?.gray8),
                 ),
               ),
               SizedBox(
@@ -88,7 +91,9 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                   hintText: "Password",
                   suffixIcon: IconButton(
                     onPressed: viewModel.toggleVisibility,
-                    icon: Icon(viewModel.hideText ? Icons.visibility : Icons.visibility_off),
+                    icon: Icon(viewModel.hideText
+                        ? Icons.visibility
+                        : Icons.visibility_off),
                   ),
                 ),
               ),
@@ -114,16 +119,15 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                       fontSize: 14.sp,
                     ),
                     children: [
-                      const TextSpan(
-                        text: " "
-                      ),
+                      const TextSpan(text: " "),
                       TextSpan(
                           text: "Sign Up",
                           style: typography?.titleBold16?.copyWith(
                             color: palette?.primary6,
                             fontSize: 14.sp,
                           ),
-                          recognizer: TapGestureRecognizer()..onTap = viewModel.actionRouteToSignUpView),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = viewModel.actionRouteToSignUpView),
                     ]),
               ),
             ],
