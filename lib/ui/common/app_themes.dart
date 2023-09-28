@@ -12,9 +12,8 @@ class AppThemes {
       primaryColor: AppColors.primary6,
       brightness: Brightness.light,
       scaffoldBackgroundColor: Colors.white,
-      textSelectionTheme: const TextSelectionThemeData(
-        cursorColor: AppColors.primary6
-      ),
+      textSelectionTheme:
+          const TextSelectionThemeData(cursorColor: AppColors.primary6),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: AppTextStyles.titleRegular16.copyWith(
           color: AppColors.gray9,

@@ -22,8 +22,28 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "already_have_an_account":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "dont_have_an_account":
+            MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
+        "email_address": MessageLookupByLibrary.simpleMessage("Email Address"),
+        "email_cannot_be_empty":
+            MessageLookupByLibrary.simpleMessage("Email cannot be empty"),
+        "email_must_be_a_valid_email": MessageLookupByLibrary.simpleMessage(
+            "Email must be a valid email address"),
+        "enter_your_email":
+            MessageLookupByLibrary.simpleMessage("Enter your email address"),
+        "enter_your_first_name":
+            MessageLookupByLibrary.simpleMessage("Enter your first name"),
+        "enter_your_last_name":
+            MessageLookupByLibrary.simpleMessage("Enter your last name"),
+        "enter_your_password":
+            MessageLookupByLibrary.simpleMessage("Enter your password"),
+        "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "last_name": MessageLookupByLibrary.simpleMessage("Last name"),
+        "login": MessageLookupByLibrary.simpleMessage("Login"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(
             "Kally Dish offers non-perishable foodstuff at the lowest wholesale price delivered to your doorstep for free"),
         "onboarding_subtitle_three": MessageLookupByLibrary.simpleMessage(
@@ -35,6 +55,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "onboarding_title_three":
             MessageLookupByLibrary.simpleMessage("Subscribe To Our Store"),
         "onboarding_title_two":
-            MessageLookupByLibrary.simpleMessage("Seamless Order")
+            MessageLookupByLibrary.simpleMessage("Seamless Order"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "please_sign_in_to_continue":
+            MessageLookupByLibrary.simpleMessage("Please sign in to continue"),
+        "required": MessageLookupByLibrary.simpleMessage("Required"),
+        "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }

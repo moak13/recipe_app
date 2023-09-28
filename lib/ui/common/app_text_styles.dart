@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextStyles {
-
   static TextStyle headlineBold28 = TextStyle(
     fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
