@@ -16,7 +16,7 @@ import 'package:receipe_app/ui/views/homepage/homepage_view.dart';
     AdaptiveRoute(page: StartupView, initial: true),
     AdaptiveRoute(page: OnboardingView),
     AdaptiveRoute(page: LoginView),
-    MaterialRoute(page: HomepageView),
+    AdaptiveRoute(page: HomepageView),
 // @stacked-route
   ],
   dependencies: [

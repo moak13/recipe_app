@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked_services/stacked_services.dart';
-
 import 'app/app.bottomsheets.dart';
 import 'app/app.dialogs.dart';
 import 'app/app.locator.dart';

@@ -88,7 +88,7 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i6.HomepageView: (data) {
-      return _i7.MaterialPageRoute<dynamic>(
+      return _i1.buildAdaptivePageRoute<dynamic>(
         builder: (context) => const _i6.HomepageView(),
         settings: data,
       );

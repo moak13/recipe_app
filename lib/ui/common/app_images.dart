@@ -10,4 +10,5 @@ class AppImages {
   static String spagLog = 'assets/png/spag_image.png';
   static String unLikedIcon = 'assets/svg/heart_fil.svg';
   static String lkedIcon = 'assets/svg/heart.svg';
+  static String addcon = 'assets/svg/add.svg';
 }

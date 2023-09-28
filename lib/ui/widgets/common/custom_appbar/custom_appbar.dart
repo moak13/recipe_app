@@ -32,7 +32,8 @@ PreferredSizeWidget customAppBar(
   ThemeData theme = Theme.of(context);
   AppTypography? typography = theme.extension<AppTypography>();
   Palette? palette = theme.extension<Palette>();
-  return AppBar(
+  return 
+  AppBar(
       backgroundColor: kcBackground,
       elevation: 0,
       leading: InkWell(
@@ -69,4 +70,7 @@ PreferredSizeWidget customAppBar(
               style: typography?.titleBold16?.copyWith(color: palette?.gray11),
             ),
       ));
+
+
+
 }
