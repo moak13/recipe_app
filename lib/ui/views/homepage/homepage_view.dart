@@ -30,12 +30,11 @@ class HomepageView extends StackedView<HomepageViewModel> {
           backgroundColor: kcBackground,
           elevation: 0,
           leading: InkWell(
-            onTap: () {
-              //  TODO open drawer
-              Drawer();
-            },
-            child: 
-              Align(
+              onTap: () {
+                //  TODO open drawer
+                Drawer();
+              },
+              child: Align(
                 alignment: Alignment.center,
                 child: Padding(
                   padding: EdgeInsets.only(
@@ -48,8 +47,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
                     height: 24.h,
                   ),
                 ),
-              )
-          ),
+              )),
           title: Padding(
             padding: EdgeInsets.only(top: 12.0.h, left: 105.w),
             child: Text(
@@ -77,8 +75,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
                 itemCount: viewModel.productItems.length,
                 itemBuilder: (context, index) {
                   if (viewModel.productItems.isEmpty) {
-                      return 
-              NoDataFoundWidget();
+                    return NoDataFoundWidget();
                   }
                   return ProductItem(
                     productModel: viewModel.productItems[index],
@@ -88,16 +85,13 @@ class HomepageView extends StackedView<HomepageViewModel> {
             ),
           ],
         ),
-        
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
 //TODO route to add product
-
-      },
-    backgroundColor: AppColors.primary6,
-      child: SvgPicture.asset(AppImages.addcon),
-      
-      
+        },
+        backgroundColor: AppColors.primary6,
+        child: SvgPicture.asset(AppImages.addcon),
       ),
     );
   }
