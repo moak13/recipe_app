@@ -7,7 +7,6 @@ import 'package:stacked_services/stacked_services.dart';
 
 class LoginViewModel extends FormViewModel {
   final _navigationService = locator<NavigationService>();
-
   bool hideText = true;
 
   void toggleVisibility() {
@@ -22,6 +21,6 @@ class LoginViewModel extends FormViewModel {
   }
 
   void actionRouteToSignUpView() {
-    debugPrint("====here====");
+    _navigationService.navigateToSignupView();
   }
 }

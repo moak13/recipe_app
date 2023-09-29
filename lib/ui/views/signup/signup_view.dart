@@ -10,34 +10,37 @@ import 'package:receipe_app/ui/utilities/validation.dart';
 import 'package:receipe_app/ui/widgets/common/primary_button/primary_button.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
-import 'login_view.form.dart';
-import 'login_viewmodel.dart';
+
+import 'signup_view.form.dart';
+import 'signup_viewmodel.dart';
 
 @FormView(fields: [
+  FormTextField(name: 'firstName'),
+  FormTextField(name: 'lastName'),
   FormTextField(name: 'email'),
   FormTextField(name: 'password'),
 ])
-class LoginView extends StackedView<LoginViewModel> with $LoginView {
-  LoginView({Key? key}) : super(key: key);
 
-  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+class SignupView extends StackedView<SignupViewModel> with $SignupView {
+  const SignupView({Key? key}) : super(key: key);
+
+  static final GlobalKey<FormState> _signupKey = GlobalKey<FormState>();
 
   @override
   Widget builder(
     BuildContext context,
-    LoginViewModel viewModel,
+    SignupViewModel viewModel,
     Widget? child,
   ) {
-    final ThemeData theme = Theme.of(context);
+     final ThemeData theme = Theme.of(context);
     final AppTypography? typography = theme.extension<AppTypography>();
     final Palette? palette = theme.extension<Palette>();
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
-            
             left: sidePadding, right: sidePadding, bottom: sidePadding + 20.h),
         child: Form(
-          key: _formKey,
+          key: _signupKey,
           child: Column(
             children: [
               Image.asset(
@@ -50,9 +53,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  S.current.welcome,
+                  S.current.sign_up,
                   style: typography?.headlineBold28
-                      
                       ?.copyWith(color: palette?.gray11),
                 ),
               ),
@@ -62,7 +64,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  S.current.please_sign_in_to_continue,
+                  "Kindly fill the form to create a Kally Dish account",
                   style: typography?.titleRegular16
                       ?.copyWith(color: palette?.gray8),
                 ),
@@ -71,15 +73,41 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 height: 24.h,
               ),
               TextFormField(
+                controller: firstNameController,
+                focusNode: firstNameFocusNode,
+                validator: Validation.validateField,
+                textInputAction: TextInputAction.next,
+                decoration:  InputDecoration(
+                    labelText: S.current.first_name, 
+                    hintText: S.current.enter_your_first_name,
+                    ),
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              TextFormField(
+                controller: lastNameController,
+                focusNode: lastNameFocusNode,
+                validator: Validation.validateField,
+                textInputAction: TextInputAction.next,
+                decoration:  InputDecoration(
+                    labelText: S.current.last_name, 
+                    hintText: S.current.enter_your_last_name,
+                    ),
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              TextFormField(
                 controller: emailController,
                 focusNode: emailFocusNode,
                 autofillHints: const [AutofillHints.email],
                 keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
                 validator: Validation.validateEmail,
                 decoration:  InputDecoration(
-                  labelText: S.current.email_address,
-                  hintText: S.current.enter_your_email,
-                ),
+                    labelText: S.current.email_address, 
+                    hintText: S.current.enter_your_email),
               ),
               SizedBox(
                 height: 16.h,
@@ -87,54 +115,51 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               TextFormField(
                 controller: passwordController,
                 focusNode: passwordFocusNode,
-                obscureText: viewModel.hideText,
+                obscureText: viewModel.hidePassword,
+                  textInputAction: TextInputAction.done,
                 validator: Validation.validateField,
                 decoration: InputDecoration(
                   labelText: S.current.password,
                   hintText: S.current.enter_your_password,
                   suffixIcon: IconButton(
-                    onPressed: viewModel.toggleVisibility,
-                    icon: Icon(viewModel.hideText
-                       
-                        ? Icons.visibility
-                       
-                        : Icons.visibility_off),
+                    onPressed: viewModel.togglePassword,
+                    icon: Icon(
+                      viewModel.hidePassword
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
                   ),
                 ),
               ),
               SizedBox(
-                height: 253.h,
+                height: 129.h,
               ),
               PrimaryButton(
-                buttonText: S.current.login,
+                buttonText: S.current.sign_up,
                 onTap: () {
-                  if (_formKey.currentState?.validate() ?? false) {
-                    viewModel.login();
+                  if (_signupKey.currentState?.validate() ?? false) {
+                    viewModel.signup();
                   }
                 },
               ),
               SizedBox(
                 height: 16.h,
               ),
-              Text.rich(
-                TextSpan(
-                    text: S.current.dont_have_an_account,
-                    style: typography?.titleRegular16?.copyWith(
-                      color: palette?.gray8,
-                      fontSize: 14.sp,
-                    ),
-                    children: [
-                      const TextSpan(text: " "),
-                      TextSpan(
-                          text: S.current.sign_up,
-                          style: typography?.titleBold16?.copyWith(
-                            color: palette?.primary6,
-                            fontSize: 14.sp,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = viewModel.actionRouteToSignUpView),
-                    ]),
-              ),
+              Text.rich(TextSpan(
+                  text: S.current.already_have_an_account,
+                  style: typography?.titleRegular16
+                      ?.copyWith(color: palette?.gray8, fontSize: 14.sp),
+                  children: [
+                    const TextSpan(text: " "),
+                    TextSpan(
+                        text: S.current.login,
+                        style: typography?.titleBold16?.copyWith(
+                          color: palette?.primary6,
+                          fontSize: 14.sp,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = viewModel.actionRouteToLoginView)
+                  ]))
             ],
           ),
         ),
@@ -142,20 +167,20 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     );
   }
 
-  @override
-  void onViewModelReady(LoginViewModel viewModel) {
+   @override
+  void onViewModelReady(SignupViewModel viewModel) {
     syncFormWithViewModel(viewModel);
   }
 
   @override
-  void onDispose(LoginViewModel viewModel) {
-    disposeForm();
+  void onDispose(SignupViewModel viewModel) {
     super.onDispose(viewModel);
+    disposeForm();
   }
 
   @override
-  LoginViewModel viewModelBuilder(
+  SignupViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      LoginViewModel();
+      SignupViewModel();
 }
