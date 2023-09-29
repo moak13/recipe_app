@@ -63,14 +63,13 @@ class HomepageView extends StackedView<HomepageViewModel> {
                 padding: EdgeInsets.symmetric(horizontal: sidePadding),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: 0.67.h,
+                  childAspectRatio: 0.67,
                   mainAxisSpacing: 20.h,
                   crossAxisSpacing: 16.w,
                   mainAxisExtent: 252.h,
                 ),
                 itemCount: viewModel.productItems.length,
                 itemBuilder: (context, index) {
-            
                   return ProductItem(
                     productModel: viewModel.productItems[index],
                   );
@@ -81,9 +80,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-//TODO route to add product
-        },
+        onPressed: viewModel.navigateToAddProduct,
         backgroundColor: AppColors.primary6,
         child: SvgPicture.asset(AppImages.addcon),
       ),

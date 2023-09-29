@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/data_model/product_model.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
@@ -44,7 +45,13 @@ class HomepageViewModel extends BaseViewModel {
       image: AppImages.spagLogTwo,
       title: 'Spaghetti',
     ),
- 
- 
   ];
+
+  void navigateToAddProduct() {
+    debugPrint('Goto add product page');
+// TODO navigate to add product page
+  }
+
+
+
 }
