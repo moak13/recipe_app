@@ -58,7 +58,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
             ),
             Expanded(
               child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: sidePadding),
+                padding: EdgeInsets.symmetric(horizontal: sidePadding),
                 child: GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -70,7 +70,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
                   itemCount: viewModel.productItems.length,
                   itemBuilder: (context, index) {
                     return ProductItem(
-                      productModel: viewModel.productItems[index],
+                      productModel: viewModel.productItems.elementAt(index),
                     );
                   },
                 ),
