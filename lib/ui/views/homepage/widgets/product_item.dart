@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:receipe_app/data_model/product_model.dart';
 import 'package:receipe_app/ui/common/app_colors.dart';
-import 'package:receipe_app/ui/common/app_images.dart';
-import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:receipe_app/ui/views/homepage/widgets/liked_widget.dart';
 import 'package:receipe_app/ui/views/homepage/widgets/unliked_widget.dart';
+import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
 
 class ProductItem extends StatelessWidget {
   final ProductModel productModel;
@@ -57,43 +55,17 @@ class ProductItem extends StatelessWidget {
             ],
           ),
           SizedBox(height: 8.h),
-          Text.rich(
-            TextSpan(
-                text: 'Name: ',
-                style: typography?.labelRegular12?.copyWith(
-                  color: palette?.gray8,
-                  fontSize: 12.sp,
-                  height: 1.57,
-                ),
-                children: [
-                  TextSpan(
-                    text: productModel.title,
-                    style: typography?.labelRegular12?.copyWith(
-                      color: palette?.primary6,
-                      fontSize: 12.sp,
-                      height: 1.57,
-                    ),
-                  ),
-                ]),
+          RichTextWidget(
+            color1: palette?.gray8,
+            color2: palette?.primary6,
+            text1: 'Name: ',
+            text2: productModel.title,
           ),
-          Text.rich(
-            TextSpan(
-                text: 'Date: Created: ',
-                style: typography?.labelRegular12?.copyWith(
-                  color: palette?.gray8,
-                  fontSize: 12.sp,
-                  height: 1.57,
-                ),
-                children: [
-                  TextSpan(
-                    text: productModel.date,
-                    style: typography?.labelRegular12?.copyWith(
-                      color: palette?.gray11,
-                      fontSize: 12.sp,
-                      height: 1.57,
-                    ),
-                  ),
-                ]),
+          RichTextWidget(
+            color1: palette?.gray8,
+            color2: palette?.gray11,
+            text1: 'Date Created: ',
+            text2: productModel.date,
           ),
         ],
       ),

@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -11,12 +8,11 @@ class LikedWidget extends StatelessWidget {
     super.key,
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(4.0.w),
-       child: SvgPicture.asset(AppImages.likedIcon),
+      child: SvgPicture.asset(AppImages.likedIcon),
     );
   }
 }
