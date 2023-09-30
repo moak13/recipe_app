@@ -8,7 +8,6 @@ import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:receipe_app/ui/views/homepage/widgets/product_item.dart';
 import 'package:stacked/stacked.dart';
-
 import 'homepage_viewmodel.dart';
 
 class HomepageView extends StackedView<HomepageViewModel> {
@@ -58,23 +57,24 @@ class HomepageView extends StackedView<HomepageViewModel> {
               height: 18.h,
             ),
             Expanded(
-              child: SizedBox(
-                  child: GridView.builder(
-                padding: EdgeInsets.symmetric(horizontal: sidePadding),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.67,
-                  mainAxisSpacing: 20.h,
-                  crossAxisSpacing: 16.w,
-                  mainAxisExtent: 252.h,
+              child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: sidePadding),
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.67,
+                    mainAxisSpacing: 20.h,
+                    crossAxisSpacing: 16.w,
+                    mainAxisExtent: 252.h,
+                  ),
+                  itemCount: viewModel.productItems.length,
+                  itemBuilder: (context, index) {
+                    return ProductItem(
+                      productModel: viewModel.productItems[index],
+                    );
+                  },
                 ),
-                itemCount: viewModel.productItems.length,
-                itemBuilder: (context, index) {
-                  return ProductItem(
-                    productModel: viewModel.productItems[index],
-                  );
-                },
-              )),
+              ),
             ),
           ],
         ),

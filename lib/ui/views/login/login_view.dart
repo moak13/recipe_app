@@ -135,6 +135,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                             ..onTap = viewModel.actionRouteToSignUpView),
                     ]),
               ),
+           
+           
             ],
           ),
         ),

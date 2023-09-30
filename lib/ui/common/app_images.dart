@@ -8,8 +8,8 @@ class AppImages {
   static String spagLogThree = 'assets/png/spag_logo_three.png';
   static String spagLogFour = 'assets/png/spag_image_four.png';
   static String spagLog = 'assets/png/spag_image.png';
-  static String unLikedIcon = 'assets/svg/heart_fil.svg';
-  static String lkedIcon = 'assets/svg/heart.svg';
+  static String likedIcon = 'assets/svg/heart_fil.svg';
+  static String unlikedIcon = 'assets/svg/heart.svg';
   static String addcon = 'assets/svg/add.svg';
   static String lottie = 'assets/gif/lottie.svg';
 }

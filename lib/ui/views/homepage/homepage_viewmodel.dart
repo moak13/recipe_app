@@ -16,7 +16,7 @@ class HomepageViewModel extends BaseViewModel {
     ProductModel(
       isLiked: false,
       date: 'May 28, 2023',
-      image: AppImages.spagLogTwo,
+      image: AppImages.spagLogFour,
       title: 'Spaghetti',
     ),
     ProductModel(
@@ -28,7 +28,7 @@ class HomepageViewModel extends BaseViewModel {
     ProductModel(
       isLiked: true,
       date: 'May 28, 2023',
-      image: AppImages.spagLogFour,
+      image: AppImages.spagLogTwo,
       title: 'Spaghetti',
     ),
     ProductModel(
@@ -49,7 +49,4 @@ class HomepageViewModel extends BaseViewModel {
     debugPrint('Goto add product page');
 // TODO navigate to add product page
   }
-
-
-
 }
