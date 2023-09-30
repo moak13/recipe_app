@@ -23,7 +23,6 @@ class HomepageView extends StackedView<HomepageViewModel> {
     AppTypography? typography = theme.extension<AppTypography>();
     Palette? palette = theme.extension<Palette>();
     return Scaffold(
-      // appBar: customAppBar(context, titleText: 'Home'),
       appBar: AppBar(
           backgroundColor: kcBackground,
           elevation: 0,
