@@ -74,7 +74,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 autofillHints: const [AutofillHints.email],
                 keyboardType: TextInputType.emailAddress,
                 validator: Validation.validateEmail,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   labelText: S.current.email_address,
                   hintText: S.current.enter_your_email,
                 ),
