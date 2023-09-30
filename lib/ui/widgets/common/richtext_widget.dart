@@ -6,8 +6,8 @@ class RichTextWidget extends StatelessWidget {
   const RichTextWidget({
     required this.color1,
     required this.color2,
-    this.text1,
-    this.text2,
+    required this.text1,
+   required this.text2,
   });
 
   final Color? color1;
