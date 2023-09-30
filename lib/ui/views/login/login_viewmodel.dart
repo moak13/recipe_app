@@ -17,6 +17,7 @@ class LoginViewModel extends FormViewModel {
   void login() {
     debugPrint(emailValue);
     debugPrint(passwordValue);
+    _navigationService.navigateToHomepageView();
   }
 
   void actionRouteToSignUpView() {

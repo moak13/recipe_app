@@ -34,6 +34,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
+            
             left: sidePadding, right: sidePadding, bottom: sidePadding + 20.h),
         child: Form(
           key: _formKey,
@@ -51,6 +52,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 child: Text(
                   S.current.welcome,
                   style: typography?.headlineBold28
+                      
                       ?.copyWith(color: palette?.gray11),
                 ),
               ),
@@ -93,7 +95,9 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                   suffixIcon: IconButton(
                     onPressed: viewModel.toggleVisibility,
                     icon: Icon(viewModel.hideText
+                       
                         ? Icons.visibility
+                       
                         : Icons.visibility_off),
                   ),
                 ),
@@ -131,6 +135,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                             ..onTap = viewModel.actionRouteToSignUpView),
                     ]),
               ),
+           
+           
             ],
           ),
         ),

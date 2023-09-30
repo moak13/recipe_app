@@ -9,6 +9,7 @@ import 'package:flutter/material.dart' as _i7;
 import 'package:flutter/material.dart';
 import 'package:receipe_app/ui/views/home/home_view.dart' as _i2;
 import 'package:receipe_app/ui/views/login/login_view.dart' as _i5;
+import 'package:receipe_app/ui/views/homepage/homepage_view.dart' as _i6;
 import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart' as _i4;
 import 'package:receipe_app/ui/views/signup/signup_view.dart' as _i6;
 import 'package:receipe_app/ui/views/startup/startup_view.dart' as _i3;
@@ -24,6 +25,8 @@ class Routes {
 
   static const loginView = '/login-view';
 
+  static const homepageView = '/homepage-view';
+
   static const signupView = '/signup-view';
 
   static const all = <String>{
@@ -31,6 +34,7 @@ class Routes {
     startupView,
     onboardingView,
     loginView,
+    homepageView,
     signupView,
   };
 }
@@ -52,6 +56,10 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.loginView,
       page: _i5.LoginView,
+    ),
+    _i1.RouteDef(
+      Routes.homepageView,
+      page: _i6.HomepageView,
     ),
     _i1.RouteDef(
       Routes.signupView,
@@ -84,6 +92,12 @@ class StackedRouter extends _i1.RouterBase {
       );
       return _i1.buildAdaptivePageRoute<dynamic>(
         builder: (context) => _i5.LoginView(key: args.key),
+        settings: data,
+      );
+    },
+    _i6.HomepageView: (data) {
+      return _i1.buildAdaptivePageRoute<dynamic>(
+        builder: (context) => const _i6.HomepageView(),
         settings: data,
       );
     },
@@ -182,6 +196,20 @@ extension NavigatorStateExtension on _i8.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToHomepageView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.homepageView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> navigateToSignupView([
     int? routerId,
     bool preventDuplicates = true,
@@ -248,6 +276,20 @@ extension NavigatorStateExtension on _i8.NavigationService {
   }) async {
     return replaceWith<dynamic>(Routes.loginView,
         arguments: LoginViewArguments(key: key),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithHomepageView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.homepageView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
