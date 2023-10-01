@@ -24,6 +24,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "already_have_an_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "create_a_dish": MessageLookupByLibrary.simpleMessage("Create a Dish"),
+        "create_a_dish_intro": MessageLookupByLibrary.simpleMessage(
+            "Hi😚, It\'s time to create that special dish you always desired.\nKindly fill in the details below"),
+        "create_dish": MessageLookupByLibrary.simpleMessage("Create Dish"),
         "dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
         "email_address": MessageLookupByLibrary.simpleMessage("Email Address"),
@@ -42,8 +46,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "ingredient_of_dish":
+            MessageLookupByLibrary.simpleMessage("Ingredients of Dish"),
+        "instructions": MessageLookupByLibrary.simpleMessage("Instructions"),
         "last_name": MessageLookupByLibrary.simpleMessage("Last name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(
             "Kally Dish offers non-perishable foodstuff at the lowest wholesale price delivered to your doorstep for free"),
         "onboarding_subtitle_three": MessageLookupByLibrary.simpleMessage(

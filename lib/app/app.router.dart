@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:receipe_app/ui/views/home/home_view.dart' as _i2;
 import 'package:receipe_app/ui/views/login/login_view.dart' as _i5;
 import 'package:receipe_app/ui/views/homepage/homepage_view.dart' as _i6;
+import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart' as _i6;
 import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart' as _i4;
 import 'package:receipe_app/ui/views/signup/signup_view.dart' as _i6;
 import 'package:receipe_app/ui/views/startup/startup_view.dart' as _i3;
@@ -28,6 +29,7 @@ class Routes {
   static const homepageView = '/homepage-view';
 
   static const signupView = '/signup-view';
+  static const newDishView = '/new-dish-view';
 
   static const all = <String>{
     homeView,
@@ -36,6 +38,7 @@ class Routes {
     loginView,
     homepageView,
     signupView,
+    newDishView,
   };
 }
 
@@ -64,6 +67,8 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.signupView,
       page: _i6.SignupView,
+      Routes.newDishView,
+      page: _i6.NewDishView,
     ),
   ];
 
@@ -104,6 +109,9 @@ class StackedRouter extends _i1.RouterBase {
     _i6.SignupView: (data) {
       return _i1.buildAdaptivePageRoute<dynamic>(
         builder: (context) => const _i6.SignupView(),
+    _i6.NewDishView: (data) {
+      return _i1.buildAdaptivePageRoute<dynamic>(
+        builder: (context) => const _i6.NewDishView(),
         settings: data,
       );
     },
@@ -197,6 +205,7 @@ extension NavigatorStateExtension on _i8.NavigationService {
   }
 
   Future<dynamic> navigateToHomepageView([
+  Future<dynamic> navigateToNewDishView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -218,6 +227,7 @@ extension NavigatorStateExtension on _i8.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.signupView,
+    return navigateTo<dynamic>(Routes.newDishView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -283,6 +293,7 @@ extension NavigatorStateExtension on _i8.NavigationService {
   }
 
   Future<dynamic> replaceWithHomepageView([
+  Future<dynamic> replaceWithNewDishView([
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -304,6 +315,7 @@ extension NavigatorStateExtension on _i8.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.signupView,
+    return replaceWith<dynamic>(Routes.newDishView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

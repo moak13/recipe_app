@@ -24,5 +24,11 @@
     "sign_up": "Sign Up",
     "email_cannot_be_empty": "Email cannot be empty",
     "email_must_be_a_valid_email": "Email must be a valid email address",
-    "required": "Required"
+    "required": "Required",
+    "create_a_dish": "Create a Dish",
+    "create_a_dish_intro": "Hi😚, It's time to create that special dish you always desired.\nKindly fill in the details below",
+    "name_of_dish": "Name of Dish",
+    "instructions": "Instructions",
+    "ingredient_of_dish": "Ingredients of Dish",
+    "create_dish": "Create Dish"
 }

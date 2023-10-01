@@ -17,10 +17,11 @@ class LoginViewModel extends FormViewModel {
   void login() {
     debugPrint(emailValue);
     debugPrint(passwordValue);
-    _navigationService.navigateToHomepageView();
+    //_navigationService.navigateToHomepageView();
   }
 
   void actionRouteToSignUpView() {
-    _navigationService.navigateToSignupView();
+    //_navigationService.navigateToSignupView();
   }
+   
 }
