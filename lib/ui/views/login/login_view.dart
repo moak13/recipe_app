@@ -34,7 +34,6 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
-            
             left: sidePadding, right: sidePadding, bottom: sidePadding + 20.h),
         child: Form(
           key: _formKey,
@@ -52,7 +51,6 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 child: Text(
                   S.current.welcome,
                   style: typography?.headlineBold28
-                      
                       ?.copyWith(color: palette?.gray11),
                 ),
               ),
@@ -76,7 +74,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 autofillHints: const [AutofillHints.email],
                 keyboardType: TextInputType.emailAddress,
                 validator: Validation.validateEmail,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   labelText: S.current.email_address,
                   hintText: S.current.enter_your_email,
                 ),
@@ -94,11 +92,11 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                   hintText: S.current.enter_your_password,
                   suffixIcon: IconButton(
                     onPressed: viewModel.toggleVisibility,
-                    icon: Icon(viewModel.hideText
-                       
-                        ? Icons.visibility
-                       
-                        : Icons.visibility_off),
+                    icon: Icon(
+                      viewModel.hideText
+                          ? Icons.visibility
+                          : Icons.visibility_off,
+                    ),
                   ),
                 ),
               ),
@@ -118,25 +116,24 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               ),
               Text.rich(
                 TextSpan(
-                    text: S.current.dont_have_an_account,
-                    style: typography?.titleRegular16?.copyWith(
-                      color: palette?.gray8,
-                      fontSize: 14.sp,
-                    ),
-                    children: [
-                      const TextSpan(text: " "),
-                      TextSpan(
-                          text: S.current.sign_up,
-                          style: typography?.titleBold16?.copyWith(
-                            color: palette?.primary6,
-                            fontSize: 14.sp,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = viewModel.actionRouteToSignUpView),
-                    ]),
+                  text: S.current.dont_have_an_account,
+                  style: typography?.titleRegular16?.copyWith(
+                    color: palette?.gray8,
+                    fontSize: 14.sp,
+                  ),
+                  children: [
+                    const TextSpan(text: " "),
+                    TextSpan(
+                        text: S.current.sign_up,
+                        style: typography?.titleBold16?.copyWith(
+                          color: palette?.primary6,
+                          fontSize: 14.sp,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = viewModel.actionRouteToSignUpView),
+                  ],
+                ),
               ),
-           
-           
             ],
           ),
         ),

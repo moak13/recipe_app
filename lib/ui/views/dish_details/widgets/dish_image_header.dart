@@ -16,7 +16,6 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
   Widget build(BuildContext context, DishDetailsViewModel viewModel) {
     late ThemeData theme = Theme.of(context);
     AppTypography? typography = theme.extension<AppTypography>();
-
     return Stack(
       children: [
         Image.asset(
@@ -40,6 +39,10 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
               ...viewModel.popUpMenuItems.entries.map(
                 (entry) => PopupMenuItem(
                   value: entry.key,
+                  onTap: () => switch (entry.key == 1) {
+                    true => viewModel.navigateToEditView(),
+                    false => () {},
+                  },
                   child: Text(
                     entry.value,
                     style: switch (entry.key == 1) {

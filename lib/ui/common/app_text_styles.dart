@@ -36,7 +36,13 @@ class AppTextStyles {
     fontFamily: 'Satoshi',
     fontSize: 12.sp,
   );
-    static TextStyle labelMedium16 = TextStyle(
+  static TextStyle labelRegular14 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontFamily: 'Satoshi',
+    fontSize: 14.sp,
+  );
+  static TextStyle labelMedium16 = TextStyle(
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
     fontFamily: 'Satoshi',

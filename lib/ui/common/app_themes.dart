@@ -47,7 +47,8 @@ class AppThemes {
           titleRegular16: AppTextStyles.titleRegular16,
           titleBold16: AppTextStyles.titleBold16,
           labelRegular12: AppTextStyles.labelRegular12,
-          labelMedium16: AppTextStyles.labelMedium16
+          labelMedium16: AppTextStyles.labelMedium16,
+          labelRegular14: AppTextStyles.labelRegular14,
         ),
         const Palette(
           gray1: AppColors.gray1,

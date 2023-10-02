@@ -9,6 +9,7 @@ class AppTypography extends ThemeExtension<AppTypography> {
     required this.titleBold16,
     required this.labelRegular12,
     required this.labelMedium16,
+    required this.labelRegular14,
   });
 
   final TextStyle? headlineBold28;
@@ -17,6 +18,7 @@ class AppTypography extends ThemeExtension<AppTypography> {
   final TextStyle? titleBold16;
   final TextStyle? labelRegular12;
   final TextStyle? labelMedium16;
+  final TextStyle? labelRegular14;
 
   @override
   AppTypography copyWith({
@@ -25,6 +27,7 @@ class AppTypography extends ThemeExtension<AppTypography> {
     TextStyle? titleRegular16,
     TextStyle? titleBold16,
     TextStyle? labelRegular12,
+    TextStyle? labelRegular14,
     TextStyle? labelMedium16,
   }) {
     return AppTypography(
@@ -33,6 +36,7 @@ class AppTypography extends ThemeExtension<AppTypography> {
       titleRegular16: titleRegular16 ?? this.titleRegular16,
       titleBold16: titleBold16 ?? this.titleBold16,
       labelRegular12: labelRegular12 ?? this.labelRegular12,
+      labelRegular14: labelRegular14 ?? this.labelRegular14,
       labelMedium16: labelMedium16 ?? this.labelMedium16,
     );
   }
@@ -43,6 +47,7 @@ class AppTypography extends ThemeExtension<AppTypography> {
       return this;
     }
     return AppTypography(
+      labelRegular14: TextStyle.lerp(labelRegular14, other.labelRegular14, t),
       headlineBold28: TextStyle.lerp(headlineBold28, other.headlineBold28, t),
       headlineBold24: TextStyle.lerp(headlineBold24, other.headlineBold24, t),
       titleRegular16: TextStyle.lerp(titleRegular16, other.titleRegular16, t),

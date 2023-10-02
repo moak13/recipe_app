@@ -5,11 +5,12 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i9;
+import 'package:flutter/material.dart' as _i10;
 import 'package:flutter/material.dart';
-import 'package:receipe_app/data_model/product_model.dart' as _i10;
+import 'package:receipe_app/data_model/product_model.dart' as _i11;
 import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart'
     as _i8;
+import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart' as _i9;
 import 'package:receipe_app/ui/views/home/home_view.dart' as _i2;
 import 'package:receipe_app/ui/views/homepage/homepage_view.dart' as _i6;
 import 'package:receipe_app/ui/views/login/login_view.dart' as _i5;
@@ -17,7 +18,7 @@ import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart' as _i4;
 import 'package:receipe_app/ui/views/signup/signup_view.dart' as _i7;
 import 'package:receipe_app/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i11;
+import 'package:stacked_services/stacked_services.dart' as _i12;
 
 class Routes {
   static const homeView = '/home-view';
@@ -34,6 +35,8 @@ class Routes {
 
   static const dishDetailsView = '/dish-details-view';
 
+  static const editDishView = '/edit-dish-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -42,6 +45,7 @@ class Routes {
     homepageView,
     signupView,
     dishDetailsView,
+    editDishView,
   };
 }
 
@@ -74,6 +78,10 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.dishDetailsView,
       page: _i8.DishDetailsView,
+    ),
+    _i1.RouteDef(
+      Routes.editDishView,
+      page: _i9.EditDishView,
     ),
   ];
 
@@ -125,6 +133,12 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
+    _i9.EditDishView: (data) {
+      return _i1.buildAdaptivePageRoute<dynamic>(
+        builder: (context) => const _i9.EditDishView(),
+        settings: data,
+      );
+    },
   };
 
   @override
@@ -136,7 +150,7 @@ class StackedRouter extends _i1.RouterBase {
 class LoginViewArguments {
   const LoginViewArguments({this.key});
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
   @override
   String toString() {
@@ -161,9 +175,9 @@ class DishDetailsViewArguments {
     required this.productModel,
   });
 
-  final _i9.Key? key;
+  final _i10.Key? key;
 
-  final _i10.ProductModel productModel;
+  final _i11.ProductModel productModel;
 
   @override
   String toString() {
@@ -182,7 +196,7 @@ class DishDetailsViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i11.NavigationService {
+extension NavigatorStateExtension on _i12.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -226,7 +240,7 @@ extension NavigatorStateExtension on _i11.NavigationService {
   }
 
   Future<dynamic> navigateToLoginView({
-    _i9.Key? key,
+    _i10.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -270,8 +284,8 @@ extension NavigatorStateExtension on _i11.NavigationService {
   }
 
   Future<dynamic> navigateToDishDetailsView({
-    _i9.Key? key,
-    required _i10.ProductModel productModel,
+    _i10.Key? key,
+    required _i11.ProductModel productModel,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -281,6 +295,20 @@ extension NavigatorStateExtension on _i11.NavigationService {
     return navigateTo<dynamic>(Routes.dishDetailsView,
         arguments:
             DishDetailsViewArguments(key: key, productModel: productModel),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToEditDishView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.editDishView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -330,7 +358,7 @@ extension NavigatorStateExtension on _i11.NavigationService {
   }
 
   Future<dynamic> replaceWithLoginView({
-    _i9.Key? key,
+    _i10.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -374,8 +402,8 @@ extension NavigatorStateExtension on _i11.NavigationService {
   }
 
   Future<dynamic> replaceWithDishDetailsView({
-    _i9.Key? key,
-    required _i10.ProductModel productModel,
+    _i10.Key? key,
+    required _i11.ProductModel productModel,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -385,6 +413,20 @@ extension NavigatorStateExtension on _i11.NavigationService {
     return replaceWith<dynamic>(Routes.dishDetailsView,
         arguments:
             DishDetailsViewArguments(key: key, productModel: productModel),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithEditDishView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.editDishView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

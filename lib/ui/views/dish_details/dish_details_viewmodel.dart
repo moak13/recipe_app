@@ -1,6 +1,11 @@
+import 'package:receipe_app/app/app.locator.dart';
+import 'package:receipe_app/app/app.router.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class DishDetailsViewModel extends BaseViewModel {
+  final _navigationService = locator<NavigationService>();
+
   /// List of Ingredient for a selected Dish
   List<String> get listOfIngredientContent => _listOfIngredientContent;
 
@@ -12,15 +17,25 @@ class DishDetailsViewModel extends BaseViewModel {
   ];
 
   /// The data that passes the instruction to prepare a particular Dish
-  Map<String, String> instructionsForADish = {
+  Map<String, String> get instructionsForADish => _instructionsForADish;
+
+  Map<String, String> _instructionsForADish = {
     "Step 1": "Wash tomatoes, garlic, pepper, d one onion blend",
     "Step 2": "Blend and marinate chicken",
     "Step 3": "Get a clean pot and put rice and beans",
     "Step 4": "Leave to cook till it burns",
   };
 
-  Map<int, String> popUpMenuItems = {
+  /// The data tto be displayed on the PopUpMenu
+  Map<int, String> get popUpMenuItems => _popUpMenuItems;
+
+  Map<int, String> _popUpMenuItems = {
     1: 'Edit Dish',
     2: 'Delete Dish',
   };
+
+  /// Navigate To Edit Dish Screen
+  void navigateToEditView() {
+    _navigationService.navigateToEditDishView();
+  }
 }
