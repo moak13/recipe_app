@@ -10,6 +10,7 @@ class Palette extends ThemeExtension<Palette> {
     required this.gray9,
     required this.gray11,
     required this.primary6,
+    required this.gray12,
   });
 
   final Color? gray8;
@@ -18,6 +19,7 @@ class Palette extends ThemeExtension<Palette> {
   final Color? gray7;
   final Color? gray9;
   final Color? gray11;
+  final Color? gray12;
   final Color? primary6;
 
   @override
@@ -29,6 +31,7 @@ class Palette extends ThemeExtension<Palette> {
     Color? gray9,
     Color? gray11,
     Color? primary6,
+    Color? gray12,
   }) {
     return Palette(
       gray1: gray1 ?? this.gray1,
@@ -37,7 +40,7 @@ class Palette extends ThemeExtension<Palette> {
       gray8: gray8 ?? this.gray8,
       gray11: gray11 ?? this.gray11,
       gray9: gray9 ?? this.gray9,
-      primary6: primary6 ?? this.primary6,
+      primary6: primary6 ?? this.primary6, gray12: gray12??this.gray12,
     );
   }
 
@@ -53,6 +56,7 @@ class Palette extends ThemeExtension<Palette> {
       gray8: Color.lerp(gray8, other.gray8, t),
       gray9: Color.lerp(gray9, other.gray9, t),
       gray11: Color.lerp(gray11, other.gray11, t),
+      gray12: Color.lerp(gray12, other.gray12, t),
       primary6: Color.lerp(primary6, other.primary6, t),
     );
   }

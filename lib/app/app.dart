@@ -1,3 +1,4 @@
+import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import '../services/event_service.dart';
@@ -19,6 +20,7 @@ import 'package:receipe_app/ui/views/signup/signup_view.dart';
     AdaptiveRoute(page: LoginView),
     AdaptiveRoute(page: HomepageView),
     AdaptiveRoute(page: SignupView),
+    AdaptiveRoute(page: DishDetailsView),
 // @stacked-route
   ],
   dependencies: [

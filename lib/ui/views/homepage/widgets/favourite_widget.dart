@@ -9,19 +9,23 @@ class FavoriteWidget extends StatelessWidget {
   const FavoriteWidget({
     super.key,
     required this.productModel,
+    this.usePadding = true,
+    this.color,
   });
 
   final ProductModel productModel;
+  final bool? usePadding;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8.0.w),
+      padding: usePadding == true ? EdgeInsets.all(8.0.w) : EdgeInsets.zero,
       child: Container(
         height: 32.h,
         width: 32.w,
         decoration: BoxDecoration(
-          color: kcIconBackground,
+          color: color ?? kcIconBackground,
           borderRadius: BorderRadius.circular(4.r),
         ),
         child: Builder(builder: (context) {

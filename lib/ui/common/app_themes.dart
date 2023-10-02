@@ -56,6 +56,7 @@ class AppThemes {
           gray9: AppColors.gray9,
           gray11: AppColors.gray11,
           primary6: AppColors.primary6,
+          gray12:AppColors.gray12
         ),
       ],
     );

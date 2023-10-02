@@ -8,6 +8,7 @@ const Color kcLightGrey = Color.fromARGB(255, 187, 187, 187);
 const Color kcVeryLightGrey = Color(0xFFE3E3E3);
 const Color kcBackground = Color(0xFFFFFFFF);
 const Color kcIconBackground = Color(0x4BFFF3CE);
+const Color kcIconBackground2 = Color(0xFFF5F5F5);
 const Color kcBackgroundColor = kcDarkGreyColor;
 
 class AppColors {
@@ -17,5 +18,6 @@ class AppColors {
   static const Color gray8 = Color(0xff8B8B8B);
   static const Color gray9 = Color(0xff696969);
   static const Color gray11 = Color(0xff2A2A2A);
+  static const Color gray12 = Color(0xFF292929);
   static const Color primary6 = Color(0xffFD7014);
 }
