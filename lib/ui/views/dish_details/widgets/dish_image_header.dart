@@ -41,7 +41,7 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
                   value: entry.key,
                   onTap: () => switch (entry.key == 1) {
                     true => viewModel.navigateToEditView(),
-                    false => () {},
+                    false => viewModel.showDeleteDishDialog(),
                   },
                   child: Text(
                     entry.value,
@@ -60,6 +60,7 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
               backgroundColor: kcIconBackground3,
               child: Icon(
                 Icons.more_vert_outlined,
+                color: Colors.black,
               ),
             ),
           ),

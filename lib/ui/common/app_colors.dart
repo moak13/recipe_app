@@ -12,6 +12,7 @@ const Color kcIconBackground2 = Color(0xFFF5F5F5);
 const Color kcIconBackground3 = Color(0x728B8B8B);
 const Color kcBackgroundColor = kcDarkGreyColor;
 const Color kRedShadeColor = Color(0xFFCC444B);
+const Color kBarrierColor = Color(0x99454545);
 
 class AppColors {
   static const Color gray1 = Color(0xffF6F6F6);

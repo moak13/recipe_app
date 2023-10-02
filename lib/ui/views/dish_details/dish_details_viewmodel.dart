@@ -1,9 +1,12 @@
+import 'package:receipe_app/app/app.dialogs.dart';
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.router.dart';
+import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class DishDetailsViewModel extends BaseViewModel {
+  final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
 
   /// List of Ingredient for a selected Dish
@@ -37,5 +40,14 @@ class DishDetailsViewModel extends BaseViewModel {
   /// Navigate To Edit Dish Screen
   void navigateToEditView() {
     _navigationService.navigateToEditDishView();
+  }
+
+  /// Displays the delete dish dialog
+  void showDeleteDishDialog() {
+    _dialogService.showCustomDialog(
+      variant: DialogType.deleteDish,
+      barrierDismissible: true,
+      barrierColor: kBarrierColor,
+    );
   }
 }

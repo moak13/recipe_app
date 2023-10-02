@@ -1,3 +1,4 @@
+import 'package:receipe_app/ui/dialogs/delete_dish/delete_dish_dialog.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart';
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -38,6 +39,7 @@ import 'package:receipe_app/ui/views/signup/signup_view.dart';
   ],
   dialogs: [
     StackedDialog(classType: InfoAlertDialog),
+    StackedDialog(classType: DeleteDishDialog),
     // @stacked-dialog
   ],
 )

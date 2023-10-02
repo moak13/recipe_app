@@ -44,11 +44,13 @@ class AppThemes {
         AppTypography(
           headlineBold28: AppTextStyles.headlineBold28,
           headlineBold24: AppTextStyles.headlineBold24,
+          headlineBold22: AppTextStyles.headlineBold22,
           titleRegular16: AppTextStyles.titleRegular16,
           titleBold16: AppTextStyles.titleBold16,
           labelRegular12: AppTextStyles.labelRegular12,
           labelMedium16: AppTextStyles.labelMedium16,
           labelRegular14: AppTextStyles.labelRegular14,
+          labelRegular16: AppTextStyles.labelRegular16,
         ),
         const Palette(
           gray1: AppColors.gray1,
@@ -58,7 +60,7 @@ class AppThemes {
           gray9: AppColors.gray9,
           gray11: AppColors.gray11,
           primary6: AppColors.primary6,
-          gray12:AppColors.gray12
+          gray12: AppColors.gray12,
         ),
       ],
     );

@@ -15,7 +15,12 @@ class AppTextStyles {
     fontFamily: 'Satoshi',
     fontSize: 24.sp,
   );
-
+  static TextStyle headlineBold22 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontStyle: FontStyle.normal,
+    fontFamily: 'Satoshi',
+    fontSize: 22.sp,
+  );
   static TextStyle titleRegular16 = TextStyle(
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
@@ -41,6 +46,12 @@ class AppTextStyles {
     fontStyle: FontStyle.normal,
     fontFamily: 'Satoshi',
     fontSize: 14.sp,
+  );
+    static TextStyle labelRegular16 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    fontFamily: 'Satoshi',
+    fontSize: 16.sp,
   );
   static TextStyle labelMedium16 = TextStyle(
     fontWeight: FontWeight.w500,
