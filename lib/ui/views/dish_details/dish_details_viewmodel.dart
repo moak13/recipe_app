@@ -18,4 +18,9 @@ class DishDetailsViewModel extends BaseViewModel {
     "Step 3": "Get a clean pot and put rice and beans",
     "Step 4": "Leave to cook till it burns",
   };
+
+  Map<int, String> popUpMenuItems = {
+    1: 'Edit Dish',
+    2: 'Delete Dish',
+  };
 }
