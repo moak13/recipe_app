@@ -1,3 +1,26 @@
+import 'dart:developer';
+
+import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.form.dart';
 import 'package:stacked/stacked.dart';
 
-class EditDishViewModel extends BaseViewModel {}
+class EditDishViewModel extends FormViewModel {
+  List<String> _allIngredients = [];
+  List<String> get allIngredients => _allIngredients;
+
+  void addTextFieldInputToList(String? input) {
+    log('$ingredientsValue ');
+
+    if (input != null && input.isNotEmpty) {
+      _allIngredients.add(input);
+    }
+    _allIngredients = _allIngredients;
+    ingredientsValue = '';
+    notifyListeners();
+  }
+
+  void removeIngredientFromList(int index) {
+    log(index.toString());
+    _allIngredients.removeAt(index);
+    notifyListeners();
+  }
+}

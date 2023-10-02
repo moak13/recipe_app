@@ -56,7 +56,7 @@ class DeleteDishDialog extends StatelessWidget {
                     Expanded(
                       child: PrimaryButton(
                         buttonText: 'Cancel',
-                        color: Color(0xFFE8E8E8),
+                        color: palette?.gray13,
                         textColor: palette?.gray12,
                         borderRadius: 20.r,
                         onTap: () {
@@ -75,7 +75,7 @@ class DeleteDishDialog extends StatelessWidget {
                             DialogResponse(confirmed: true),
                           );
                         },
-                        color: Color(0xFFCC444B),
+                        color: palette?.redShade,
                         borderRadius: 20.r,
                       ),
                     ),

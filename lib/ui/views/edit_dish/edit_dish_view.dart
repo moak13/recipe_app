@@ -3,11 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.form.dart';
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_viewmodel.dart';
+import 'package:receipe_app/ui/views/edit_dish/widget/ingredient_chip.dart';
 import 'package:receipe_app/ui/widgets/common/primary_button/primary_button.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked/stacked_annotations.dart';
 
-class EditDishView extends StatelessWidget {
+@FormView(fields: [
+  FormTextField(name: 'ingredients'),
+])
+class EditDishView extends StatelessWidget with $EditDishView {
   const EditDishView({Key? key}) : super(key: key);
 
   @override
@@ -16,11 +22,12 @@ class EditDishView extends StatelessWidget {
     AppTypography? typography = theme.extension<AppTypography>();
     Palette? palette = theme.extension<Palette>();
 
-    return ViewModelBuilder<EditDishViewModel>.nonReactive(
+    return ViewModelBuilder<EditDishViewModel>.reactive(
       viewModelBuilder: () => EditDishViewModel(),
+      onViewModelReady: (viewModel) => syncFormWithViewModel(viewModel),
       builder: (
         BuildContext context,
-        EditDishViewModel model,
+        EditDishViewModel viewModel,
         Widget? child,
       ) {
         return Scaffold(
@@ -56,7 +63,7 @@ class EditDishView extends StatelessWidget {
                   ),
                   16.verticalSpace,
                   TextFormField(
-                    maxLines: 15,
+                    maxLines: null,
                     decoration: InputDecoration(
                       labelText: 'Instructions',
                       hintText: 'Instructions',
@@ -64,10 +71,40 @@ class EditDishView extends StatelessWidget {
                   ),
                   16.verticalSpace,
                   TextFormField(
+                    controller: ingredientsController,
+                    textInputAction: TextInputAction.done,
+                    onFieldSubmitted: (input) =>
+                        viewModel.addTextFieldInputToList(input),
+                    autocorrect: false,
                     decoration: InputDecoration(
                       labelText: 'Ingredients',
                       hintText: 'Ingredients',
                     ),
+                  ),
+                  verticalSpaceTiny,
+                  AnimatedOpacity(
+                    opacity: viewModel.allIngredients.isEmpty ? 1 : 0,
+                    duration: Duration(milliseconds: 500),
+                    child: Row(
+                      children: const [
+                        Text('Click "Done" after your input.'),
+                      ],
+                    ),
+                  ),
+                  Wrap(
+                    runSpacing: 10,
+                    spacing: 10,
+                    clipBehavior: Clip.antiAlias,
+                    children: [
+                      for (var ingredientIndex = 0;
+                          ingredientIndex < viewModel.allIngredients.length;
+                          ingredientIndex++)
+                        IngredientChip(
+                          content: viewModel.allIngredients[ingredientIndex],
+                          onTap: () => viewModel
+                              .removeIngredientFromList(ingredientIndex),
+                        ),
+                    ],
                   ),
                   100.verticalSpace,
                   PrimaryButton(
@@ -81,5 +118,11 @@ class EditDishView extends StatelessWidget {
         );
       },
     );
+  }
+
+  @override
+  void disposeForm() {
+    disposeForm();
+    super.disposeForm();
   }
 }

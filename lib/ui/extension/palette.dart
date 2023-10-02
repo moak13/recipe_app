@@ -11,6 +11,8 @@ class Palette extends ThemeExtension<Palette> {
     required this.gray11,
     required this.primary6,
     required this.gray12,
+    required this.gray13,
+    required this.redShade,
   });
 
   final Color? gray8;
@@ -21,18 +23,21 @@ class Palette extends ThemeExtension<Palette> {
   final Color? gray11;
   final Color? gray12;
   final Color? primary6;
+  final Color? gray13;
+  final Color? redShade;
 
   @override
-  Palette copyWith({
-    Color? gray1,
-    Color? gray6,
-    Color? gray7,
-    Color? gray8,
-    Color? gray9,
-    Color? gray11,
-    Color? primary6,
-    Color? gray12,
-  }) {
+  Palette copyWith(
+      {Color? gray1,
+      Color? gray6,
+      Color? gray7,
+      Color? gray8,
+      Color? gray9,
+      Color? gray11,
+      Color? primary6,
+      Color? gray12,
+      Color? gray13,
+      Color? redShade}) {
     return Palette(
       gray1: gray1 ?? this.gray1,
       gray6: gray6 ?? this.gray6,
@@ -40,7 +45,10 @@ class Palette extends ThemeExtension<Palette> {
       gray8: gray8 ?? this.gray8,
       gray11: gray11 ?? this.gray11,
       gray9: gray9 ?? this.gray9,
-      primary6: primary6 ?? this.primary6, gray12: gray12??this.gray12,
+      primary6: primary6 ?? this.primary6,
+      gray12: gray12 ?? this.gray12,
+      gray13: gray13 ?? this.gray13,
+      redShade: redShade ?? this.redShade,
     );
   }
 
@@ -58,6 +66,8 @@ class Palette extends ThemeExtension<Palette> {
       gray11: Color.lerp(gray11, other.gray11, t),
       gray12: Color.lerp(gray12, other.gray12, t),
       primary6: Color.lerp(primary6, other.primary6, t),
+      gray13: Color.lerp(gray13, other.gray13, t),
+      redShade: Color.lerp(redShade, other.redShade, t),
     );
   }
 }
