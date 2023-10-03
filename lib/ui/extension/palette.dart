@@ -13,6 +13,7 @@ class Palette extends ThemeExtension<Palette> {
     required this.gray12,
     required this.gray13,
     required this.redShade,
+    required this.popUpBg,
   });
 
   final Color? gray8;
@@ -25,19 +26,22 @@ class Palette extends ThemeExtension<Palette> {
   final Color? primary6;
   final Color? gray13;
   final Color? redShade;
+  final Color? popUpBg;
 
   @override
-  Palette copyWith(
-      {Color? gray1,
-      Color? gray6,
-      Color? gray7,
-      Color? gray8,
-      Color? gray9,
-      Color? gray11,
-      Color? primary6,
-      Color? gray12,
-      Color? gray13,
-      Color? redShade}) {
+  Palette copyWith({
+    Color? gray1,
+    Color? gray6,
+    Color? gray7,
+    Color? gray8,
+    Color? gray9,
+    Color? gray11,
+    Color? primary6,
+    Color? gray12,
+    Color? gray13,
+    Color? redShade,
+    Color? popUpBg,
+  }) {
     return Palette(
       gray1: gray1 ?? this.gray1,
       gray6: gray6 ?? this.gray6,
@@ -49,6 +53,7 @@ class Palette extends ThemeExtension<Palette> {
       gray12: gray12 ?? this.gray12,
       gray13: gray13 ?? this.gray13,
       redShade: redShade ?? this.redShade,
+      popUpBg: popUpBg ?? this.popUpBg,
     );
   }
 
@@ -68,6 +73,7 @@ class Palette extends ThemeExtension<Palette> {
       primary6: Color.lerp(primary6, other.primary6, t),
       gray13: Color.lerp(gray13, other.gray13, t),
       redShade: Color.lerp(redShade, other.redShade, t),
+      popUpBg:Color.lerp(popUpBg, other.popUpBg, t),
     );
   }
 }

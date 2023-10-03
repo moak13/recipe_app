@@ -63,6 +63,7 @@ class AppThemes {
           gray12: AppColors.gray12,
           gray13: AppColors.grey13,
           redShade: AppColors.redShade,
+          popUpBg: AppColors.popUpBg,
         ),
       ],
     );
