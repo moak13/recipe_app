@@ -14,12 +14,12 @@ class IngredientChip extends StatelessWidget {
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    late ThemeData theme = Theme.of(context);
+    ThemeData theme = Theme.of(context);
     AppTypography? typography = theme.extension<AppTypography>();
     Palette? palette = theme.extension<Palette>();
 
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(10.r),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
         color: kcOrangeShade,

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.form.dart';
 import 'package:stacked/stacked.dart';
 
@@ -8,8 +6,6 @@ class EditDishViewModel extends FormViewModel {
   List<String> get allIngredients => _allIngredients;
 
   void addTextFieldInputToList(String? input) {
-    log('$ingredientsValue ');
-
     if (input != null && input.isNotEmpty) {
       _allIngredients.add(input);
     }
@@ -19,7 +15,6 @@ class EditDishViewModel extends FormViewModel {
   }
 
   void removeIngredientFromList(int index) {
-    log(index.toString());
     _allIngredients.removeAt(index);
     notifyListeners();
   }

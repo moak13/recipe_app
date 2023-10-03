@@ -19,7 +19,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
     HomepageViewModel viewModel,
     Widget? child,
   ) {
-   late ThemeData theme = Theme.of(context);
+    ThemeData theme = Theme.of(context);
     AppTypography? typography = theme.extension<AppTypography>();
     Palette? palette = theme.extension<Palette>();
     return Scaffold(
@@ -68,12 +68,12 @@ class HomepageView extends StackedView<HomepageViewModel> {
                   ),
                   itemCount: viewModel.productItems.length,
                   itemBuilder: (context, index) {
-                    final productModel =
+                    final product =
                         viewModel.productItems.elementAt(index);
                     return ProductItem(
-                      productModel: productModel,
+                      product: product,
                       onTap: () =>
-                          viewModel.navigateToDishDetailsView(productModel),
+                          viewModel.navigateToDishDetailsView(product),
                     );
                   },
                 ),

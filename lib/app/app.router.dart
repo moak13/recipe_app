@@ -129,7 +129,7 @@ class StackedRouter extends _i1.RouterBase {
       final args = data.getArgs<DishDetailsViewArguments>(nullOk: false);
       return _i1.buildAdaptivePageRoute<dynamic>(
         builder: (context) =>
-            _i8.DishDetailsView(key: args.key, productModel: args.productModel),
+            _i8.DishDetailsView(key: args.key, product: args.product),
         settings: data,
       );
     },
@@ -172,27 +172,27 @@ class LoginViewArguments {
 class DishDetailsViewArguments {
   const DishDetailsViewArguments({
     this.key,
-    required this.productModel,
+    required this.product,
   });
 
   final _i10.Key? key;
 
-  final _i11.ProductModel productModel;
+  final _i11.ProductModel product;
 
   @override
   String toString() {
-    return '{"key": "$key", "productModel": "$productModel"}';
+    return '{"key": "$key", "product": "$product"}';
   }
 
   @override
   bool operator ==(covariant DishDetailsViewArguments other) {
     if (identical(this, other)) return true;
-    return other.key == key && other.productModel == productModel;
+    return other.key == key && other.product == product;
   }
 
   @override
   int get hashCode {
-    return key.hashCode ^ productModel.hashCode;
+    return key.hashCode ^ product.hashCode;
   }
 }
 
@@ -285,7 +285,7 @@ extension NavigatorStateExtension on _i12.NavigationService {
 
   Future<dynamic> navigateToDishDetailsView({
     _i10.Key? key,
-    required _i11.ProductModel productModel,
+    required _i11.ProductModel product,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -293,8 +293,7 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition,
   }) async {
     return navigateTo<dynamic>(Routes.dishDetailsView,
-        arguments:
-            DishDetailsViewArguments(key: key, productModel: productModel),
+        arguments: DishDetailsViewArguments(key: key, product: product),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -403,7 +402,7 @@ extension NavigatorStateExtension on _i12.NavigationService {
 
   Future<dynamic> replaceWithDishDetailsView({
     _i10.Key? key,
-    required _i11.ProductModel productModel,
+    required _i11.ProductModel product,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -411,8 +410,7 @@ extension NavigatorStateExtension on _i12.NavigationService {
         transition,
   }) async {
     return replaceWith<dynamic>(Routes.dishDetailsView,
-        arguments:
-            DishDetailsViewArguments(key: key, productModel: productModel),
+        arguments: DishDetailsViewArguments(key: key, product: product),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

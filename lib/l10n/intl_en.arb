@@ -24,5 +24,13 @@
     "sign_up": "Sign Up",
     "email_cannot_be_empty": "Email cannot be empty",
     "email_must_be_a_valid_email": "Email must be a valid email address",
-    "required": "Required"
+    "required": "Required",
+    "kindly_edit": "Kindly edit the details below to the reflect the right standard dish information",
+    "edit_dish": "Edit Dish",
+    "name_of_dish": "Name of Dish",
+    "instructions": "Instructions",
+    "ingredients": "Ingredients",
+    "click_done":"Click @@Done@@ after your input.",
+    "name":"Name: ",
+    "date_created":"Date Created: "
 }

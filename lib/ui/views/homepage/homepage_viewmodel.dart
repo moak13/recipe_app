@@ -53,10 +53,10 @@ class HomepageViewModel extends BaseViewModel {
 // TODO navigate to add product page
   }
 
-  void navigateToDishDetailsView(ProductModel productModel) {
+  void navigateToDishDetailsView(ProductModel product) {
     _navigationService.navigateTo(
       Routes.dishDetailsView,
-      arguments: DishDetailsViewArguments(productModel: productModel),
+      arguments: DishDetailsViewArguments(product: product),
     );
   }
 }

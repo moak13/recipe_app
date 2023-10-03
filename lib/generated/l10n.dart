@@ -299,6 +299,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Kindly edit the details below to the reflect the right standard dish information`
+  String get kindly_edit {
+    return Intl.message(
+      'Kindly edit the details below to the reflect the right standard dish information',
+      name: 'kindly_edit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Dish`
+  String get edit_dish {
+    return Intl.message(
+      'Edit Dish',
+      name: 'edit_dish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name of Dish`
+  String get name_of_dish {
+    return Intl.message(
+      'Name of Dish',
+      name: 'name_of_dish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instructions`
+  String get instructions {
+    return Intl.message(
+      'Instructions',
+      name: 'instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients`
+  String get ingredients {
+    return Intl.message(
+      'Ingredients',
+      name: 'ingredients',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Click @@Done@@ after your input.`
+  String get click_done {
+    return Intl.message(
+      'Click @@Done@@ after your input.',
+      name: 'click_done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name: `
+  String get name {
+    return Intl.message(
+      'Name: ',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date Created: `
+  String get date_created {
+    return Intl.message(
+      'Date Created: ',
+      name: 'date_created',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

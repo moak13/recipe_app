@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/product_model.dart';
+import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 import 'package:receipe_app/ui/views/homepage/widgets/favourite_widget.dart';
 import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
+import 'package:stacked/stacked.dart';
 
-class DishTitle extends StatelessWidget {
-  const DishTitle({super.key, required this.productModel});
-  final ProductModel productModel;
+class DishTitle extends ViewModelWidget<DishDetailsViewModel> {
+  const DishTitle({super.key, required this.product});
+  final ProductModel product;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, DishDetailsViewModel viewModel) {
     late ThemeData theme = Theme.of(context);
     Palette? palette = theme.extension<Palette>();
     return Row(
@@ -23,9 +26,9 @@ class DishTitle extends StatelessWidget {
             RichTextWidget(
               color1: palette?.gray12,
               color2: palette?.gray12,
-              text1: 'Name: ',
+              text1: S.current.name,
               fontWeight1: FontWeight.w300,
-              text2: productModel.title,
+              text2: product.title,
               fontWeight2: FontWeight.w500,
               fontSize1: 14.sp,
               fontSize2: 16.sp,
@@ -34,9 +37,9 @@ class DishTitle extends StatelessWidget {
             RichTextWidget(
               color1: palette?.gray12,
               color2: palette?.gray12,
-              text1: 'Date created: ',
+              text1:S.current.date_created,
               fontWeight1: FontWeight.w300,
-              text2: productModel.date,
+              text2: product.date,
               fontWeight2: FontWeight.w500,
               fontSize1: 14.sp,
               fontSize2: 16.sp,
@@ -44,7 +47,7 @@ class DishTitle extends StatelessWidget {
           ],
         ),
         FavoriteWidget(
-          productModel: productModel,
+          product: product,
           usePadding: false,
           color: kcIconBackground2,
         ),

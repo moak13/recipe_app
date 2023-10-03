@@ -6,11 +6,11 @@ import 'package:receipe_app/ui/views/homepage/widgets/favourite_widget.dart';
 import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
 
 class ProductItem extends StatelessWidget {
-  final ProductModel productModel;
+  final ProductModel product;
   final VoidCallback onTap;
   const ProductItem({
     super.key,
-    required this.productModel,
+    required this.product,
     required this.onTap,
   });
 
@@ -32,11 +32,11 @@ class ProductItem extends StatelessWidget {
               alignment: AlignmentDirectional.topEnd,
               children: [
                 Image.asset(
-                  productModel.image,
+                  product.image,
                   height: 200.h,
                   fit: BoxFit.contain,
                 ),
-                FavoriteWidget(productModel: productModel)
+                FavoriteWidget(product: product)
               ],
             ),
             SizedBox(height: 8.h),
@@ -44,13 +44,13 @@ class ProductItem extends StatelessWidget {
               color1: palette?.gray8,
               color2: palette?.primary6,
               text1: 'Name: ',
-              text2: productModel.title,
+              text2: product.title,
             ),
             RichTextWidget(
               color1: palette?.gray8,
               color2: palette?.gray11,
               text1: 'Date Created: ',
-              text2: productModel.date,
+              text2: product.date,
             ),
           ],
         ),

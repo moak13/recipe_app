@@ -5,36 +5,34 @@ import 'package:receipe_app/ui/views/dish_details/widgets/dish_detail_bottom.dar
 import 'package:receipe_app/ui/views/dish_details/widgets/dish_image_header.dart';
 import 'package:stacked/stacked.dart';
 
-class DishDetailsView extends StatelessWidget {
+class DishDetailsView extends StackedView<DishDetailsViewModel> {
   const DishDetailsView({
     Key? key,
-    required this.productModel,
+    required this.product,
   }) : super(key: key);
-  final ProductModel productModel;
+
+  final ProductModel product;
 
   @override
-  Widget build(BuildContext context) {
-    return ViewModelBuilder<DishDetailsViewModel>.reactive(
-      viewModelBuilder: () => DishDetailsViewModel(),
-      builder: (
-        BuildContext context,
-        DishDetailsViewModel viewModel,
-        Widget? child,
-      ) {
-        return Scaffold(
-          body: Stack(
-            children: [
+  Widget builder(
+    BuildContext context,
+    DishDetailsViewModel viewModel,
+    Widget? child,
+  ) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          ///Displays the image of the Dish
+          DishImageHeader(product: product),
 
-              ///Displays the image of the Dish
-              DishImageHeader(productModel: productModel),
-
-              /// This shows the lower part of the Screen
-              DishDetailBottom(productModel: productModel),
-              
-            ],
-          ),
-        );
-      },
+          /// This shows the lower part of the Screen
+          DishDetailBottom(product: product),
+        ],
+      ),
     );
   }
+
+  @override
+  DishDetailsViewModel viewModelBuilder(BuildContext context) =>
+      DishDetailsViewModel();
 }

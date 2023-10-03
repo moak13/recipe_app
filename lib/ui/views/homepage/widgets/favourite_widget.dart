@@ -8,19 +8,19 @@ import 'package:receipe_app/ui/views/homepage/widgets/unliked_widget.dart';
 class FavoriteWidget extends StatelessWidget {
   const FavoriteWidget({
     super.key,
-    required this.productModel,
+    required this.product,
     this.usePadding = true,
     this.color,
   });
 
-  final ProductModel productModel;
+  final ProductModel product;
   final bool? usePadding;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: usePadding == true ? EdgeInsets.all(8.0.w) : EdgeInsets.zero,
+      padding: usePadding == true ? EdgeInsets.all(8.0.r) : EdgeInsets.zero,
       child: Container(
         height: 32.h,
         width: 32.w,
@@ -29,7 +29,7 @@ class FavoriteWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(4.r),
         ),
         child: Builder(builder: (context) {
-          if (productModel.isLiked) {
+          if (product.isLiked) {
             return LikedWidget();
           }
           return UnlikedWidget();

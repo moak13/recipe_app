@@ -8,18 +8,20 @@ import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 
 class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
-  final ProductModel productModel;
+
+  final ProductModel product;
   const DishImageHeader({
-    required this.productModel,
+    required this.product,
   });
+  
   @override
   Widget build(BuildContext context, DishDetailsViewModel viewModel) {
-    late ThemeData theme = Theme.of(context);
+    ThemeData theme = Theme.of(context);
     AppTypography? typography = theme.extension<AppTypography>();
     return Stack(
       children: [
         Image.asset(
-          productModel.image,
+          product.image,
           fit: BoxFit.fill,
           height: screenHeight(context) * .6,
           width: double.infinity,
