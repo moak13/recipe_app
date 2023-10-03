@@ -36,7 +36,7 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            color: Color(0xFFF5F5F5),
+            color: kcPopUpBg,
             itemBuilder: (context) => [
               ...viewModel.popUpMenuItems.entries.map(
                 (entry) => PopupMenuItem(

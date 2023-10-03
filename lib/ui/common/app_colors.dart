@@ -14,6 +14,7 @@ const Color kcBackgroundColor = kcDarkGreyColor;
 const Color kRedShadeColor = Color(0xFFCC444B);
 const Color kBarrierColor = Color(0x99454545);
 const Color kcOrangeShade = Color(0xFFFFF3EC);
+const Color kcPopUpBg = Color(0xFFF5F5F5);
 
 class AppColors {
   static const Color gray1 = Color(0xffF6F6F6);

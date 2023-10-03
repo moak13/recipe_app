@@ -18,4 +18,6 @@ class EditDishViewModel extends FormViewModel {
     _allIngredients.removeAt(index);
     notifyListeners();
   }
+
+  void editDish() {}
 }

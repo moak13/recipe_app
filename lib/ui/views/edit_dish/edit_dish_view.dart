@@ -69,8 +69,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
             TextFormField(
               controller: ingredientsController,
               textInputAction: TextInputAction.done,
-              onFieldSubmitted: (input) =>
-                  viewModel.addTextFieldInputToList(input),
+              onFieldSubmitted: viewModel.addTextFieldInputToList,
               autocorrect: false,
               decoration: InputDecoration(
                 labelText: S.current.ingredients,
@@ -101,7 +100,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
             100.verticalSpace,
             PrimaryButton(
               buttonText: S.current.edit_dish,
-              onTap: () {},
+              onTap: viewModel.editDish,
             ),
           ],
         ),
