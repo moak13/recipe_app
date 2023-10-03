@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:receipe_app/generated/l10n.dart';
+import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/utilities/validation.dart';
 import 'package:receipe_app/ui/views/new_dish/new_dish_view.form.dart';
@@ -35,12 +36,20 @@ class NewDishView extends StackedView<NewDishViewModel>with $NewDishView {
 
     return Scaffold(
       appBar: AppBar(
-      leading:Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: SvgPicture.asset(
-          'assets/svg/hamburger_icon.svg',
-          ),
-      ),
+      leading:Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 16.w,
+                    top: 8.h,
+                  ),
+                  child: SvgPicture.asset(
+                    AppImages.burgerLog,
+                    width: 24.7.w,
+                    height: 24.h,
+                  ),
+                ),
+              ),
       title:Text(S.current.create_a_dish,
                 style: typography?.titleBold16?.copyWith(color: palette?.gray11)) ,     
       ),
