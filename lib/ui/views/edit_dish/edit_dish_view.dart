@@ -43,6 +43,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.0.w),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               S.current.kindly_edit,

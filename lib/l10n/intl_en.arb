@@ -30,7 +30,11 @@
     "name_of_dish": "Name of Dish",
     "instructions": "Instructions",
     "ingredients": "Ingredients",
-    "click_done":"Click @@Done@@ after your input.",
-    "name":"Name: ",
-    "date_created":"Date Created: "
+    "click_done": "Click \"Done\" after your input.",
+    "name": "Name: ",
+    "date_created": "Date Created: ",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "are_you_sure": "Are you sure you want to delete this dish?",
+    "delete_dish": "Delete Dish"
 }

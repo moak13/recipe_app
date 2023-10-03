@@ -24,9 +24,13 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "already_have_an_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "are_you_sure": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete this dish?"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "click_done": MessageLookupByLibrary.simpleMessage(
-            "Click @@Done@@ after your input."),
+            "Click \"Done\" after your input."),
         "date_created": MessageLookupByLibrary.simpleMessage("Date Created: "),
+        "delete_dish": MessageLookupByLibrary.simpleMessage("Delete Dish"),
         "dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
         "edit_dish": MessageLookupByLibrary.simpleMessage("Edit Dish"),
@@ -71,6 +75,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please sign in to continue"),
         "required": MessageLookupByLibrary.simpleMessage("Required"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }

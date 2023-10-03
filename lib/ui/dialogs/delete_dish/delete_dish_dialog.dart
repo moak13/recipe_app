@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/dialogs/delete_dish/delete_dish_dialog_viewmodel.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
@@ -41,12 +42,12 @@ class DeleteDishDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Delete Dish',
+                 S.current.delete_dish,
                   style: typography?.headlineBold22,
                 ),
                 verticalSpaceTiny,
                 Text(
-                  'Are you sure you want to delete this dish?',
+                 S.current.are_you_sure ,
                   textAlign: TextAlign.center,
                   style: typography?.labelRegular16,
                 ),
@@ -55,7 +56,7 @@ class DeleteDishDialog extends StatelessWidget {
                   children: [
                     Expanded(
                       child: PrimaryButton(
-                        buttonText: 'Cancel',
+                        buttonText: S.current.cancel,
                         color: palette?.gray13,
                         textColor: palette?.gray12,
                         borderRadius: 20.r,
@@ -69,7 +70,7 @@ class DeleteDishDialog extends StatelessWidget {
                     horizontalSpaceMedium,
                     Expanded(
                       child: PrimaryButton(
-                        buttonText: 'Yes',
+                        buttonText: S.current.yes,
                         onTap: () {
                           completer(
                             DialogResponse(confirmed: true),

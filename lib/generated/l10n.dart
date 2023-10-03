@@ -350,10 +350,10 @@ class S {
     );
   }
 
-  /// `Click @@Done@@ after your input.`
+  /// `Click "Done" after your input.`
   String get click_done {
     return Intl.message(
-      'Click @@Done@@ after your input.',
+      'Click "Done" after your input.',
       name: 'click_done',
       desc: '',
       args: [],
@@ -375,6 +375,46 @@ class S {
     return Intl.message(
       'Date Created: ',
       name: 'date_created',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this dish?`
+  String get are_you_sure {
+    return Intl.message(
+      'Are you sure you want to delete this dish?',
+      name: 'are_you_sure',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Dish`
+  String get delete_dish {
+    return Intl.message(
+      'Delete Dish',
+      name: 'delete_dish',
       desc: '',
       args: [],
     );
