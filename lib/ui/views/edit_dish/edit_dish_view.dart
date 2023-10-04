@@ -66,15 +66,34 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
               ),
             ),
             SizedBox(height: 16.h),
-            TextFormField(
-              controller: ingredientsController,
-              textInputAction: TextInputAction.done,
-              onFieldSubmitted: viewModel.addTextFieldInputToList,
-              autocorrect: false,
-              decoration: InputDecoration(
-                labelText: S.current.ingredients,
-                hintText: S.current.ingredients,
-              ),
+            Row(
+              children: [
+                Flexible(
+                  flex: 15,
+                  child: TextFormField(
+                    controller: ingredientsController,
+                    textInputAction: TextInputAction.done,
+                    onFieldSubmitted: viewModel.addTextFieldInputToList,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: S.current.ingredients,
+                      hintText: S.current.ingredients,
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10.w),
+                Flexible(
+                  flex: 1,
+                  child: GestureDetector(
+                    onTap: () => viewModel
+                        .addTextFieldInputToList(ingredientsController.text),
+                    child: Icon(
+                      Icons.check,
+                      color: palette?.gray7,
+                    ),
+                  ),
+                ),
+              ],
             ),
             SizedBox(height: 5.h),
             AnimatedOpacity(
