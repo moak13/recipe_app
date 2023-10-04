@@ -9,6 +9,7 @@ import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart';
 import 'package:receipe_app/ui/views/login/login_view.dart';
 import 'package:receipe_app/ui/views/homepage/homepage_view.dart';
 import 'package:receipe_app/ui/views/signup/signup_view.dart';
+import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -19,6 +20,7 @@ import 'package:receipe_app/ui/views/signup/signup_view.dart';
     AdaptiveRoute(page: LoginView),
     AdaptiveRoute(page: HomepageView),
     AdaptiveRoute(page: SignupView),
+    AdaptiveRoute(page: NewDishView ),
 // @stacked-route
   ],
   dependencies: [

@@ -299,6 +299,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Create a Dish`
+  String get create_a_dish {
+    return Intl.message(
+      'Create a Dish',
+      name: 'create_a_dish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hi😚, It's time to create that special dish you always desired.\nKindly fill in the details below`
+  String get create_a_dish_intro {
+    return Intl.message(
+      'Hi😚, It\'s time to create that special dish you always desired.\nKindly fill in the details below',
+      name: 'create_a_dish_intro',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name of Dish`
+  String get name_of_dish {
+    return Intl.message(
+      'Name of Dish',
+      name: 'name_of_dish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instructions`
+  String get instructions {
+    return Intl.message(
+      'Instructions',
+      name: 'instructions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingredients of Dish`
+  String get ingredient_of_dish {
+    return Intl.message(
+      'Ingredients of Dish',
+      name: 'ingredient_of_dish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create Dish`
+  String get create_dish {
+    return Intl.message(
+      'Create Dish',
+      name: 'create_dish',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
