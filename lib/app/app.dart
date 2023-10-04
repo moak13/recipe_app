@@ -1,3 +1,6 @@
+import 'package:receipe_app/ui/dialogs/delete_dish/delete_dish_dialog.dart';
+import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart';
+import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import '../services/event_service.dart';
@@ -20,6 +23,8 @@ import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
     AdaptiveRoute(page: LoginView),
     AdaptiveRoute(page: HomepageView),
     AdaptiveRoute(page: SignupView),
+    AdaptiveRoute(page: DishDetailsView), 
+    AdaptiveRoute(page: EditDishView), 
     AdaptiveRoute(page: NewDishView ),
 // @stacked-route
   ],
@@ -36,6 +41,7 @@ import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
   ],
   dialogs: [
     StackedDialog(classType: InfoAlertDialog),
+    StackedDialog(classType: DeleteDishDialog),
     // @stacked-dialog
   ],
 )

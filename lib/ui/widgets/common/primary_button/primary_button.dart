@@ -9,10 +9,17 @@ import 'primary_button_model.dart';
 class PrimaryButton extends StackedView<PrimaryButtonModel> {
   final String buttonText;
   final VoidCallback? onTap;
+  final double? borderRadius;
+  final Color? color;
+  final Color? textColor;
+
   const PrimaryButton({
     super.key,
     required this.buttonText,
+    this.textColor,
     this.onTap,
+    this.color,
+    this.borderRadius,
   });
 
   @override
@@ -28,14 +35,14 @@ class PrimaryButton extends StackedView<PrimaryButtonModel> {
       height: 56.h,
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4.r),
-        color: palette?.primary6,
+        borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
+        color: color ?? palette?.primary6,
       ),
       child: Material(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(4.r),
+        borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
         child: InkWell(
-          borderRadius: BorderRadius.circular(4.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 4.r),
           onTap: onTap,
           child: SizedBox(
             height: 56.h,
@@ -44,7 +51,7 @@ class PrimaryButton extends StackedView<PrimaryButtonModel> {
               child: Text(
                 buttonText,
                 style: typography?.titleBold16?.copyWith(
-                  color: palette?.gray1,
+                  color: textColor ?? palette?.gray1,
                 ),
               ),
             ),

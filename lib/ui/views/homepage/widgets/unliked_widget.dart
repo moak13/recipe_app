@@ -11,7 +11,7 @@ class UnlikedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(4.0.w),
+      padding: EdgeInsets.all(5.0.r),
       child: SvgPicture.asset(AppImages.unlikedIcon),
     );
   }

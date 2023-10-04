@@ -24,12 +24,20 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "already_have_an_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "are_you_sure": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to delete this dish?"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "click_done": MessageLookupByLibrary.simpleMessage(
+            "Click \"Done\" after your input."),
         "create_a_dish": MessageLookupByLibrary.simpleMessage("Create a Dish"),
         "create_a_dish_intro": MessageLookupByLibrary.simpleMessage(
             "Hi😚, It\'s time to create that special dish you always desired.\nKindly fill in the details below"),
         "create_dish": MessageLookupByLibrary.simpleMessage("Create Dish"),
+        "date_created": MessageLookupByLibrary.simpleMessage("Date Created: "),
+        "delete_dish": MessageLookupByLibrary.simpleMessage("Delete Dish"),
         "dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
+        "edit_dish": MessageLookupByLibrary.simpleMessage("Edit Dish"),
         "email_address": MessageLookupByLibrary.simpleMessage("Email Address"),
         "email_cannot_be_empty":
             MessageLookupByLibrary.simpleMessage("Email cannot be empty"),
@@ -48,9 +56,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
         "ingredient_of_dish":
             MessageLookupByLibrary.simpleMessage("Ingredients of Dish"),
+        "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
         "instructions": MessageLookupByLibrary.simpleMessage("Instructions"),
+        "kindly_edit": MessageLookupByLibrary.simpleMessage(
+            "Kindly edit the details below to the reflect the right standard dish information"),
         "last_name": MessageLookupByLibrary.simpleMessage("Last name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "name": MessageLookupByLibrary.simpleMessage("Name: "),
         "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(
             "Kally Dish offers non-perishable foodstuff at the lowest wholesale price delivered to your doorstep for free"),
@@ -69,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please sign in to continue"),
         "required": MessageLookupByLibrary.simpleMessage("Required"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
 }
