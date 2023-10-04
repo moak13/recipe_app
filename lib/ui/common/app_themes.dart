@@ -64,6 +64,11 @@ class AppThemes {
           gray13: AppColors.grey13,
           redShade: AppColors.redShade,
           popUpBg: AppColors.popUpBg,
+          barrierColor: AppColors.barrierColor,
+          iconBackground2: AppColors.iconBackground2,
+          iconBackground3: AppColors.iconBackground3,
+          orangeShade: AppColors.orangeShade,
+          iconBackground: AppColors.iconBackground,
         ),
       ],
     );

@@ -4,7 +4,6 @@ import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:stacked/stacked.dart';
 import 'package:receipe_app/data_model/product_model.dart';
-import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 
@@ -61,7 +60,7 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
             ],
             icon: CircleAvatar(
               radius: 20.r,
-              backgroundColor: kcIconBackground3,
+              backgroundColor: palette?.iconBackground3,
               child: Icon(
                 Icons.more_vert_outlined,
                 color: Colors.black,

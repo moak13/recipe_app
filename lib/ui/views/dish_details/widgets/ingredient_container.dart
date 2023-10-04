@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
@@ -21,7 +20,7 @@ class IngredientContainer extends ViewModelWidget<DishDetailsViewModel> {
       height: screenHeight(context) * .09,
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 12.h),
       decoration: BoxDecoration(
-        color: kcIconBackground2,
+        color: palette?.iconBackground2,
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Center(

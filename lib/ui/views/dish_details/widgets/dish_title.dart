@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/product_model.dart';
 import 'package:receipe_app/generated/l10n.dart';
-import 'package:receipe_app/ui/common/app_colors.dart';
-import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 import 'package:receipe_app/ui/views/homepage/widgets/favourite_widget.dart';
@@ -33,7 +31,7 @@ class DishTitle extends ViewModelWidget<DishDetailsViewModel> {
               fontSize1: 14.sp,
               fontSize2: 16.sp,
             ),
-            verticalSpaceSmall,
+            SizedBox(height:10.h),
             RichTextWidget(
               color1: palette?.gray12,
               color2: palette?.gray12,
@@ -49,7 +47,7 @@ class DishTitle extends ViewModelWidget<DishDetailsViewModel> {
         FavoriteWidget(
           product: product,
           usePadding: false,
-          color: kcIconBackground2,
+          color: palette?.iconBackground2,
         ),
       ],
     );

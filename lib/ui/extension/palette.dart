@@ -14,6 +14,11 @@ class Palette extends ThemeExtension<Palette> {
     required this.gray13,
     required this.redShade,
     required this.popUpBg,
+    required this.orangeShade,
+    required this.barrierColor,
+    required this.iconBackground2,
+    required this.iconBackground3,
+    required this.iconBackground,
   });
 
   final Color? gray8;
@@ -27,6 +32,11 @@ class Palette extends ThemeExtension<Palette> {
   final Color? gray13;
   final Color? redShade;
   final Color? popUpBg;
+  final Color? orangeShade;
+  final Color? barrierColor;
+  final Color? iconBackground;
+  final Color? iconBackground2;
+  final Color? iconBackground3;
 
   @override
   Palette copyWith({
@@ -41,6 +51,11 @@ class Palette extends ThemeExtension<Palette> {
     Color? gray13,
     Color? redShade,
     Color? popUpBg,
+    Color? barrierColor,
+    Color? iconBackground2,
+    Color? iconBackground3,
+    Color? orangeShade,
+    Color? iconBackground,
   }) {
     return Palette(
       gray1: gray1 ?? this.gray1,
@@ -54,6 +69,11 @@ class Palette extends ThemeExtension<Palette> {
       gray13: gray13 ?? this.gray13,
       redShade: redShade ?? this.redShade,
       popUpBg: popUpBg ?? this.popUpBg,
+      barrierColor: barrierColor ?? this.barrierColor,
+      iconBackground2: iconBackground2 ?? this.iconBackground2,
+      iconBackground3: iconBackground3 ?? this.iconBackground3,
+      orangeShade: orangeShade ?? this.orangeShade,
+      iconBackground: iconBackground ?? this.iconBackground,
     );
   }
 
@@ -73,7 +93,12 @@ class Palette extends ThemeExtension<Palette> {
       primary6: Color.lerp(primary6, other.primary6, t),
       gray13: Color.lerp(gray13, other.gray13, t),
       redShade: Color.lerp(redShade, other.redShade, t),
-      popUpBg:Color.lerp(popUpBg, other.popUpBg, t),
+      popUpBg: Color.lerp(popUpBg, other.popUpBg, t),
+      orangeShade: Color.lerp(orangeShade, other.orangeShade, t),
+      barrierColor: Color.lerp(barrierColor, other.barrierColor, t),
+      iconBackground2: Color.lerp(iconBackground2, other.iconBackground2, t),
+      iconBackground3: Color.lerp(iconBackground3, other.iconBackground3, t),
+      iconBackground: Color.lerp(iconBackground, other.iconBackground, t),
     );
   }
 }

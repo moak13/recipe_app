@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 
@@ -22,7 +21,7 @@ class IngredientChip extends StatelessWidget {
       padding: EdgeInsets.all(10.r),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
-        color: kcOrangeShade,
+        color: palette?.orangeShade,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

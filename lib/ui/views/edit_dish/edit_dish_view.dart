@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/generated/l10n.dart';
-import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.form.dart';
@@ -51,14 +50,14 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
                 color: palette?.gray8,
               ),
             ),
-            verticalSpaceMedium,
+            SizedBox(height: 25.h),
             TextFormField(
               decoration: InputDecoration(
                 labelText: S.current.name_of_dish,
                 hintText: S.current.name_of_dish,
               ),
             ),
-            16.verticalSpace,
+            SizedBox(height: 16.h),
             TextFormField(
               maxLines: null,
               decoration: InputDecoration(
@@ -66,7 +65,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
                 hintText: S.current.instructions,
               ),
             ),
-            16.verticalSpace,
+            SizedBox(height: 16.h),
             TextFormField(
               controller: ingredientsController,
               textInputAction: TextInputAction.done,
@@ -77,11 +76,14 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
                 hintText: S.current.ingredients,
               ),
             ),
-            verticalSpaceTiny,
+            SizedBox(height: 5.h),
             AnimatedOpacity(
               opacity: viewModel.allIngredients.isEmpty ? 1 : 0,
               duration: Duration(milliseconds: 500),
-              child: Text(S.current.click_done),
+              child: Text(
+                S.current.click_done,
+                style: typography?.labelRegular12,
+              ),
             ),
             Wrap(
               runSpacing: 10,
@@ -98,7 +100,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
                   ),
               ],
             ),
-            100.verticalSpace,
+            SizedBox(height: 100.h),
             PrimaryButton(
               buttonText: S.current.edit_dish,
               onTap: viewModel.editDish,

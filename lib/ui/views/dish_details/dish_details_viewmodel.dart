@@ -47,7 +47,7 @@ class DishDetailsViewModel extends BaseViewModel {
     _dialogService.showCustomDialog(
       variant: DialogType.deleteDish,
       barrierDismissible: true,
-      barrierColor: kBarrierColor,
+      barrierColor: AppColors.barrierColor,
     );
   }
 }
