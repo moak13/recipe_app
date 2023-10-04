@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "click_done": MessageLookupByLibrary.simpleMessage(
             "Click \"Done\" after your input."),
+        "create_a_dish": MessageLookupByLibrary.simpleMessage("Create a Dish"),
+        "create_a_dish_intro": MessageLookupByLibrary.simpleMessage(
+            "Hi😚, It\'s time to create that special dish you always desired.\nKindly fill in the details below"),
+        "create_dish": MessageLookupByLibrary.simpleMessage("Create Dish"),
         "date_created": MessageLookupByLibrary.simpleMessage("Date Created: "),
         "delete_dish": MessageLookupByLibrary.simpleMessage("Delete Dish"),
         "dont_have_an_account":
@@ -50,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "ingredient_of_dish":
+            MessageLookupByLibrary.simpleMessage("Ingredients of Dish"),
         "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
         "instructions": MessageLookupByLibrary.simpleMessage("Instructions"),
         "kindly_edit": MessageLookupByLibrary.simpleMessage(
