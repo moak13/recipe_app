@@ -34,65 +34,68 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
             topRight: Radius.circular(36.r),
           ),
         ),
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.w,
-            vertical: 30.0.h,
-          ),
-          children: [
-            /// Displays the first row of the ingredient body
-            /// It displays the name, date and the favorite icon
-            DishTitle(product: product),
-            verticalSpaceMedium,
-            Text(
-              S.current.ingredients,
-              style: typography?.titleBold16?.copyWith(
-                color: palette?.gray12,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.w,
+              vertical: 30.0.h,
+            ),
+            children: [
+              /// Displays the first row of the ingredient body
+              /// It displays the name, date and the favorite icon
+              DishTitle(product: product),
+              verticalSpaceMedium,
+              Text(
+                S.current.ingredients,
+                style: typography?.titleBold16?.copyWith(
+                  color: palette?.gray12,
+                ),
               ),
-            ),
-            SizedBox(height: 12.h),
-            // This shows the list of ingredients of a selected dish
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: viewModel.listOfIngredientContent
-                  .map(
-                    (aDishIngredient) => IngredientContainer(
-                      content: aDishIngredient,
-                    ),
-                  )
-                  .toList(),
-            ),
-            SizedBox(height: 25.h),
-            Text(
-              S.current.instructions,
-              style: typography?.titleBold16?.copyWith(
-                color: palette?.gray12,
+              SizedBox(height: 12.h),
+              // This shows the list of ingredients of a selected dish
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: viewModel.listOfIngredientContent
+                    .map(
+                      (aDishIngredient) => IngredientContainer(
+                        content: aDishIngredient,
+                      ),
+                    )
+                    .toList(),
               ),
-            ),
-            SizedBox(height: 12.h),
+              SizedBox(height: 25.h),
+              Text(
+                S.current.instructions,
+                style: typography?.titleBold16?.copyWith(
+                  color: palette?.gray12,
+                ),
+              ),
+              SizedBox(height: 12.h),
 
-            /// This shows the List of instructions
-            ...viewModel.instructionsForADish.entries.map(
-              (entry) => Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    entry.key,
-                    style: typography?.labelRegular12?.copyWith(
-                      color: palette?.gray12,
+              /// This shows the List of instructions
+              ...viewModel.instructionsForADish.entries.map(
+                (entry) => Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      entry.key,
+                      style: typography?.labelRegular12?.copyWith(
+                        color: palette?.gray12,
+                      ),
                     ),
-                  ),
-                  Text(
-                    entry.value,
-                    style: typography?.labelRegular12?.copyWith(
-                      color: palette?.gray12,
+                    Text(
+                      entry.value,
+                      style: typography?.labelRegular12?.copyWith(
+                        color: palette?.gray12,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
