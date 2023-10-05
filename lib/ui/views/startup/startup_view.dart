@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
-import 'package:receipe_app/ui/common/ui_helpers.dart';
-
 import 'startup_viewmodel.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:receipe_app/ui/common/app_images.dart';
 
 class StartupView extends StackedView<StartupViewModel> {
   const StartupView({Key? key}) : super(key: key);
@@ -14,32 +14,20 @@ class StartupView extends StackedView<StartupViewModel> {
     StartupViewModel viewModel,
     Widget? child,
   ) {
-    return const Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'STACKED',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
-                horizontalSpaceSmall,
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Align(
+            alignment: Alignment.topLeft,
+            child: SvgPicture.asset(AppImages.blobOne),
+          ),
+          Image.asset(AppImages.splashLogo),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: SvgPicture.asset(AppImages.blobTwo),
+          ),
+        ],
       ),
     );
   }
@@ -53,10 +41,4 @@ class StartupView extends StackedView<StartupViewModel> {
   @override
   void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance
       .addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
-
-  @override
-  void onDispose(StartupViewModel viewModel) {
-    // TODO: implement onDispose
-    super.onDispose(viewModel);
-  }
 }

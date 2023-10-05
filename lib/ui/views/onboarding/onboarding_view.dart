@@ -24,7 +24,7 @@ class OnboardingView extends StackedView<OnboardingViewModel> {
         child: Column(
           children: [
             Image.asset(
-              AppImages.logo,
+              AppImages.splashLogo,
               height: 72.h,
             ),
             SizedBox(
