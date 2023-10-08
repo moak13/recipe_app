@@ -42,12 +42,12 @@ class DeleteDishDialog extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                 S.current.delete_dish,
+                  S.current.delete_dish,
                   style: typography?.headlineBold22,
                 ),
                 verticalSpaceTiny,
                 Text(
-                 S.current.are_you_sure ,
+                  S.current.are_you_sure,
                   textAlign: TextAlign.center,
                   style: typography?.labelRegular16,
                 ),

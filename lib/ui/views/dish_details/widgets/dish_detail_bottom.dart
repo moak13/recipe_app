@@ -71,6 +71,7 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
               ),
             ),
             SizedBox(height: 12.h),
+
             /// This shows the List of instructions
             ...viewModel.instructionsForADish.entries.map(
               (entry) => Column(

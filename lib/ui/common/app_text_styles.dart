@@ -47,7 +47,7 @@ class AppTextStyles {
     fontFamily: 'Satoshi',
     fontSize: 14.sp,
   );
-    static TextStyle labelRegular16 = TextStyle(
+  static TextStyle labelRegular16 = TextStyle(
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
     fontFamily: 'Satoshi',

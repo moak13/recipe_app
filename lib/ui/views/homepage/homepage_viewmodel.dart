@@ -47,7 +47,7 @@ class HomepageViewModel extends BaseViewModel {
   ];
 
   void navigateToAddProduct() {
-     _navigationService.navigateToNewDishView();
+    _navigationService.navigateToNewDishView();
   }
 
   void navigateToDishDetailsView(ProductModel product) {

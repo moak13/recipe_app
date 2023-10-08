@@ -20,7 +20,6 @@ import 'signup_viewmodel.dart';
   FormTextField(name: 'email'),
   FormTextField(name: 'password'),
 ])
-
 class SignupView extends StackedView<SignupViewModel> with $SignupView {
   const SignupView({Key? key}) : super(key: key);
 
@@ -32,7 +31,7 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
     SignupViewModel viewModel,
     Widget? child,
   ) {
-     final ThemeData theme = Theme.of(context);
+    final ThemeData theme = Theme.of(context);
     final AppTypography? typography = theme.extension<AppTypography>();
     final Palette? palette = theme.extension<Palette>();
     return Scaffold(
@@ -77,10 +76,10 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 focusNode: firstNameFocusNode,
                 validator: Validation.validateField,
                 textInputAction: TextInputAction.next,
-                decoration:  InputDecoration(
-                    labelText: S.current.first_name, 
-                    hintText: S.current.enter_your_first_name,
-                    ),
+                decoration: InputDecoration(
+                  labelText: S.current.first_name,
+                  hintText: S.current.enter_your_first_name,
+                ),
               ),
               SizedBox(
                 height: 16.h,
@@ -90,10 +89,10 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 focusNode: lastNameFocusNode,
                 validator: Validation.validateField,
                 textInputAction: TextInputAction.next,
-                decoration:  InputDecoration(
-                    labelText: S.current.last_name, 
-                    hintText: S.current.enter_your_last_name,
-                    ),
+                decoration: InputDecoration(
+                  labelText: S.current.last_name,
+                  hintText: S.current.enter_your_last_name,
+                ),
               ),
               SizedBox(
                 height: 16.h,
@@ -105,8 +104,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 validator: Validation.validateEmail,
-                decoration:  InputDecoration(
-                    labelText: S.current.email_address, 
+                decoration: InputDecoration(
+                    labelText: S.current.email_address,
                     hintText: S.current.enter_your_email),
               ),
               SizedBox(
@@ -116,7 +115,7 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                 controller: passwordController,
                 focusNode: passwordFocusNode,
                 obscureText: viewModel.hidePassword,
-                  textInputAction: TextInputAction.done,
+                textInputAction: TextInputAction.done,
                 validator: Validation.validateField,
                 decoration: InputDecoration(
                   labelText: S.current.password,
@@ -167,7 +166,7 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
     );
   }
 
-   @override
+  @override
   void onViewModelReady(SignupViewModel viewModel) {
     syncFormWithViewModel(viewModel);
   }

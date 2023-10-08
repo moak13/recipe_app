@@ -13,11 +13,10 @@ class AppThemes {
       brightness: Brightness.light,
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
-        backgroundColor:Colors.white, 
-        elevation: 0, 
-        centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black)
-         ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          centerTitle: true,
+          iconTheme: IconThemeData(color: Colors.black)),
       textSelectionTheme:
           const TextSelectionThemeData(cursorColor: AppColors.primary6),
       inputDecorationTheme: InputDecorationTheme(

@@ -10,6 +10,7 @@ import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:receipe_app/data_model/event.dart' as _i7;
 import 'package:receipe_app/services/event_service.dart' as _i6;
+import 'package:receipe_app/services/secure_storage_service.dart' as _i8;
 import 'package:stacked_services/stacked_services.dart' as _i2;
 
 // ignore_for_file: type=lint
@@ -681,4 +682,39 @@ class MockEventService extends _i1.Mock implements _i6.EventService {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [SecureStorageService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSecureStorageService extends _i1.Mock
+    implements _i8.SecureStorageService {
+  @override
+  _i4.Future<void> deleteToken() => (super.noSuchMethod(
+        Invocation.method(
+          #deleteToken,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<String?> readToken() => (super.noSuchMethod(
+        Invocation.method(
+          #readToken,
+          [],
+        ),
+        returnValue: _i4.Future<String?>.value(),
+        returnValueForMissingStub: _i4.Future<String?>.value(),
+      ) as _i4.Future<String?>);
+  @override
+  _i4.Future<void> writeToken({String? token}) => (super.noSuchMethod(
+        Invocation.method(
+          #writeToken,
+          [],
+          {#token: token},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }

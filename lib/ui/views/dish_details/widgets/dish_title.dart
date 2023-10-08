@@ -31,11 +31,11 @@ class DishTitle extends ViewModelWidget<DishDetailsViewModel> {
               fontSize1: 14.sp,
               fontSize2: 16.sp,
             ),
-            SizedBox(height:10.h),
+            SizedBox(height: 10.h),
             RichTextWidget(
               color1: palette?.gray12,
               color2: palette?.gray12,
-              text1:S.current.date_created,
+              text1: S.current.date_created,
               fontWeight1: FontWeight.w300,
               text2: product.date,
               fontWeight2: FontWeight.w500,
