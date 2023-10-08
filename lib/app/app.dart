@@ -13,6 +13,7 @@ import 'package:receipe_app/ui/views/login/login_view.dart';
 import 'package:receipe_app/ui/views/homepage/homepage_view.dart';
 import 'package:receipe_app/ui/views/signup/signup_view.dart';
 import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
+import 'package:receipe_app/services/secure_storage_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -23,9 +24,9 @@ import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
     AdaptiveRoute(page: LoginView),
     AdaptiveRoute(page: HomepageView),
     AdaptiveRoute(page: SignupView),
-    AdaptiveRoute(page: DishDetailsView), 
-    AdaptiveRoute(page: EditDishView), 
-    AdaptiveRoute(page: NewDishView ),
+    AdaptiveRoute(page: DishDetailsView),
+    AdaptiveRoute(page: EditDishView),
+    AdaptiveRoute(page: NewDishView),
 // @stacked-route
   ],
   dependencies: [
@@ -33,6 +34,7 @@ import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: EventService),
+    LazySingleton(classType: SecureStorageService),
 // @stacked-service
   ],
   bottomsheets: [
@@ -44,5 +46,6 @@ import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
     StackedDialog(classType: DeleteDishDialog),
     // @stacked-dialog
   ],
+  logger: StackedLogger(),
 )
 class App {}

@@ -68,12 +68,10 @@ class HomepageView extends StackedView<HomepageViewModel> {
                   ),
                   itemCount: viewModel.productItems.length,
                   itemBuilder: (context, index) {
-                    final product =
-                        viewModel.productItems.elementAt(index);
+                    final product = viewModel.productItems.elementAt(index);
                     return ProductItem(
                       product: product,
-                      onTap: () =>
-                          viewModel.navigateToDishDetailsView(product),
+                      onTap: () => viewModel.navigateToDishDetailsView(product),
                     );
                   },
                 ),

@@ -3,6 +3,7 @@ import 'package:mockito/mockito.dart';
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:receipe_app/services/event_service.dart';
+import 'package:receipe_app/services/secure_storage_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -12,6 +13,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<BottomSheetService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DialogService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<EventService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<SecureStorageService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -19,6 +21,7 @@ void registerServices() {
   getAndRegisterBottomSheetService();
   getAndRegisterDialogService();
   getAndRegisterEventService();
+  getAndRegisterSecureStorageService();
 // @stacked-mock-register
 }
 
@@ -76,6 +79,13 @@ MockEventService getAndRegisterEventService() {
   _removeRegistrationIfExists<EventService>();
   final service = MockEventService();
   locator.registerSingleton<EventService>(service);
+  return service;
+}
+
+MockSecureStorageService getAndRegisterSecureStorageService() {
+  _removeRegistrationIfExists<SecureStorageService>();
+  final service = MockSecureStorageService();
+  locator.registerSingleton<SecureStorageService>(service);
   return service;
 }
 // @stacked-mock-create
