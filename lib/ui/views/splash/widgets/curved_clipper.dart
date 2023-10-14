@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:receipe_app/app/app.logger.dart';
 
 class CurvedShapeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
 
-    print('device height ${size.height}');
-    print('device width ${size.width}');
+    final logger = getLogger('CurvedShapeClipper');
+    logger.i('device height ${size.height}');
+    logger.i('device width ${size.width}');
 
     //top curve shape
     path.moveTo(0, size.height / 3);
