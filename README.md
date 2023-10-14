@@ -2,8 +2,8 @@
 
 How to contribute to this open source project
  Prerequisites
-* You will need to have flutter set up on your system  [https://docs.flutter.dev/get-started/install]
-* You Should know this project was built using stacked as a state management tool  check this for info on stacked[https://stacked.filledstacks.com/docs/getting-started/overview/]
+* You will need to have [flutter](https://docs.flutter.dev/get-started/install) set up on your system
+* You Should know this project was built using stacked as a state management tool  check this for info on [stacked](https://stacked.filledstacks.com/docs/getting-started/overview/)
  
 Installation
 
@@ -42,6 +42,24 @@ flutter run
 
 8. commit changes 
 
-9. push your code 
+9. push your code
+
+## GitHub Contribution
+
+To contribute to this project, features are added via PRs. The guideline for PRs are one PR per feature. Features can be a screen, backend integration or a bug fix. When creating a branch that later turns into a PR, kindly make use of this formats in branch formats below.
+
+## Branch Formats
+
+Below are the formats to use when contributing to this project.
+
+- feat/<branch_name>
+- chore/<branch_name>
+- fix/<branch_name>
+
+Anything outside this would lead to closing of the PR and redoing it.
+
+## Backend
+
+- Link: https://kally-dish-recipe.onrender.com/
  
 
