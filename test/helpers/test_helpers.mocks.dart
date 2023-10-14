@@ -9,6 +9,7 @@ import 'dart:ui' as _i5;
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:receipe_app/data_model/event.dart' as _i7;
+import 'package:receipe_app/services/authentication_service.dart' as _i10;
 import 'package:receipe_app/services/dio_service.dart' as _i9;
 import 'package:receipe_app/services/event_service.dart' as _i6;
 import 'package:receipe_app/services/secure_storage_service.dart' as _i8;
@@ -723,4 +724,104 @@ class MockSecureStorageService extends _i1.Mock
 /// A class which mocks [DioService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDioService extends _i1.Mock implements _i9.DioService {}
+class MockDioService extends _i1.Mock implements _i9.DioService {
+  @override
+  _i4.Future<dynamic> post({
+    required String? path,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #post,
+          [],
+          {
+            #path: path,
+            #data: data,
+            #queryParameters: queryParameters,
+          },
+        ),
+        returnValue: _i4.Future<dynamic>.value(),
+        returnValueForMissingStub: _i4.Future<dynamic>.value(),
+      ) as _i4.Future<dynamic>);
+  @override
+  _i4.Future<dynamic> get({
+    required String? path,
+    Map<String, dynamic>? queryParameters,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #get,
+          [],
+          {
+            #path: path,
+            #queryParameters: queryParameters,
+          },
+        ),
+        returnValue: _i4.Future<dynamic>.value(),
+        returnValueForMissingStub: _i4.Future<dynamic>.value(),
+      ) as _i4.Future<dynamic>);
+  @override
+  _i4.Future<dynamic> put({
+    required String? path,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #put,
+          [],
+          {
+            #path: path,
+            #data: data,
+            #queryParameters: queryParameters,
+          },
+        ),
+        returnValue: _i4.Future<dynamic>.value(),
+        returnValueForMissingStub: _i4.Future<dynamic>.value(),
+      ) as _i4.Future<dynamic>);
+  @override
+  _i4.Future<dynamic> patch({
+    required String? path,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #patch,
+          [],
+          {
+            #path: path,
+            #data: data,
+            #queryParameters: queryParameters,
+          },
+        ),
+        returnValue: _i4.Future<dynamic>.value(),
+        returnValueForMissingStub: _i4.Future<dynamic>.value(),
+      ) as _i4.Future<dynamic>);
+  @override
+  _i4.Future<dynamic> delete({
+    required String? path,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #delete,
+          [],
+          {
+            #path: path,
+            #data: data,
+            #queryParameters: queryParameters,
+          },
+        ),
+        returnValue: _i4.Future<dynamic>.value(),
+        returnValueForMissingStub: _i4.Future<dynamic>.value(),
+      ) as _i4.Future<dynamic>);
+}
+
+/// A class which mocks [AuthenticationService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockAuthenticationService extends _i1.Mock
+    implements _i10.AuthenticationService {}

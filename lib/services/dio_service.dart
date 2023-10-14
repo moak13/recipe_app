@@ -7,7 +7,7 @@ class DioService {
   DioService() {
     _dio = Dio(
       BaseOptions(
-        baseUrl: "",
+        baseUrl: "https://kally-dish-recipe.onrender.com",
         connectTimeout: Duration(seconds: 30),
       ),
     );
