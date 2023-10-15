@@ -459,6 +459,46 @@ class S {
       args: [],
     );
   }
+
+  /// `No Internet Connection. Please try again later`
+  String get no_internet {
+    return Intl.message(
+      'No Internet Connection. Please try again later',
+      name: 'no_internet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Internet Connection. It seems like the connection timed out`
+  String get connection_timeout {
+    return Intl.message(
+      'No Internet Connection. It seems like the connection timed out',
+      name: 'connection_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service Unavailable`
+  String get service_unavailable {
+    return Intl.message(
+      'Service Unavailable',
+      name: 'service_unavailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown Error`
+  String get unknown_error {
+    return Intl.message(
+      'Unknown Error',
+      name: 'unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

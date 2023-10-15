@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "click_done": MessageLookupByLibrary.simpleMessage(
             "Click \"Done\" after your input."),
+        "connection_timeout": MessageLookupByLibrary.simpleMessage(
+            "No Internet Connection. It seems like the connection timed out"),
         "create_a_dish": MessageLookupByLibrary.simpleMessage("Create a Dish"),
         "create_a_dish_intro": MessageLookupByLibrary.simpleMessage(
             "Hi😚, It\'s time to create that special dish you always desired.\nKindly fill in the details below"),
@@ -64,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "name": MessageLookupByLibrary.simpleMessage("Name: "),
         "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
+        "no_internet": MessageLookupByLibrary.simpleMessage(
+            "No Internet Connection. Please try again later"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(
             "Kally Dish offers non-perishable foodstuff at the lowest wholesale price delivered to your doorstep for free"),
         "onboarding_subtitle_three": MessageLookupByLibrary.simpleMessage(
@@ -80,7 +84,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "please_sign_in_to_continue":
             MessageLookupByLibrary.simpleMessage("Please sign in to continue"),
         "required": MessageLookupByLibrary.simpleMessage("Required"),
+        "service_unavailable":
+            MessageLookupByLibrary.simpleMessage("Service Unavailable"),
         "sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "unknown_error": MessageLookupByLibrary.simpleMessage("Unknown Error"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes")
       };
