@@ -1,8 +1,15 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:receipe_app/app/app.logger.dart';
+import 'package:receipe_app/data_model/error_model.dart';
+import 'package:receipe_app/exceptions/receipe_exceptions.dart';
+import 'package:receipe_app/generated/l10n.dart';
 
 class DioService {
   late final Dio _dio;
+  final _logger = getLogger('DioService');
 
   DioService() {
     _dio = Dio(
@@ -37,8 +44,24 @@ class DioService {
       );
 
       return response.data;
-    } on DioException {
-      rethrow;
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
+        throw ReceipeException(message: S.current.no_internet);
+      }
+
+      if (e.type == DioExceptionType.connectionTimeout) {
+        throw ReceipeException(message: S.current.connection_timeout);
+      }
+
+      if (e.response?.statusCode == 500) {
+        throw ReceipeException(message: S.current.service_unavailable);
+      }
+
+      throw ReceipeException(
+          message: ErrorModel.fromJson(e.response?.data).message ??
+              S.current.unknown_error);
+    } catch (e, s) {
+      _logger.wtf('Could not make a request to this path: $path', e, s);
     }
   }
 
@@ -53,8 +76,24 @@ class DioService {
       );
 
       return response.data;
-    } on DioException {
-      rethrow;
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
+        throw ReceipeException(message: S.current.no_internet);
+      }
+
+      if (e.type == DioExceptionType.connectionTimeout) {
+        throw ReceipeException(message: S.current.connection_timeout);
+      }
+
+      if (e.response?.statusCode == 500) {
+        throw ReceipeException(message: S.current.service_unavailable);
+      }
+
+      throw ReceipeException(
+          message: ErrorModel.fromJson(e.response?.data).message ??
+              S.current.unknown_error);
+    } catch (e, s) {
+      _logger.wtf('Could not make a request to this path: $path', e, s);
     }
   }
 
@@ -71,8 +110,24 @@ class DioService {
       );
 
       return response.data;
-    } on DioException {
-      rethrow;
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
+        throw ReceipeException(message: S.current.no_internet);
+      }
+
+      if (e.type == DioExceptionType.connectionTimeout) {
+        throw ReceipeException(message: S.current.connection_timeout);
+      }
+
+      if (e.response?.statusCode == 500) {
+        throw ReceipeException(message: S.current.service_unavailable);
+      }
+
+      throw ReceipeException(
+          message: ErrorModel.fromJson(e.response?.data).message ??
+              S.current.unknown_error);
+    } catch (e, s) {
+      _logger.wtf('Could not make a request to this path: $path', e, s);
     }
   }
 
@@ -89,8 +144,24 @@ class DioService {
       );
 
       return response.data;
-    } on DioException {
-      rethrow;
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
+        throw ReceipeException(message: S.current.no_internet);
+      }
+
+      if (e.type == DioExceptionType.connectionTimeout) {
+        throw ReceipeException(message: S.current.connection_timeout);
+      }
+
+      if (e.response?.statusCode == 500) {
+        throw ReceipeException(message: S.current.service_unavailable);
+      }
+
+      throw ReceipeException(
+          message: ErrorModel.fromJson(e.response?.data).message ??
+              S.current.unknown_error);
+    } catch (e, s) {
+      _logger.wtf('Could not make a request to this path: $path', e, s);
     }
   }
 
@@ -107,8 +178,24 @@ class DioService {
       );
 
       return response.data;
-    } on DioException {
-      rethrow;
+    } on DioException catch (e) {
+      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
+        throw ReceipeException(message: S.current.no_internet);
+      }
+
+      if (e.type == DioExceptionType.connectionTimeout) {
+        throw ReceipeException(message: S.current.connection_timeout);
+      }
+
+      if (e.response?.statusCode == 500) {
+        throw ReceipeException(message: S.current.service_unavailable);
+      }
+
+      throw ReceipeException(
+          message: ErrorModel.fromJson(e.response?.data).message ??
+              S.current.unknown_error);
+    } catch (e, s) {
+      _logger.wtf('Could not make a request to this path: $path', e, s);
     }
   }
 }

@@ -40,5 +40,9 @@
     "create_a_dish": "Create a Dish",
     "create_a_dish_intro": "Hi😚, It's time to create that special dish you always desired.\nKindly fill in the details below",
     "ingredient_of_dish": "Ingredients of Dish",
-    "create_dish": "Create Dish"
+    "create_dish": "Create Dish",
+    "no_internet": "No Internet Connection. Please try again later",
+    "connection_timeout": "No Internet Connection. It seems like the connection timed out",
+    "service_unavailable": "Service Unavailable",
+    "unknown_error": "Unknown Error"
 }

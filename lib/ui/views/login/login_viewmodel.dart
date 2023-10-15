@@ -2,6 +2,7 @@ import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/login_model.dart';
+import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/ui/views/login/login_view.form.dart';
 import 'package:stacked/stacked.dart';
@@ -29,9 +30,12 @@ class LoginViewModel extends FormViewModel {
       final response = await _authenticationService.login(
         loginModel: loginModel,
       );
-    } on Exception catch (e) {
       _dialogService.showDialog(
-        description: e.toString(),
+        description: response,
+      );
+    } on ReceipeException catch (e) {
+      _dialogService.showDialog(
+        description: e.message,
       );
     } catch (e, s) {
       _logger.e('An error occurred while login in', e, s);
