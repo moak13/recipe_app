@@ -30,10 +30,10 @@ class LoginViewModel extends FormViewModel {
       final response = await _authenticationService.login(
         loginModel: loginModel,
       );
-      _dialogService.showDialog(
-        description: response,
-      );
-    } on ReceipeException catch (e) {
+      if(response != null){
+         _navigationService.navigateToHomepageView();
+      }
+    } on RecipeException catch (e) {
       _dialogService.showDialog(
         description: e.message,
       );
@@ -42,7 +42,7 @@ class LoginViewModel extends FormViewModel {
     } finally {
       setBusy(false);
     }
-    // _navigationService.navigateToHomepageView();
+   
   }
 
   void actionRouteToSignUpView() {
