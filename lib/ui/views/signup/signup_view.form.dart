@@ -15,6 +15,7 @@ const String FirstNameValueKey = 'firstName';
 const String LastNameValueKey = 'lastName';
 const String EmailValueKey = 'email';
 const String PasswordValueKey = 'password';
+const String PhoneNumberValueKey = 'phoneNumber';
 
 final Map<String, TextEditingController> _SignupViewTextEditingControllers = {};
 
@@ -25,6 +26,7 @@ final Map<String, String? Function(String?)?> _SignupViewTextValidations = {
   LastNameValueKey: null,
   EmailValueKey: null,
   PasswordValueKey: null,
+  PhoneNumberValueKey: null,
 };
 
 mixin $SignupView {
@@ -36,11 +38,14 @@ mixin $SignupView {
       _getFormTextEditingController(EmailValueKey);
   TextEditingController get passwordController =>
       _getFormTextEditingController(PasswordValueKey);
+  TextEditingController get phoneNumberController =>
+      _getFormTextEditingController(PhoneNumberValueKey);
 
   FocusNode get firstNameFocusNode => _getFormFocusNode(FirstNameValueKey);
   FocusNode get lastNameFocusNode => _getFormFocusNode(LastNameValueKey);
   FocusNode get emailFocusNode => _getFormFocusNode(EmailValueKey);
   FocusNode get passwordFocusNode => _getFormFocusNode(PasswordValueKey);
+  FocusNode get phoneNumberFocusNode => _getFormFocusNode(PhoneNumberValueKey);
 
   TextEditingController _getFormTextEditingController(
     String key, {
@@ -70,6 +75,7 @@ mixin $SignupView {
     lastNameController.addListener(() => _updateFormData(model));
     emailController.addListener(() => _updateFormData(model));
     passwordController.addListener(() => _updateFormData(model));
+    phoneNumberController.addListener(() => _updateFormData(model));
 
     _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
@@ -85,6 +91,7 @@ mixin $SignupView {
     lastNameController.addListener(() => _updateFormData(model));
     emailController.addListener(() => _updateFormData(model));
     passwordController.addListener(() => _updateFormData(model));
+    phoneNumberController.addListener(() => _updateFormData(model));
 
     _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
@@ -98,6 +105,7 @@ mixin $SignupView {
           LastNameValueKey: lastNameController.text,
           EmailValueKey: emailController.text,
           PasswordValueKey: passwordController.text,
+          PhoneNumberValueKey: phoneNumberController.text,
         }),
     );
 
@@ -143,6 +151,8 @@ extension ValueProperties on FormStateHelper {
   String? get lastNameValue => this.formValueMap[LastNameValueKey] as String?;
   String? get emailValue => this.formValueMap[EmailValueKey] as String?;
   String? get passwordValue => this.formValueMap[PasswordValueKey] as String?;
+  String? get phoneNumberValue =>
+      this.formValueMap[PhoneNumberValueKey] as String?;
 
   set firstNameValue(String? value) {
     this.setData(
@@ -184,6 +194,17 @@ extension ValueProperties on FormStateHelper {
     }
   }
 
+  set phoneNumberValue(String? value) {
+    this.setData(
+      this.formValueMap..addAll({PhoneNumberValueKey: value}),
+    );
+
+    if (_SignupViewTextEditingControllers.containsKey(PhoneNumberValueKey)) {
+      _SignupViewTextEditingControllers[PhoneNumberValueKey]?.text =
+          value ?? '';
+    }
+  }
+
   bool get hasFirstName =>
       this.formValueMap.containsKey(FirstNameValueKey) &&
       (firstNameValue?.isNotEmpty ?? false);
@@ -196,6 +217,9 @@ extension ValueProperties on FormStateHelper {
   bool get hasPassword =>
       this.formValueMap.containsKey(PasswordValueKey) &&
       (passwordValue?.isNotEmpty ?? false);
+  bool get hasPhoneNumber =>
+      this.formValueMap.containsKey(PhoneNumberValueKey) &&
+      (phoneNumberValue?.isNotEmpty ?? false);
 
   bool get hasFirstNameValidationMessage =>
       this.fieldsValidationMessages[FirstNameValueKey]?.isNotEmpty ?? false;
@@ -205,6 +229,8 @@ extension ValueProperties on FormStateHelper {
       this.fieldsValidationMessages[EmailValueKey]?.isNotEmpty ?? false;
   bool get hasPasswordValidationMessage =>
       this.fieldsValidationMessages[PasswordValueKey]?.isNotEmpty ?? false;
+  bool get hasPhoneNumberValidationMessage =>
+      this.fieldsValidationMessages[PhoneNumberValueKey]?.isNotEmpty ?? false;
 
   String? get firstNameValidationMessage =>
       this.fieldsValidationMessages[FirstNameValueKey];
@@ -214,6 +240,8 @@ extension ValueProperties on FormStateHelper {
       this.fieldsValidationMessages[EmailValueKey];
   String? get passwordValidationMessage =>
       this.fieldsValidationMessages[PasswordValueKey];
+  String? get phoneNumberValidationMessage =>
+      this.fieldsValidationMessages[PhoneNumberValueKey];
 }
 
 extension Methods on FormStateHelper {
@@ -225,6 +253,8 @@ extension Methods on FormStateHelper {
       this.fieldsValidationMessages[EmailValueKey] = validationMessage;
   setPasswordValidationMessage(String? validationMessage) =>
       this.fieldsValidationMessages[PasswordValueKey] = validationMessage;
+  setPhoneNumberValidationMessage(String? validationMessage) =>
+      this.fieldsValidationMessages[PhoneNumberValueKey] = validationMessage;
 
   /// Clears text input fields on the Form
   void clearForm() {
@@ -232,6 +262,7 @@ extension Methods on FormStateHelper {
     lastNameValue = '';
     emailValue = '';
     passwordValue = '';
+    phoneNumberValue = '';
   }
 
   /// Validates text input fields on the Form
@@ -241,6 +272,7 @@ extension Methods on FormStateHelper {
       LastNameValueKey: getValidationMessage(LastNameValueKey),
       EmailValueKey: getValidationMessage(EmailValueKey),
       PasswordValueKey: getValidationMessage(PasswordValueKey),
+      PhoneNumberValueKey: getValidationMessage(PhoneNumberValueKey),
     });
   }
 }
@@ -264,4 +296,5 @@ void updateValidationData(FormStateHelper model) =>
       LastNameValueKey: getValidationMessage(LastNameValueKey),
       EmailValueKey: getValidationMessage(EmailValueKey),
       PasswordValueKey: getValidationMessage(PasswordValueKey),
+      PhoneNumberValueKey: getValidationMessage(PhoneNumberValueKey),
     });

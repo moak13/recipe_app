@@ -46,18 +46,18 @@ class DioService {
       return response.data;
     } on DioException catch (e) {
       if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw ReceipeException(message: S.current.no_internet);
+        throw RecipeException(message: S.current.no_internet);
       }
 
       if (e.type == DioExceptionType.connectionTimeout) {
-        throw ReceipeException(message: S.current.connection_timeout);
+        throw RecipeException(message: S.current.connection_timeout);
       }
 
       if (e.response?.statusCode == 500) {
-        throw ReceipeException(message: S.current.service_unavailable);
+        throw RecipeException(message: S.current.service_unavailable);
       }
 
-      throw ReceipeException(
+      throw RecipeException(
           message: ErrorModel.fromJson(e.response?.data).message ??
               S.current.unknown_error);
     } catch (e, s) {
@@ -78,18 +78,18 @@ class DioService {
       return response.data;
     } on DioException catch (e) {
       if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw ReceipeException(message: S.current.no_internet);
+        throw RecipeException(message: S.current.no_internet);
       }
 
       if (e.type == DioExceptionType.connectionTimeout) {
-        throw ReceipeException(message: S.current.connection_timeout);
+        throw RecipeException(message: S.current.connection_timeout);
       }
 
       if (e.response?.statusCode == 500) {
-        throw ReceipeException(message: S.current.service_unavailable);
+        throw RecipeException(message: S.current.service_unavailable);
       }
 
-      throw ReceipeException(
+      throw RecipeException(
           message: ErrorModel.fromJson(e.response?.data).message ??
               S.current.unknown_error);
     } catch (e, s) {
@@ -112,18 +112,18 @@ class DioService {
       return response.data;
     } on DioException catch (e) {
       if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw ReceipeException(message: S.current.no_internet);
+        throw RecipeException(message: S.current.no_internet);
       }
 
       if (e.type == DioExceptionType.connectionTimeout) {
-        throw ReceipeException(message: S.current.connection_timeout);
+        throw RecipeException(message: S.current.connection_timeout);
       }
 
       if (e.response?.statusCode == 500) {
-        throw ReceipeException(message: S.current.service_unavailable);
+        throw RecipeException(message: S.current.service_unavailable);
       }
 
-      throw ReceipeException(
+      throw RecipeException(
           message: ErrorModel.fromJson(e.response?.data).message ??
               S.current.unknown_error);
     } catch (e, s) {
@@ -146,18 +146,18 @@ class DioService {
       return response.data;
     } on DioException catch (e) {
       if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw ReceipeException(message: S.current.no_internet);
+        throw RecipeException(message: S.current.no_internet);
       }
 
       if (e.type == DioExceptionType.connectionTimeout) {
-        throw ReceipeException(message: S.current.connection_timeout);
+        throw RecipeException(message: S.current.connection_timeout);
       }
 
       if (e.response?.statusCode == 500) {
-        throw ReceipeException(message: S.current.service_unavailable);
+        throw RecipeException(message: S.current.service_unavailable);
       }
 
-      throw ReceipeException(
+      throw RecipeException(
           message: ErrorModel.fromJson(e.response?.data).message ??
               S.current.unknown_error);
     } catch (e, s) {
@@ -180,18 +180,18 @@ class DioService {
       return response.data;
     } on DioException catch (e) {
       if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw ReceipeException(message: S.current.no_internet);
+        throw RecipeException(message: S.current.no_internet);
       }
 
       if (e.type == DioExceptionType.connectionTimeout) {
-        throw ReceipeException(message: S.current.connection_timeout);
+        throw RecipeException(message: S.current.connection_timeout);
       }
 
       if (e.response?.statusCode == 500) {
-        throw ReceipeException(message: S.current.service_unavailable);
+        throw RecipeException(message: S.current.service_unavailable);
       }
 
-      throw ReceipeException(
+      throw RecipeException(
           message: ErrorModel.fromJson(e.response?.data).message ??
               S.current.unknown_error);
     } catch (e, s) {

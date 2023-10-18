@@ -19,6 +19,7 @@ import 'signup_viewmodel.dart';
   FormTextField(name: 'lastName'),
   FormTextField(name: 'email'),
   FormTextField(name: 'password'),
+  FormTextField(name: 'phoneNumber'),
 ])
 class SignupView extends StackedView<SignupViewModel> with $SignupView {
   const SignupView({Key? key}) : super(key: key);
@@ -34,139 +35,152 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
     final ThemeData theme = Theme.of(context);
     final AppTypography? typography = theme.extension<AppTypography>();
     final Palette? palette = theme.extension<Palette>();
+
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.only(
-              left: sidePadding,
-              right: sidePadding,
-              bottom: sidePadding + 20.h),
-          child: Form(
-            key: _signupKey,
-            child: Column(
-              children: [
-                Image.asset(
-                  AppImages.splashLogo,
-                  height: 72.h,
-                ),
-                SizedBox(
-                  height: 33.h,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    S.current.sign_up,
-                    style: typography?.headlineBold28
-                        ?.copyWith(color: palette?.gray11),
+      body: Builder(builder: (context) {
+        Widget content = SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.only(left: sidePadding, right: sidePadding, bottom: sidePadding + 20.h),
+            child: Form(
+              key: _signupKey,
+              child: Column(
+                children: [
+                  Image.asset(
+                    AppImages.splashLogo,
+                    height: 72.h,
                   ),
-                ),
-                SizedBox(
-                  height: 4.h,
-                ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Kindly fill the form to create a Kally Dish account",
-                    style: typography?.titleRegular16
-                        ?.copyWith(color: palette?.gray8),
+                  SizedBox(
+                    height: 33.h,
                   ),
-                ),
-                SizedBox(
-                  height: 24.h,
-                ),
-                TextFormField(
-                  controller: firstNameController,
-                  focusNode: firstNameFocusNode,
-                  validator: Validation.validateField,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    labelText: S.current.first_name,
-                    hintText: S.current.enter_your_first_name,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      S.current.sign_up,
+                      style: typography?.headlineBold28?.copyWith(color: palette?.gray11),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 16.h,
-                ),
-                TextFormField(
-                  controller: lastNameController,
-                  focusNode: lastNameFocusNode,
-                  validator: Validation.validateField,
-                  textInputAction: TextInputAction.next,
-                  decoration: InputDecoration(
-                    labelText: S.current.last_name,
-                    hintText: S.current.enter_your_last_name,
+                  SizedBox(
+                    height: 4.h,
                   ),
-                ),
-                SizedBox(
-                  height: 16.h,
-                ),
-                TextFormField(
-                  controller: emailController,
-                  focusNode: emailFocusNode,
-                  autofillHints: const [AutofillHints.email],
-                  keyboardType: TextInputType.emailAddress,
-                  textInputAction: TextInputAction.next,
-                  validator: Validation.validateEmail,
-                  decoration: InputDecoration(
-                      labelText: S.current.email_address,
-                      hintText: S.current.enter_your_email),
-                ),
-                SizedBox(
-                  height: 16.h,
-                ),
-                TextFormField(
-                  controller: passwordController,
-                  focusNode: passwordFocusNode,
-                  obscureText: viewModel.hidePassword,
-                  textInputAction: TextInputAction.done,
-                  validator: Validation.validateField,
-                  decoration: InputDecoration(
-                    labelText: S.current.password,
-                    hintText: S.current.enter_your_password,
-                    suffixIcon: IconButton(
-                      onPressed: viewModel.togglePassword,
-                      icon: Icon(
-                        viewModel.hidePassword
-                            ? Icons.visibility
-                            : Icons.visibility_off,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Kindly fill the form to create a Kally Dish account",
+                      style: typography?.titleRegular16?.copyWith(color: palette?.gray8),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24.h,
+                  ),
+                  TextFormField(
+                    controller: firstNameController,
+                    focusNode: firstNameFocusNode,
+                    validator: Validation.validateField,
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                      labelText: S.current.first_name,
+                      hintText: S.current.enter_your_first_name,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  TextFormField(
+                    controller: lastNameController,
+                    focusNode: lastNameFocusNode,
+                    validator: Validation.validateField,
+                    textInputAction: TextInputAction.next,
+                    decoration: InputDecoration(
+                      labelText: S.current.last_name,
+                      hintText: S.current.enter_your_last_name,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  TextFormField(
+                    controller: emailController,
+                    focusNode: emailFocusNode,
+                    autofillHints: const [AutofillHints.email],
+                    keyboardType: TextInputType.emailAddress,
+                    textInputAction: TextInputAction.next,
+                    validator: Validation.validateEmail,
+                    decoration: InputDecoration(labelText: S.current.email_address, hintText: S.current.enter_your_email),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  TextFormField(
+                    controller: passwordController,
+                    focusNode: passwordFocusNode,
+                    obscureText: viewModel.hidePassword,
+                    textInputAction: TextInputAction.next,
+                    validator: Validation.validateField,
+                    decoration: InputDecoration(
+                      labelText: S.current.password,
+                      hintText: S.current.enter_your_password,
+                      suffixIcon: IconButton(
+                        onPressed: viewModel.togglePassword,
+                        icon: Icon(
+                          viewModel.hidePassword ? Icons.visibility : Icons.visibility_off,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 129.h,
-                ),
-                PrimaryButton(
-                  buttonText: S.current.sign_up,
-                  onTap: () {
-                    if (_signupKey.currentState?.validate() ?? false) {
-                      viewModel.signup();
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: 16.h,
-                ),
-                Text.rich(TextSpan(
-                    text: S.current.already_have_an_account,
-                    style: typography?.titleRegular16
-                        ?.copyWith(color: palette?.gray8, fontSize: 14.sp),
-                    children: [
-                      const TextSpan(text: " "),
-                      TextSpan(
-                          text: S.current.login,
-                          style: typography?.titleBold16?.copyWith(
-                            color: palette?.primary6,
-                            fontSize: 14.sp,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = viewModel.actionRouteToLoginView)
-                    ]))
-              ],
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  TextFormField(
+                    controller: phoneNumberController,
+                    focusNode: phoneNumberFocusNode,
+                    autofillHints: const [AutofillHints.telephoneNumber],
+                    keyboardType: TextInputType.phone,
+                    textInputAction: TextInputAction.done,
+                    validator: Validation.validateField,
+                    decoration: InputDecoration(labelText: "Phone number", hintText: "Enter phone number"),
+                  ),
+                  SizedBox(
+                    height: 100.h,
+                  ),
+                  PrimaryButton(
+                    buttonText: S.current.sign_up,
+                    onTap: () {
+                      if (_signupKey.currentState?.validate() ?? false) {
+                        viewModel.signup();
+                      }
+                    },
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  Text.rich(TextSpan(
+                      text: S.current.already_have_an_account,
+                      style: typography?.titleRegular16?.copyWith(color: palette?.gray8, fontSize: 14.sp),
+                      children: [
+                        const TextSpan(text: " "),
+                        TextSpan(
+                            text: S.current.login,
+                            style: typography?.titleBold16?.copyWith(
+                              color: palette?.primary6,
+                              fontSize: 14.sp,
+                            ),
+                            recognizer: TapGestureRecognizer()..onTap = viewModel.actionRouteToLoginView)
+                      ]))
+                ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+        List<Widget> stackChildren = [content];
+
+        if (viewModel.isBusy) {
+          stackChildren.add(Center(child: CircularProgressIndicator.adaptive()));
+        }
+
+        return Stack(
+          children: stackChildren,
+        );
+      }),
     );
   }
 

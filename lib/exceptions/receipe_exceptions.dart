@@ -1,7 +1,7 @@
-class ReceipeException implements Exception {
+class RecipeException implements Exception {
   final String message;
 
-  ReceipeException({
+  RecipeException({
     required this.message,
   });
 }

@@ -10,6 +10,7 @@ import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:receipe_app/data_model/event.dart' as _i7;
 import 'package:receipe_app/data_model/login_model.dart' as _i11;
+import 'package:receipe_app/data_model/register_model.dart' as _i12;
 import 'package:receipe_app/services/authentication_service.dart' as _i10;
 import 'package:receipe_app/services/dio_service.dart' as _i9;
 import 'package:receipe_app/services/event_service.dart' as _i6;
@@ -833,6 +834,16 @@ class MockAuthenticationService extends _i1.Mock
           #login,
           [],
           {#loginModel: loginModel},
+        ),
+        returnValue: _i4.Future<dynamic>.value(),
+        returnValueForMissingStub: _i4.Future<dynamic>.value(),
+      ) as _i4.Future<dynamic>);
+  @override
+  _i4.Future<dynamic> register(_i12.RegisterModel? registerModel) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #register,
+          [registerModel],
         ),
         returnValue: _i4.Future<dynamic>.value(),
         returnValueForMissingStub: _i4.Future<dynamic>.value(),
