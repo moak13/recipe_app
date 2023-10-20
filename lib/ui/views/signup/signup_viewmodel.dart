@@ -2,6 +2,7 @@ import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/register_model.dart';
+import 'package:receipe_app/data_model/user.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/ui/views/signup/signup_view.form.dart';
@@ -34,11 +35,13 @@ class SignupViewModel extends FormViewModel {
         ..password = passwordValue?.trim()
         ..phoneNumber = phoneNumberValue?.trim();
 
-      final response = await _authenticationService.register(registerModel);
+      final User? response = await _authenticationService.register(registerModel);
 
-      await _dialogService.showDialog(
-        description: response,
-      );
+      if (response != null) {
+        await _dialogService.showDialog(
+          description: "Account created successfully.",
+        );
+      }
     } on RecipeException catch (e) {
       _dialogService.showDialog(
         description: e.message,
