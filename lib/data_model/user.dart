@@ -1,23 +1,33 @@
 class User {
   int? id;
-  String? firstName, lastName, email;
+  String? firstname;
+  String? lastName;
+  String? email;
   String? phoneNumber;
 
   User({
     this.id,
-    this.firstName,
+    this.firstname,
     this.lastName,
     this.email,
     this.phoneNumber,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-        id: json['id'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        email: json['email'],
-        phoneNumber: json['phone_number'],
-      );
+  User.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    firstname = json['first_name'];
+    lastName = json['last_name'];
+    email = json['email'];
+    phoneNumber = json['phone_number'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['first_name'] = firstname;
+    data['last_name'] = lastName;
+    data['email'] = email;
+    data['phone_number'] = phoneNumber;
+    return data;
   }
 }

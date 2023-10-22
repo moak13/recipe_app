@@ -1,16 +1,19 @@
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/data_model/login_model.dart';
+import 'package:receipe_app/data_model/login_response.dart';
 import 'package:receipe_app/data_model/register_model.dart';
 import 'package:receipe_app/data_model/user.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/services/dio_service.dart';
+import 'package:receipe_app/services/secure_storage_service.dart';
 
 class AuthenticationService {
   final _logger = getLogger('AuthenticationService');
   final _dioService = locator<DioService>();
+  final _secureStorageService = locator<SecureStorageService>();
 
-  Future login({
+  Future<LoginResponse?> login({
     LoginModel? loginModel,
   }) async {
     try {
@@ -19,12 +22,20 @@ class AuthenticationService {
         data: loginModel!.toJson(),
       );
       _logger.i('loginResponse: $response');
-      return response['access_token'];
+      final data = LoginResponse.fromJson(response);
+      await _secureStorageService.writeAccessToken(
+        token: data.credentials?.accessToken,
+      );
+      await _secureStorageService.writeRefreshToken(
+        token: data.credentials?.refreshToken,
+      );
+      return data;
     } on RecipeException {
       _logger.e('Application Error trying to login a user');
       rethrow;
     } catch (e, s) {
       _logger.e('Error trying to login a user', e, s);
+      rethrow;
     }
   }
 
