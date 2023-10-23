@@ -6,10 +6,12 @@ import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/data_model/error_model.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/generated/l10n.dart';
+import 'package:receipe_app/interceptors/app_interceptors.dart';
 
 class DioService {
   late final Dio _dio;
   final _logger = getLogger('DioService');
+
 
   DioService() {
     _dio = Dio(
@@ -27,8 +29,10 @@ class DioService {
           request: false,
           requestBody: true,
         ),
+        AppInterceptor(),
       ]);
     }
+    _dio.interceptors.add(AppInterceptor());
   }
 
   Future post({
@@ -45,21 +49,7 @@ class DioService {
 
       return response.data;
     } on DioException catch (e) {
-      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw RecipeException(message: S.current.no_internet);
-      }
-
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw RecipeException(message: S.current.connection_timeout);
-      }
-
-      if (e.response?.statusCode == 500) {
-        throw RecipeException(message: S.current.service_unavailable);
-      }
-
-      throw RecipeException(
-          message: ErrorModel.fromJson(e.response?.data).message ??
-              S.current.unknown_error);
+      _handleError(e);
     } catch (e, s) {
       _logger.wtf('Could not make a request to this path: $path', e, s);
     }
@@ -77,21 +67,7 @@ class DioService {
 
       return response.data;
     } on DioException catch (e) {
-      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw RecipeException(message: S.current.no_internet);
-      }
-
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw RecipeException(message: S.current.connection_timeout);
-      }
-
-      if (e.response?.statusCode == 500) {
-        throw RecipeException(message: S.current.service_unavailable);
-      }
-
-      throw RecipeException(
-          message: ErrorModel.fromJson(e.response?.data).message ??
-              S.current.unknown_error);
+      _handleError(e);
     } catch (e, s) {
       _logger.wtf('Could not make a request to this path: $path', e, s);
     }
@@ -111,21 +87,7 @@ class DioService {
 
       return response.data;
     } on DioException catch (e) {
-      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw RecipeException(message: S.current.no_internet);
-      }
-
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw RecipeException(message: S.current.connection_timeout);
-      }
-
-      if (e.response?.statusCode == 500) {
-        throw RecipeException(message: S.current.service_unavailable);
-      }
-
-      throw RecipeException(
-          message: ErrorModel.fromJson(e.response?.data).message ??
-              S.current.unknown_error);
+      _handleError(e);
     } catch (e, s) {
       _logger.wtf('Could not make a request to this path: $path', e, s);
     }
@@ -145,21 +107,7 @@ class DioService {
 
       return response.data;
     } on DioException catch (e) {
-      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw RecipeException(message: S.current.no_internet);
-      }
-
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw RecipeException(message: S.current.connection_timeout);
-      }
-
-      if (e.response?.statusCode == 500) {
-        throw RecipeException(message: S.current.service_unavailable);
-      }
-
-      throw RecipeException(
-          message: ErrorModel.fromJson(e.response?.data).message ??
-              S.current.unknown_error);
+      _handleError(e);
     } catch (e, s) {
       _logger.wtf('Could not make a request to this path: $path', e, s);
     }
@@ -179,23 +127,25 @@ class DioService {
 
       return response.data;
     } on DioException catch (e) {
-      if (e.type == DioExceptionType.unknown && e.error is SocketException) {
-        throw RecipeException(message: S.current.no_internet);
-      }
-
-      if (e.type == DioExceptionType.connectionTimeout) {
-        throw RecipeException(message: S.current.connection_timeout);
-      }
-
-      if (e.response?.statusCode == 500) {
-        throw RecipeException(message: S.current.service_unavailable);
-      }
-
-      throw RecipeException(
-          message: ErrorModel.fromJson(e.response?.data).message ??
-              S.current.unknown_error);
+      _handleError(e);
     } catch (e, s) {
       _logger.wtf('Could not make a request to this path: $path', e, s);
     }
+  }
+
+  void _handleError(DioException e) {
+    if (e.type == DioExceptionType.unknown && e.error is SocketException) {
+      throw RecipeException(message: S.current.no_internet);
+    }
+
+    if (e.type == DioExceptionType.connectionTimeout) {
+      throw RecipeException(message: S.current.connection_timeout);
+    }
+
+    if (e.response?.statusCode == 500) {
+      throw RecipeException(message: S.current.service_unavailable);
+    }
+
+    throw RecipeException(message: ErrorModel.fromJson(e.response?.data).message ?? S.current.unknown_error);
   }
 }

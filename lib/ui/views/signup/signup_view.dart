@@ -40,7 +40,10 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
       body: Builder(builder: (context) {
         Widget content = SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.only(left: sidePadding, right: sidePadding, bottom: sidePadding + 20.h),
+            padding: EdgeInsets.only(
+                left: sidePadding,
+                right: sidePadding,
+                bottom: sidePadding + 20.h),
             child: Form(
               key: _signupKey,
               child: Column(
@@ -56,7 +59,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       S.current.sign_up,
-                      style: typography?.headlineBold28?.copyWith(color: palette?.gray11),
+                      style: typography?.headlineBold28
+                          ?.copyWith(color: palette?.gray11),
                     ),
                   ),
                   SizedBox(
@@ -66,7 +70,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Kindly fill the form to create a Kally Dish account",
-                      style: typography?.titleRegular16?.copyWith(color: palette?.gray8),
+                      style: typography?.titleRegular16
+                          ?.copyWith(color: palette?.gray8),
                     ),
                   ),
                   SizedBox(
@@ -105,7 +110,9 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     validator: Validation.validateEmail,
-                    decoration: InputDecoration(labelText: S.current.email_address, hintText: S.current.enter_your_email),
+                    decoration: InputDecoration(
+                        labelText: S.current.email_address,
+                        hintText: S.current.enter_your_email),
                   ),
                   SizedBox(
                     height: 16.h,
@@ -122,7 +129,9 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                       suffixIcon: IconButton(
                         onPressed: viewModel.togglePassword,
                         icon: Icon(
-                          viewModel.hidePassword ? Icons.visibility : Icons.visibility_off,
+                          viewModel.hidePassword
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                         ),
                       ),
                     ),
@@ -137,7 +146,9 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                     keyboardType: TextInputType.phone,
                     textInputAction: TextInputAction.done,
                     validator: Validation.validateField,
-                    decoration: InputDecoration(labelText: "Phone number", hintText: "Enter phone number"),
+                    decoration: InputDecoration(
+                        labelText: "Phone number",
+                        hintText: "Enter phone number"),
                   ),
                   SizedBox(
                     height: 100.h,
@@ -155,7 +166,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                   ),
                   Text.rich(TextSpan(
                       text: S.current.already_have_an_account,
-                      style: typography?.titleRegular16?.copyWith(color: palette?.gray8, fontSize: 14.sp),
+                      style: typography?.titleRegular16
+                          ?.copyWith(color: palette?.gray8, fontSize: 14.sp),
                       children: [
                         const TextSpan(text: " "),
                         TextSpan(
@@ -164,7 +176,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                               color: palette?.primary6,
                               fontSize: 14.sp,
                             ),
-                            recognizer: TapGestureRecognizer()..onTap = viewModel.actionRouteToLoginView)
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = viewModel.actionRouteToLoginView)
                       ]))
                 ],
               ),
@@ -174,7 +187,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
         List<Widget> stackChildren = [content];
 
         if (viewModel.isBusy) {
-          stackChildren.add(Center(child: CircularProgressIndicator.adaptive()));
+          stackChildren
+              .add(Center(child: CircularProgressIndicator.adaptive()));
         }
 
         return Stack(

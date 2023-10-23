@@ -9,8 +9,10 @@ import 'dart:ui' as _i5;
 import 'package:flutter/material.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:receipe_app/data_model/event.dart' as _i7;
-import 'package:receipe_app/data_model/login_model.dart' as _i11;
-import 'package:receipe_app/data_model/register_model.dart' as _i12;
+import 'package:receipe_app/data_model/login_model.dart' as _i12;
+import 'package:receipe_app/data_model/login_response.dart' as _i11;
+import 'package:receipe_app/data_model/register_model.dart' as _i14;
+import 'package:receipe_app/data_model/user.dart' as _i13;
 import 'package:receipe_app/services/authentication_service.dart' as _i10;
 import 'package:receipe_app/services/dio_service.dart' as _i9;
 import 'package:receipe_app/services/event_service.dart' as _i6;
@@ -694,27 +696,55 @@ class MockEventService extends _i1.Mock implements _i6.EventService {
 class MockSecureStorageService extends _i1.Mock
     implements _i8.SecureStorageService {
   @override
-  _i4.Future<void> deleteToken() => (super.noSuchMethod(
+  _i4.Future<void> deleteAccessToken() => (super.noSuchMethod(
         Invocation.method(
-          #deleteToken,
+          #deleteAccessToken,
           [],
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
   @override
-  _i4.Future<String?> readToken() => (super.noSuchMethod(
+  _i4.Future<void> deleteRefreshToken() => (super.noSuchMethod(
         Invocation.method(
-          #readToken,
+          #deleteRefreshToken,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<String?> readAccessToken() => (super.noSuchMethod(
+        Invocation.method(
+          #readAccessToken,
           [],
         ),
         returnValue: _i4.Future<String?>.value(),
         returnValueForMissingStub: _i4.Future<String?>.value(),
       ) as _i4.Future<String?>);
   @override
-  _i4.Future<void> writeToken({String? token}) => (super.noSuchMethod(
+  _i4.Future<String?> readRefreshToken() => (super.noSuchMethod(
         Invocation.method(
-          #writeToken,
+          #readRefreshToken,
+          [],
+        ),
+        returnValue: _i4.Future<String?>.value(),
+        returnValueForMissingStub: _i4.Future<String?>.value(),
+      ) as _i4.Future<String?>);
+  @override
+  _i4.Future<void> writeAccessToken({String? token}) => (super.noSuchMethod(
+        Invocation.method(
+          #writeAccessToken,
+          [],
+          {#token: token},
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<void> writeRefreshToken({String? token}) => (super.noSuchMethod(
+        Invocation.method(
+          #writeRefreshToken,
           [],
           {#token: token},
         ),
@@ -828,24 +858,24 @@ class MockDioService extends _i1.Mock implements _i9.DioService {
 class MockAuthenticationService extends _i1.Mock
     implements _i10.AuthenticationService {
   @override
-  _i4.Future<dynamic> login({_i11.LoginModel? loginModel}) =>
+  _i4.Future<_i11.LoginResponse?> login({_i12.LoginModel? loginModel}) =>
       (super.noSuchMethod(
         Invocation.method(
           #login,
           [],
           {#loginModel: loginModel},
         ),
-        returnValue: _i4.Future<dynamic>.value(),
-        returnValueForMissingStub: _i4.Future<dynamic>.value(),
-      ) as _i4.Future<dynamic>);
+        returnValue: _i4.Future<_i11.LoginResponse?>.value(),
+        returnValueForMissingStub: _i4.Future<_i11.LoginResponse?>.value(),
+      ) as _i4.Future<_i11.LoginResponse?>);
   @override
-  _i4.Future<dynamic> register(_i12.RegisterModel? registerModel) =>
+  _i4.Future<_i13.User?> register(_i14.RegisterModel? registerModel) =>
       (super.noSuchMethod(
         Invocation.method(
           #register,
           [registerModel],
         ),
-        returnValue: _i4.Future<dynamic>.value(),
-        returnValueForMissingStub: _i4.Future<dynamic>.value(),
-      ) as _i4.Future<dynamic>);
+        returnValue: _i4.Future<_i13.User?>.value(),
+        returnValueForMissingStub: _i4.Future<_i13.User?>.value(),
+      ) as _i4.Future<_i13.User?>);
 }
