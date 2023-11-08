@@ -6,6 +6,7 @@ import 'package:receipe_app/services/event_service.dart';
 import 'package:receipe_app/services/secure_storage_service.dart';
 import 'package:receipe_app/services/dio_service.dart';
 import 'package:receipe_app/services/authentication_service.dart';
+import 'package:receipe_app/services/dish_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -18,6 +19,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<SecureStorageService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DioService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AuthenticationService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<DishService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -28,6 +30,7 @@ void registerServices() {
   getAndRegisterSecureStorageService();
   getAndRegisterDioService();
   getAndRegisterAuthenticationService();
+  getAndRegisterDishService();
 // @stacked-mock-register
 }
 
@@ -106,6 +109,13 @@ MockAuthenticationService getAndRegisterAuthenticationService() {
   _removeRegistrationIfExists<AuthenticationService>();
   final service = MockAuthenticationService();
   locator.registerSingleton<AuthenticationService>(service);
+  return service;
+}
+
+MockDishService getAndRegisterDishService() {
+  _removeRegistrationIfExists<DishService>();
+  final service = MockDishService();
+  locator.registerSingleton<DishService>(service);
   return service;
 }
 // @stacked-mock-create

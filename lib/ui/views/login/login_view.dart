@@ -32,130 +32,129 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     final AppTypography? typography = theme.extension<AppTypography>();
     final Palette? palette = theme.extension<Palette>();
     return Scaffold(
-      body: Builder(
-        builder: (context) {
-          Widget content = SafeArea(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.only(
-                  left: sidePadding,
-                  right: sidePadding,
-                  bottom: sidePadding + 20.h),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    Image.asset(
-                      AppImages.splashLogo,
-                      height: 72.h,
+      body: Builder(builder: (context) {
+        Widget content = SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.only(
+                left: sidePadding,
+                right: sidePadding,
+                bottom: sidePadding + 20.h),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Image.asset(
+                    AppImages.splashLogo,
+                    height: 72.h,
+                  ),
+                  SizedBox(
+                    height: 33.h,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      S.current.welcome,
+                      style: typography?.headlineBold28
+                          ?.copyWith(color: palette?.gray11),
                     ),
-                    SizedBox(
-                      height: 33.h,
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      S.current.please_sign_in_to_continue,
+                      style: typography?.titleRegular16
+                          ?.copyWith(color: palette?.gray8),
                     ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        S.current.welcome,
-                        style: typography?.headlineBold28
-                            ?.copyWith(color: palette?.gray11),
-                      ),
+                  ),
+                  SizedBox(
+                    height: 24.h,
+                  ),
+                  TextFormField(
+                    controller: emailController,
+                    focusNode: emailFocusNode,
+                    autofillHints: const [AutofillHints.email],
+                    keyboardType: TextInputType.emailAddress,
+                    validator: Validation.validateEmail,
+                    decoration: InputDecoration(
+                      labelText: S.current.email_address,
+                      hintText: S.current.enter_your_email,
                     ),
-                    SizedBox(
-                      height: 4.h,
-                    ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        S.current.please_sign_in_to_continue,
-                        style: typography?.titleRegular16
-                            ?.copyWith(color: palette?.gray8),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 24.h,
-                    ),
-                    TextFormField(
-                      controller: emailController,
-                      focusNode: emailFocusNode,
-                      autofillHints: const [AutofillHints.email],
-                      keyboardType: TextInputType.emailAddress,
-                      validator: Validation.validateEmail,
-                      decoration: InputDecoration(
-                        labelText: S.current.email_address,
-                        hintText: S.current.enter_your_email,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16.h,
-                    ),
-                    TextFormField(
-                      controller: passwordController,
-                      focusNode: passwordFocusNode,
-                      obscureText: viewModel.hideText,
-                      validator: Validation.validateField,
-                      decoration: InputDecoration(
-                        labelText: S.current.password,
-                        hintText: S.current.enter_your_password,
-                        suffixIcon: IconButton(
-                          onPressed: viewModel.toggleVisibility,
-                          icon: Icon(
-                            viewModel.hideText
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                          ),
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  TextFormField(
+                    controller: passwordController,
+                    focusNode: passwordFocusNode,
+                    obscureText: viewModel.hideText,
+                    validator: Validation.validateField,
+                    decoration: InputDecoration(
+                      labelText: S.current.password,
+                      hintText: S.current.enter_your_password,
+                      suffixIcon: IconButton(
+                        onPressed: viewModel.toggleVisibility,
+                        icon: Icon(
+                          viewModel.hideText
+                              ? Icons.visibility
+                              : Icons.visibility_off,
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 253.h,
-                    ),
-                    PrimaryButton(
-                      buttonText: S.current.login,
-                      onTap: () {
-                        if (_formKey.currentState?.validate() ?? false) {
-                          viewModel.login();
-                        }
-                      },
-                    ),
-                    SizedBox(
-                      height: 16.h,
-                    ),
-                    Text.rich(
-                      TextSpan(
-                        text: S.current.dont_have_an_account,
-                        style: typography?.titleRegular16?.copyWith(
-                          color: palette?.gray8,
-                          fontSize: 14.sp,
-                        ),
-                        children: [
-                          const TextSpan(text: " "),
-                          TextSpan(
-                              text: S.current.sign_up,
-                              style: typography?.titleBold16?.copyWith(
-                                color: palette?.primary6,
-                                fontSize: 14.sp,
-                              ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = viewModel.actionRouteToSignUpView),
-                        ],
+                  ),
+                  SizedBox(
+                    height: 253.h,
+                  ),
+                  PrimaryButton(
+                    buttonText: S.current.login,
+                    onTap: () {
+                      if (_formKey.currentState?.validate() ?? false) {
+                        viewModel.login();
+                      }
+                    },
+                  ),
+                  SizedBox(
+                    height: 16.h,
+                  ),
+                  Text.rich(
+                    TextSpan(
+                      text: S.current.dont_have_an_account,
+                      style: typography?.titleRegular16?.copyWith(
+                        color: palette?.gray8,
+                        fontSize: 14.sp,
                       ),
+                      children: [
+                        const TextSpan(text: " "),
+                        TextSpan(
+                            text: S.current.sign_up,
+                            style: typography?.titleBold16?.copyWith(
+                              color: palette?.primary6,
+                              fontSize: 14.sp,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = viewModel.actionRouteToSignUpView),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          );
+          ),
+        );
 
-          List<Widget> stackChildren = [content];
+        List<Widget> stackChildren = [content];
 
         if (viewModel.isBusy) {
-          stackChildren.add(Center(child: CircularProgressIndicator.adaptive()));
+          stackChildren
+              .add(Center(child: CircularProgressIndicator.adaptive()));
         }
 
         return Stack(
           children: stackChildren,
         );
-        }
-      ),
+      }),
     );
   }
 

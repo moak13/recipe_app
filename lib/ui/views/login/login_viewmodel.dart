@@ -35,6 +35,7 @@ class LoginViewModel extends FormViewModel {
         _dialogService.showDialog(
           description: S.current.unknown_error,
         );
+        return;
       }
 
       _navigationService.clearStackAndShow(Routes.homepageView);

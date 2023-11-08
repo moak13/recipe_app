@@ -15,7 +15,6 @@ class AppInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    
     String? token = await _secureStorageService.readAccessToken();
     _logger.i("Token: $token");
 
