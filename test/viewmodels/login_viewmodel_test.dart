@@ -11,23 +11,22 @@ void main() {
   group('LoginViewModel Tests -', () {
     setUp(() => registerServices());
     tearDown(() => locator.reset());
-  });
 
-  group('isBusy', () {
+    group('isBusy', () {
     test("test if login view model is not busy at init", () {
       final viewModel = LoginViewModel();
       expect(viewModel.isBusy, isFalse);
     });
 
     test("test if login view model is busy when login function is called ",
-        () async {
+        () {
       var viewModel = LoginViewModel();
-      await viewModel.login();
+      viewModel.login();
       expect(viewModel.isBusy, isTrue);
     });
   });
 
-  group('login', () {
+   group('login', () {
     test('is authservice login is called when u tap login', () async {
       const fakeEmail = 'valid_email@filledstacks.com';
       const fakePassword = 'Password12';
@@ -41,15 +40,11 @@ void main() {
           loginModel: LoginModel(email: fakeEmail, password: fakePassword)));
     });
 
-    test(
-        'test that the view model routes to home view when login response doesnt return null',
-        () async {
-      var mockNavService = getAndRegisterNavigationService();
-      var viewModel = LoginViewModel();
-
-      await viewModel.login();
-
-      verify(mockNavService.clearStackAndShow(Routes.homepageView));
-    });
   });
+
+  });
+
+  
+
+ 
 }

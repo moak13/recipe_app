@@ -1,16 +1,13 @@
-class LoginModel {
-  String? email;
-  String? password;
+import 'package:equatable/equatable.dart';
 
-  LoginModel({
+class LoginModel extends Equatable{
+  final String? email;
+  final String? password;
+
+  const LoginModel({
     this.email,
     this.password,
   });
-
-  LoginModel.fromJson(Map<String, dynamic> json) {
-    email = json['email'];
-    password = json['password'];
-  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -18,4 +15,7 @@ class LoginModel {
     data['password'] = password;
     return data;
   }
+  
+  @override
+  List<Object?> get props => [email, password];
 }

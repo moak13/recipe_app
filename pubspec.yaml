@@ -9,6 +9,7 @@ environment:
 dependencies:
   dio: ^5.3.3
   dots_indicator: ^3.0.0
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_localizations:

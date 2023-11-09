@@ -1,6 +1,7 @@
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:receipe_app/app/app.locator.dart';
+import 'package:receipe_app/data_model/login_response.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:receipe_app/services/event_service.dart';
 import 'package:receipe_app/services/secure_storage_service.dart';
@@ -70,8 +71,7 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
     customData: anyNamed('customData'),
     data: anyNamed('data'),
     description: anyNamed('description'),
-  )).thenAnswer((realInvocation) =>
-      Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
+  )).thenAnswer((realInvocation) => Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
 
   locator.registerSingleton<BottomSheetService>(service);
   return service;
@@ -108,6 +108,9 @@ MockDioService getAndRegisterDioService() {
 MockAuthenticationService getAndRegisterAuthenticationService() {
   _removeRegistrationIfExists<AuthenticationService>();
   final service = MockAuthenticationService();
+
+  when(service.login()).thenAnswer((_) => Future.value(LoginResponse()));
+  
   locator.registerSingleton<AuthenticationService>(service);
   return service;
 }
