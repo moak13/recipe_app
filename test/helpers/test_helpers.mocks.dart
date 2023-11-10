@@ -15,6 +15,7 @@ import 'package:receipe_app/data_model/register_model.dart' as _i14;
 import 'package:receipe_app/data_model/user.dart' as _i13;
 import 'package:receipe_app/services/authentication_service.dart' as _i10;
 import 'package:receipe_app/services/dio_service.dart' as _i9;
+import 'package:receipe_app/services/dish_service.dart' as _i15;
 import 'package:receipe_app/services/event_service.dart' as _i6;
 import 'package:receipe_app/services/secure_storage_service.dart' as _i8;
 import 'package:stacked_services/stacked_services.dart' as _i2;
@@ -879,3 +880,8 @@ class MockAuthenticationService extends _i1.Mock
         returnValueForMissingStub: _i4.Future<_i13.User?>.value(),
       ) as _i4.Future<_i13.User?>);
 }
+
+/// A class which mocks [DishService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDishService extends _i1.Mock implements _i15.DishService {}

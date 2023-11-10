@@ -12,7 +12,6 @@ class DioService {
   late final Dio _dio;
   final _logger = getLogger('DioService');
 
-
   DioService() {
     _dio = Dio(
       BaseOptions(
@@ -146,6 +145,8 @@ class DioService {
       throw RecipeException(message: S.current.service_unavailable);
     }
 
-    throw RecipeException(message: ErrorModel.fromJson(e.response?.data).message ?? S.current.unknown_error);
+    throw RecipeException(
+        message: ErrorModel.fromJson(e.response?.data).message ??
+            S.current.unknown_error);
   }
 }

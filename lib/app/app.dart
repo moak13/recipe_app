@@ -17,6 +17,7 @@ import 'package:receipe_app/services/secure_storage_service.dart';
 import 'package:receipe_app/services/dio_service.dart';
 import 'package:receipe_app/ui/views/splash/splash_view.dart';
 import 'package:receipe_app/services/authentication_service.dart';
+import 'package:receipe_app/services/dish_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -41,6 +42,7 @@ import 'package:receipe_app/services/authentication_service.dart';
     LazySingleton(classType: SecureStorageService),
     LazySingleton(classType: DioService),
     LazySingleton(classType: AuthenticationService),
+    LazySingleton(classType: DishService),
 // @stacked-service
   ],
   bottomsheets: [

@@ -35,7 +35,8 @@ class SignupViewModel extends FormViewModel {
         ..password = passwordValue?.trim()
         ..phoneNumber = phoneNumberValue?.trim();
 
-      final User? response = await _authenticationService.register(registerModel);
+      final User? response =
+          await _authenticationService.register(registerModel);
 
       if (response != null) {
         await _dialogService.showDialog(

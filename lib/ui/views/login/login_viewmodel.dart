@@ -3,7 +3,6 @@ import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/login_model.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
-import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/ui/views/login/login_view.form.dart';
 import 'package:stacked/stacked.dart';
@@ -33,8 +32,9 @@ class LoginViewModel extends FormViewModel {
       );
       if (response == null) {
         _dialogService.showDialog(
-          description: S.current.unknown_error,
+          description: "Unknown error",
         );
+        return;
       }
 
       _navigationService.clearStackAndShow(Routes.homepageView);
@@ -45,7 +45,7 @@ class LoginViewModel extends FormViewModel {
     } catch (e, s) {
       _logger.e('An error occurred while login in', e, s);
       _dialogService.showDialog(
-        description: S.current.unknown_error,
+        description: "Unknown error",
       );
     } finally {
       setBusy(false);

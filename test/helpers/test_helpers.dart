@@ -1,11 +1,13 @@
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:receipe_app/app/app.locator.dart';
+import 'package:receipe_app/data_model/login_response.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:receipe_app/services/event_service.dart';
 import 'package:receipe_app/services/secure_storage_service.dart';
 import 'package:receipe_app/services/dio_service.dart';
 import 'package:receipe_app/services/authentication_service.dart';
+import 'package:receipe_app/services/dish_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -18,6 +20,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<SecureStorageService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DioService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AuthenticationService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<DishService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -28,6 +31,7 @@ void registerServices() {
   getAndRegisterSecureStorageService();
   getAndRegisterDioService();
   getAndRegisterAuthenticationService();
+  getAndRegisterDishService();
 // @stacked-mock-register
 }
 
@@ -67,8 +71,7 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
     customData: anyNamed('customData'),
     data: anyNamed('data'),
     description: anyNamed('description'),
-  )).thenAnswer((realInvocation) =>
-      Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
+  )).thenAnswer((realInvocation) => Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
 
   locator.registerSingleton<BottomSheetService>(service);
   return service;
@@ -105,7 +108,17 @@ MockDioService getAndRegisterDioService() {
 MockAuthenticationService getAndRegisterAuthenticationService() {
   _removeRegistrationIfExists<AuthenticationService>();
   final service = MockAuthenticationService();
+
+  when(service.login()).thenAnswer((_) => Future.value(LoginResponse()));
+  
   locator.registerSingleton<AuthenticationService>(service);
+  return service;
+}
+
+MockDishService getAndRegisterDishService() {
+  _removeRegistrationIfExists<DishService>();
+  final service = MockDishService();
+  locator.registerSingleton<DishService>(service);
   return service;
 }
 // @stacked-mock-create

@@ -2,7 +2,7 @@ class RegisterModel {
   String? firstName, lastName;
   String? email, phoneNumber, password;
 
-  Map<String, dynamic> toJSON(){
+  Map<String, dynamic> toJSON() {
     return {
       "id": 0,
       "first_name": firstName,

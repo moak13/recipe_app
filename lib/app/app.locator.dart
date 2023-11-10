@@ -13,6 +13,7 @@ import 'package:stacked_shared/stacked_shared.dart';
 
 import '../services/authentication_service.dart';
 import '../services/dio_service.dart';
+import '../services/dish_service.dart';
 import '../services/event_service.dart';
 import '../services/secure_storage_service.dart';
 
@@ -34,4 +35,5 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => SecureStorageService());
   locator.registerLazySingleton(() => DioService());
   locator.registerLazySingleton(() => AuthenticationService());
+  locator.registerLazySingleton(() => DishService());
 }
