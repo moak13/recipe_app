@@ -1,6 +1,7 @@
 import 'package:receipe_app/ui/dialogs/delete_dish/delete_dish_dialog.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart';
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart';
+import 'package:sqflite_migration_service/sqflite_migration_service.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import '../services/event_service.dart';
@@ -18,6 +19,7 @@ import 'package:receipe_app/services/dio_service.dart';
 import 'package:receipe_app/ui/views/splash/splash_view.dart';
 import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/services/dish_service.dart';
+import 'package:receipe_app/services/database_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -43,6 +45,8 @@ import 'package:receipe_app/services/dish_service.dart';
     LazySingleton(classType: DioService),
     LazySingleton(classType: AuthenticationService),
     LazySingleton(classType: DishService),
+    LazySingleton(classType: DatabaseMigrationService),
+    InitializableSingleton(classType: DatabaseService),
 // @stacked-service
   ],
   bottomsheets: [

@@ -11,7 +11,11 @@ import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'new_dish_viewmodel.dart';
 
-@FormView(fields: [FormTextField(name: 'dish'), FormTextField(name: 'instruction'), FormTextField(name: 'ingredient')])
+@FormView(fields: [
+  FormTextField(name: 'dish'),
+  FormTextField(name: 'instruction'),
+  FormTextField(name: 'ingredient')
+])
 class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
   const NewDishView({Key? key}) : super(key: key);
 
@@ -37,7 +41,8 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
           },
           icon: Icon(Icons.arrow_back_ios_new_rounded),
         ),
-        title: Text(S.current.create_a_dish, style: typography?.titleBold16?.copyWith(color: palette?.gray11)),
+        title: Text(S.current.create_a_dish,
+            style: typography?.titleBold16?.copyWith(color: palette?.gray11)),
       ),
       body: Builder(builder: (context) {
         Widget content = SingleChildScrollView(
@@ -46,7 +51,9 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
             key: _formKey,
             child: Column(
               children: [
-                Text(S.current.create_a_dish_intro, style: typography?.titleRegular16?.copyWith(color: palette?.gray8)),
+                Text(S.current.create_a_dish_intro,
+                    style: typography?.titleRegular16
+                        ?.copyWith(color: palette?.gray8)),
                 SizedBox(
                   height: 20.h,
                 ),
@@ -93,7 +100,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                 PrimaryButton(
                   buttonText: S.current.create_dish,
                   onTap: () {
-                    if (_formKey.currentState?.validate() ?? false) {                     
+                    if (_formKey.currentState?.validate() ?? false) {
                       viewModel.createDish();
                     }
                   },
@@ -106,7 +113,8 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
         List<Widget> stackChildren = [content];
 
         if (viewModel.isBusy) {
-          stackChildren.add(Center(child: CircularProgressIndicator.adaptive()));
+          stackChildren
+              .add(Center(child: CircularProgressIndicator.adaptive()));
         }
 
         return Stack(

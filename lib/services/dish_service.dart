@@ -14,7 +14,7 @@ class DishService {
         path: '/dish',
         data: info.toJSON(),
       );
-      _logger.i('createDishResponse: $response');     
+      _logger.i('createDishResponse: $response');
       return response["message"];
     } on RecipeException {
       _logger.e('Application Error trying to create a dish');

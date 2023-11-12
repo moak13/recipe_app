@@ -1,12 +1,8 @@
 class CreateDishInfo {
   String? name, instructions;
-  List<String?>? ingredients; 
+  List<String?>? ingredients;
 
-  CreateDishInfo({
-    this.name,
-    this.instructions,
-    this.ingredients
-  });
+  CreateDishInfo({this.name, this.instructions, this.ingredients});
 
   Map<String, dynamic> toJSON() {
     return {
