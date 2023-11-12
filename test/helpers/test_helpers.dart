@@ -8,6 +8,7 @@ import 'package:receipe_app/services/secure_storage_service.dart';
 import 'package:receipe_app/services/dio_service.dart';
 import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/services/dish_service.dart';
+import 'package:receipe_app/services/database_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -21,6 +22,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<DioService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<AuthenticationService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DishService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<DatabaseService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -32,6 +34,7 @@ void registerServices() {
   getAndRegisterDioService();
   getAndRegisterAuthenticationService();
   getAndRegisterDishService();
+  getAndRegisterDatabaseService();
 // @stacked-mock-register
 }
 
@@ -71,7 +74,8 @@ MockBottomSheetService getAndRegisterBottomSheetService<T>({
     customData: anyNamed('customData'),
     data: anyNamed('data'),
     description: anyNamed('description'),
-  )).thenAnswer((realInvocation) => Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
+  )).thenAnswer((realInvocation) =>
+      Future.value(showCustomSheetResponse ?? SheetResponse<T>()));
 
   locator.registerSingleton<BottomSheetService>(service);
   return service;
@@ -110,7 +114,7 @@ MockAuthenticationService getAndRegisterAuthenticationService() {
   final service = MockAuthenticationService();
 
   when(service.login()).thenAnswer((_) => Future.value(LoginResponse()));
-  
+
   locator.registerSingleton<AuthenticationService>(service);
   return service;
 }
@@ -119,6 +123,13 @@ MockDishService getAndRegisterDishService() {
   _removeRegistrationIfExists<DishService>();
   final service = MockDishService();
   locator.registerSingleton<DishService>(service);
+  return service;
+}
+
+MockDatabaseService getAndRegisterDatabaseService() {
+  _removeRegistrationIfExists<DatabaseService>();
+  final service = MockDatabaseService();
+  locator.registerSingleton<DatabaseService>(service);
   return service;
 }
 // @stacked-mock-create

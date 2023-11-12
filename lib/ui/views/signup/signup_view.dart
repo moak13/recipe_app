@@ -22,9 +22,9 @@ import 'signup_viewmodel.dart';
   FormTextField(name: 'phoneNumber'),
 ])
 class SignupView extends StackedView<SignupViewModel> with $SignupView {
-  const SignupView({Key? key}) : super(key: key);
+  SignupView({Key? key}) : super(key: key);
 
-  static final GlobalKey<FormState> _signupKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _signupKey = GlobalKey<FormState>();
 
   @override
   Widget builder(

@@ -28,6 +28,6 @@ class OnboardingViewModel extends IndexTrackingViewModel {
   ];
 
   void getStarted() {
-    _navigationService.navigateToLoginView();
+    _navigationService.clearStackAndShow(Routes.loginView);
   }
 }

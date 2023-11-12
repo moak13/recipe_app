@@ -20,7 +20,7 @@ import 'login_viewmodel.dart';
 class LoginView extends StackedView<LoginViewModel> with $LoginView {
   LoginView({Key? key}) : super(key: key);
 
-  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget builder(
