@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS user (
   first_name TEXT,
   last_name TEXT,
   email TEXT,
-  phone_number TEXT
+  phone_number TEXT,
+  isLoggedIn INTEGER
 );

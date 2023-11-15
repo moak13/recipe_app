@@ -20,6 +20,7 @@ import 'package:receipe_app/services/dio_service.dart' as _i10;
 import 'package:receipe_app/services/dish_service.dart' as _i16;
 import 'package:receipe_app/services/event_service.dart' as _i7;
 import 'package:receipe_app/services/secure_storage_service.dart' as _i9;
+import 'package:receipe_app/services/user_service.dart' as _i19;
 import 'package:sqflite/sqflite.dart' as _i2;
 import 'package:stacked_services/stacked_services.dart' as _i3;
 
@@ -943,4 +944,36 @@ class MockDatabaseService extends _i1.Mock implements _i18.DatabaseService {
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+  @override
+  _i5.Future<void> clearUserData() => (super.noSuchMethod(
+        Invocation.method(
+          #clearUserData,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+  @override
+  _i5.Future<void> mergeUser(_i14.User? user) => (super.noSuchMethod(
+        Invocation.method(
+          #mergeUser,
+          [user],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+  @override
+  _i5.Future<_i14.User?> authenticatedUser() => (super.noSuchMethod(
+        Invocation.method(
+          #authenticatedUser,
+          [],
+        ),
+        returnValue: _i5.Future<_i14.User?>.value(),
+        returnValueForMissingStub: _i5.Future<_i14.User?>.value(),
+      ) as _i5.Future<_i14.User?>);
 }
+
+/// A class which mocks [UserService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockUserService extends _i1.Mock implements _i19.UserService {}

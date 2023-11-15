@@ -18,6 +18,7 @@ import '../services/dio_service.dart';
 import '../services/dish_service.dart';
 import '../services/event_service.dart';
 import '../services/secure_storage_service.dart';
+import '../services/user_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -42,4 +43,6 @@ Future<void> setupLocator({
   final databaseService = DatabaseService();
   await databaseService.init();
   locator.registerSingleton(databaseService);
+
+  locator.registerLazySingleton(() => UserService());
 }
