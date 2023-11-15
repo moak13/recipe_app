@@ -20,6 +20,7 @@ import 'package:receipe_app/ui/views/splash/splash_view.dart';
 import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/services/dish_service.dart';
 import 'package:receipe_app/services/database_service.dart';
+import 'package:receipe_app/services/user_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -47,6 +48,7 @@ import 'package:receipe_app/services/database_service.dart';
     LazySingleton(classType: DishService),
     LazySingleton(classType: DatabaseMigrationService),
     InitializableSingleton(classType: DatabaseService),
+    LazySingleton(classType: UserService),
 // @stacked-service
   ],
   bottomsheets: [

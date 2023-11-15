@@ -4,6 +4,7 @@ class User {
   String? lastName;
   String? email;
   String? phoneNumber;
+  int? isLoggedIn;
 
   User({
     this.id,
@@ -11,6 +12,7 @@ class User {
     this.lastName,
     this.email,
     this.phoneNumber,
+    this.isLoggedIn,
   });
 
   User.fromJson(Map<String, dynamic> json) {
@@ -19,6 +21,7 @@ class User {
     lastName = json['last_name'];
     email = json['email'];
     phoneNumber = json['phone_number'];
+    isLoggedIn = json['isLoggedIn'];
   }
 
   Map<String, dynamic> toJson() {
@@ -28,6 +31,7 @@ class User {
     data['last_name'] = lastName;
     data['email'] = email;
     data['phone_number'] = phoneNumber;
+    data['isLoggedIn'] = isLoggedIn;
     return data;
   }
 }
