@@ -134,6 +134,7 @@ class DatabaseService {
 
         return null;
       }
+      _logger.i('auth user data gotten');
 
       return User.fromJson(records.last);
     } catch (e, s) {

@@ -7,11 +7,13 @@ import 'package:receipe_app/data_model/user.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/services/dio_service.dart';
 import 'package:receipe_app/services/secure_storage_service.dart';
+import 'package:receipe_app/services/user_service.dart';
 
 class AuthenticationService {
   final _logger = getLogger('AuthenticationService');
   final _dioService = locator<DioService>();
   final _secureStorageService = locator<SecureStorageService>();
+  final _userService = locator<UserService>();
 
   Future<LoginResponse?> login({
     LoginModel? loginModel,
@@ -21,7 +23,6 @@ class AuthenticationService {
         path: '/user/login',
         data: loginModel!.toJson(),
       );
-      _logger.i('loginResponse: $response');
       final data = LoginResponse.fromJson(response);
       await _secureStorageService.writeAccessToken(
         token: data.credentials?.accessToken,
@@ -29,6 +30,7 @@ class AuthenticationService {
       await _secureStorageService.writeRefreshToken(
         token: data.credentials?.refreshToken,
       );
+      await _userService.saveUser(data.user);
       return data;
     } on RecipeException {
       _logger.e('Application Error trying to login a user');
@@ -45,7 +47,6 @@ class AuthenticationService {
         path: '/user/register',
         data: registerModel.toJSON(),
       );
-      _logger.i('register response: $response');
       return User.fromJson(response);
     } on RecipeException {
       _logger.e('Application Error trying to register a user');

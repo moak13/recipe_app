@@ -16,6 +16,16 @@ class UserService with ListenableServiceMixin {
   ReactiveValue<User?> _user = ReactiveValue<User?>(null);
   User? get user => _user.value;
 
+  Future<void> delete() async {
+    _logger.i('delete user');
+
+    try {
+      await _databaseService.clearUserData();
+    } catch (e) {
+      _logger.e('error deleting user', e);
+    }
+  }
+
   Future<void> _getUser() async {
     try {
       final User? authUser = await _databaseService.authenticatedUser();
@@ -24,6 +34,20 @@ class UserService with ListenableServiceMixin {
       notifyListeners();
     } catch (e) {
       _logger.e('error in getting user');
+    }
+  }
+
+  Future<void> saveUser(User? user) async {
+    try {
+      if (user == null) return;
+
+      user.isLoggedIn = 1;
+      await _databaseService.mergeUser(user);
+    } catch (e) {
+      _logger.e('error in saving user');
+    } finally {
+      _logger.i('refetching user');
+      await _getUser();
     }
   }
 }
