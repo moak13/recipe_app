@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:stacked/stacked.dart';
 import '../extension/app_typography.dart';
 import '../extension/palette.dart';
 import 'app_colors.dart';
