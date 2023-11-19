@@ -22,7 +22,8 @@ class SignupViewModel extends FormViewModel {
   }
 
   void actionRouteToLoginView() {
-    _navigationService.navigateToLoginView();
+    // _navigationService.navigateToLoginView();
+    _navigationService.back();
   }
 
   Future<void> signup() async {

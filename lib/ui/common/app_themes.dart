@@ -1,25 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:stacked/stacked.dart';
 import '../extension/app_typography.dart';
 import '../extension/palette.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
+import 'package:stacked_services/stacked_services.dart';
 
-class AppThemes {
+class AppThemes extends BaseViewModel {
   // Light Theme
   static ThemeData get lightTheme {
     return ThemeData(
+      useMaterial3: true,
       primaryColor: AppColors.primary6,
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primary6, brightness: Brightness.light),
       brightness: Brightness.light,
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.black)),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
       textSelectionTheme:
           const TextSelectionThemeData(cursorColor: AppColors.primary6),
       inputDecorationTheme: InputDecorationTheme(
+        suffixIconColor: MaterialStateColor.resolveWith((states) {
+          if (states.contains(MaterialState.focused)) {
+            return AppColors.primary6;
+          }
+          if (states.contains(MaterialState.selected)) {
+            return AppColors.gray9;
+          }
+          if (states.contains(MaterialState.pressed)) {
+            return AppColors.gray9;
+          }
+          if (states.contains(MaterialState.disabled)) {
+            return AppColors.gray9;
+          }
+          return AppColors.primary6;
+        }),
         hintStyle: AppTextStyles.titleRegular16.copyWith(
           color: AppColors.gray9,
         ),
@@ -65,6 +86,7 @@ class AppThemes {
           gray9: AppColors.gray9,
           gray11: AppColors.gray11,
           primary6: AppColors.primary6,
+          primary11: AppColors.primary11,
           gray12: AppColors.gray12,
           gray13: AppColors.grey13,
           redShade: AppColors.redShade,
@@ -74,6 +96,7 @@ class AppThemes {
           iconBackground3: AppColors.iconBackground3,
           orangeShade: AppColors.orangeShade,
           iconBackground: AppColors.iconBackground,
+          white: AppColors.white,
         ),
       ],
     );

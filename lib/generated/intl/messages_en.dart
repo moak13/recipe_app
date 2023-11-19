@@ -35,10 +35,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "create_a_dish_intro": MessageLookupByLibrary.simpleMessage(
             "Hi😚, It\'s time to create that special dish you always desired.\nKindly fill in the details below"),
         "create_dish": MessageLookupByLibrary.simpleMessage("Create Dish"),
+        "dark_mode": MessageLookupByLibrary.simpleMessage("DARK MODE"),
         "date_created": MessageLookupByLibrary.simpleMessage("Date Created: "),
         "delete_dish": MessageLookupByLibrary.simpleMessage("Delete Dish"),
         "dont_have_an_account":
             MessageLookupByLibrary.simpleMessage("Don’t have an account?"),
+        "drawer_home": MessageLookupByLibrary.simpleMessage("HOME"),
         "edit_dish": MessageLookupByLibrary.simpleMessage("Edit Dish"),
         "email_address": MessageLookupByLibrary.simpleMessage("Email Address"),
         "email_cannot_be_empty":
@@ -56,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
+        "hi": MessageLookupByLibrary.simpleMessage("Hi"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "ingredient_of_dish":
             MessageLookupByLibrary.simpleMessage("Ingredients of Dish"),
         "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
@@ -64,6 +68,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Kindly edit the details below to the reflect the right standard dish information"),
         "last_name": MessageLookupByLibrary.simpleMessage("Last name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logout": MessageLookupByLibrary.simpleMessage("LOGOUT "),
+        "my_dish": MessageLookupByLibrary.simpleMessage("MY DISH"),
         "name": MessageLookupByLibrary.simpleMessage("Name: "),
         "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
         "no_internet": MessageLookupByLibrary.simpleMessage(

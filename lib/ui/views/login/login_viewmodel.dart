@@ -2,6 +2,7 @@ import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/login_model.dart';
+import 'package:receipe_app/data_model/login_response.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/ui/views/login/login_view.form.dart';
@@ -13,10 +14,10 @@ class LoginViewModel extends FormViewModel {
   final _authenticationService = locator<AuthenticationService>();
   final _dialogService = locator<DialogService>();
   final _logger = getLogger('LoginViewModel');
-  bool hideText = true;
+  bool hidePassword = true;
 
   void toggleVisibility() {
-    hideText = !hideText;
+    hidePassword = !hidePassword;
     rebuildUi();
   }
 
@@ -27,7 +28,7 @@ class LoginViewModel extends FormViewModel {
         email: emailValue?.trim(),
         password: passwordValue?.trim(),
       );
-      final response = await _authenticationService.login(
+      final LoginResponse? response = await _authenticationService.login(
         loginModel: loginModel,
       );
       if (response == null) {
@@ -36,8 +37,17 @@ class LoginViewModel extends FormViewModel {
         );
         return;
       }
+      _logger.d(response);
+      _logger.d(response.user!.firstname);
 
-      _navigationService.clearStackAndShow(Routes.homepageView);
+      // _navigationService.clearStackAndShow(
+      //   Routes.homepageView,
+      //   arguments: HomepageViewArguments(response: response),
+      // );
+
+      //_navigationService.navigateTo(routeName)
+
+      _navigationService.navigateToHomepageView();
     } on RecipeException catch (e) {
       _dialogService.showDialog(
         description: e.message,

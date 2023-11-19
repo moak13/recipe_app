@@ -16,4 +16,8 @@ class AppImages {
   static String unlikedIcon = 'assets/svg/heart.svg';
   static String addcon = 'assets/svg/add.svg';
   static String lottie = 'assets/gif/lottie.svg';
+  static String home = "assets/svg/home.svg";
+  static String moon = "assets/svg/moon.svg";
+  static String gift = "assets/svg/gift.svg";
+  static String logout = "assets/svg/logout.svg";
 }

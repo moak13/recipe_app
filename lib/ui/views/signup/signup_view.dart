@@ -132,6 +132,9 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                           viewModel.hidePassword
                               ? Icons.visibility
                               : Icons.visibility_off,
+                          color: viewModel.hidePassword
+                              ? palette!.primary6
+                              : palette!.gray9,
                         ),
                       ),
                     ),
@@ -147,8 +150,9 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                     textInputAction: TextInputAction.done,
                     validator: Validation.validateField,
                     decoration: InputDecoration(
-                        labelText: "Phone number",
-                        hintText: "Enter phone number"),
+                      labelText: "Phone number",
+                      hintText: "Enter phone number",
+                    ),
                   ),
                   SizedBox(
                     height: 100.h,
@@ -164,21 +168,24 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                   SizedBox(
                     height: 16.h,
                   ),
-                  Text.rich(TextSpan(
+                  Text.rich(
+                    TextSpan(
                       text: S.current.already_have_an_account,
                       style: typography?.titleRegular16
-                          ?.copyWith(color: palette?.gray8, fontSize: 14.sp),
+                          ?.copyWith(color: palette.gray8, fontSize: 14.sp),
                       children: [
                         const TextSpan(text: " "),
                         TextSpan(
                             text: S.current.login,
                             style: typography?.titleBold16?.copyWith(
-                              color: palette?.primary6,
+                              color: palette.primary6,
                               fontSize: 14.sp,
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = viewModel.actionRouteToLoginView)
-                      ]))
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

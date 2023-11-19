@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:receipe_app/data_model/login_response.dart';
 import 'package:receipe_app/generated/l10n.dart';
+import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/utilities/validation.dart';
 import 'package:receipe_app/ui/views/new_dish/new_dish_view.form.dart';
+import 'package:receipe_app/ui/widgets/common/app_drawer/app_drawer.dart';
 import 'package:receipe_app/ui/widgets/common/primary_button/primary_button.dart';
 import 'package:stacked/stacked.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
@@ -17,9 +21,15 @@ import 'new_dish_viewmodel.dart';
   FormTextField(name: 'ingredient')
 ])
 class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
-  const NewDishView({Key? key}) : super(key: key);
+  //const NewDishView({Key? key}) : super(key: key);
+
+  //final LoginResponse? response;
 
   static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  const NewDishView({
+    super.key,
+  });
 
   @override
   Widget builder(
@@ -30,19 +40,62 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
     final ThemeData theme = Theme.of(context);
     final AppTypography? typography = theme.extension<AppTypography>();
     final Palette? palette = theme.extension<Palette>();
+    final newDishScaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
+      key: newDishScaffoldKey,
+      drawer: AppDrawer(response: viewModel.userdetails),
+      // appBar: AppBar(
+      //   leading: Align(
+      //     alignment: Alignment.center,
+      //     child: Padding(
+      //       padding: EdgeInsets.only(
+      //         left: 16.w,
+      //         top: 8.h,
+      //       ),
+      //       child: InkWell(
+      //         onTap: () {
+      //           scaffoldKey.currentState!.openDrawer;
+      //         },
+      //         child: SvgPicture.asset(
+      //           AppImages.burgerLog,
+      //           // width: 24.7.w,
+      //           // height: 24.h,
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      //   title: Text(
+      //     S.current.create_a_dish,
+      //     style: typography?.titleBold16?.copyWith(color: palette?.gray11),
+      //   ),
+      // ),
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            if (Navigator.canPop(context)) {
-              Navigator.pop(context);
-            }
+        // backgroundColor: kcBackground,
+        elevation: 0,
+        leading: InkWell(
+          onTap: () {
+            newDishScaffoldKey.currentState!.openDrawer();
           },
-          icon: Icon(Icons.arrow_back_ios_new_rounded),
+          child: Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: 16.w,
+                top: 8.h,
+              ),
+              child: SvgPicture.asset(
+                AppImages.burgerLog,
+                width: 24.7.w,
+                height: 24.h,
+              ),
+            ),
+          ),
         ),
-        title: Text(S.current.create_a_dish,
-            style: typography?.titleBold16?.copyWith(color: palette?.gray11)),
+        title: Text(
+          S.current.create_a_dish,
+          style: typography?.titleBold16?.copyWith(color: palette?.gray11),
+        ),
       ),
       body: Builder(builder: (context) {
         Widget content = SingleChildScrollView(

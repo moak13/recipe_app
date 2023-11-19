@@ -499,6 +499,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `HOME`
+  String get drawer_home {
+    return Intl.message(
+      'HOME',
+      name: 'drawer_home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hi`
+  String get hi {
+    return Intl.message(
+      'Hi',
+      name: 'hi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `MY DISH`
+  String get my_dish {
+    return Intl.message(
+      'MY DISH',
+      name: 'my_dish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `DARK MODE`
+  String get dark_mode {
+    return Intl.message(
+      'DARK MODE',
+      name: 'dark_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `LOGOUT `
+  String get logout {
+    return Intl.message(
+      'LOGOUT ',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
