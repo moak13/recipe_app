@@ -45,7 +45,7 @@ class UserService with ListenableServiceMixin {
     try {
       if (user == null) return;
 
-      user.isLoggedIn = 0;
+      user.isLoggedIn = 1;
       await _databaseService.mergeUser(user);
       _logger.i('User saved to DB');
     } catch (e) {

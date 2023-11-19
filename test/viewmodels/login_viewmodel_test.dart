@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:receipe_app/app/app.locator.dart';
-import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/login_model.dart';
 import 'package:receipe_app/ui/views/login/login_viewmodel.dart';
 

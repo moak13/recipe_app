@@ -5,7 +5,6 @@ import '../extension/app_typography.dart';
 import '../extension/palette.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 class AppThemes extends BaseViewModel {
   // Light Theme

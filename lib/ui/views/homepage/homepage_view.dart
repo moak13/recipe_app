@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:receipe_app/data_model/login_response.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
