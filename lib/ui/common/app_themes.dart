@@ -6,7 +6,7 @@ import '../extension/palette.dart';
 import 'app_colors.dart';
 import 'app_text_styles.dart';
 
-class AppThemes extends BaseViewModel {
+class AppThemes {
   // Light Theme
   static ThemeData get lightTheme {
     return ThemeData(
