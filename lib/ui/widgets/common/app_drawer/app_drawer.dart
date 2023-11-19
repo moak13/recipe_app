@@ -32,7 +32,6 @@ class AppDrawer extends StackedView<AppDrawerModel> {
     ThemeData theme = Theme.of(context);
     AppTypography? typography = theme.extension<AppTypography>();
     Palette? palette = theme.extension<Palette>();
-
     return Drawer(
       child: Column(
         children: [
@@ -77,7 +76,6 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               S.current.my_dish,
               style: TextStyle(
                 fontSize: 15.sp,
-                //color: AppColors.gray11,
                 color: palette.gray11,
                 fontWeight: FontWeight.bold,
               ),
@@ -94,7 +92,6 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               S.current.dark_mode,
               style: TextStyle(
                 fontSize: 15.sp,
-                //color: AppColors.gray11,
                 color: palette.gray11,
                 fontWeight: FontWeight.bold,
               ),
@@ -113,14 +110,10 @@ class AppDrawer extends StackedView<AppDrawerModel> {
                   ),
           ),
           SizedBox(height: 10.h),
-          Divider(
-              thickness: 15.w,
-              // color: AppColors.gray1,
-              color: palette.gray1),
+          Divider(thickness: 15.w, color: palette.gray1),
           Spacer(),
           Divider(
             thickness: 10.w,
-            //color: AppColors.gray1,
             color: palette.gray1,
           ),
           ListTile(
