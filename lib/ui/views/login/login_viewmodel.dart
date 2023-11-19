@@ -40,13 +40,6 @@ class LoginViewModel extends FormViewModel {
       _logger.d(response);
       _logger.d(response.user!.firstname);
 
-      // _navigationService.clearStackAndShow(
-      //   Routes.homepageView,
-      //   arguments: HomepageViewArguments(response: response),
-      // );
-
-      //_navigationService.navigateTo(routeName)
-
       _navigationService.navigateToHomepageView();
     } on RecipeException catch (e) {
       _dialogService.showDialog(

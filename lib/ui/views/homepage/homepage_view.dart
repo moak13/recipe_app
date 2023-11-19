@@ -14,8 +14,6 @@ import 'package:stacked/stacked.dart';
 import 'homepage_viewmodel.dart';
 
 class HomepageView extends StackedView<HomepageViewModel> {
-  // final LoginResponse? response;
-
   const HomepageView({super.key});
 
   @override
@@ -93,7 +91,6 @@ class HomepageView extends StackedView<HomepageViewModel> {
         onPressed: () {
           viewModel.navigateToAddProduct();
         },
-        //onPressed: viewModel.navigateToAddProduct(response),
         backgroundColor: palette!.primary6,
         child: SvgPicture.asset(AppImages.addcon),
       ),

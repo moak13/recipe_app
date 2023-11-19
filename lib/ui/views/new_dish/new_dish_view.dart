@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:receipe_app/data_model/login_response.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
@@ -21,10 +20,6 @@ import 'new_dish_viewmodel.dart';
   FormTextField(name: 'ingredient')
 ])
 class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
-  //const NewDishView({Key? key}) : super(key: key);
-
-  //final LoginResponse? response;
-
   static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   const NewDishView({
@@ -45,33 +40,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
     return Scaffold(
       key: newDishScaffoldKey,
       drawer: AppDrawer(response: viewModel.userdetails),
-      // appBar: AppBar(
-      //   leading: Align(
-      //     alignment: Alignment.center,
-      //     child: Padding(
-      //       padding: EdgeInsets.only(
-      //         left: 16.w,
-      //         top: 8.h,
-      //       ),
-      //       child: InkWell(
-      //         onTap: () {
-      //           scaffoldKey.currentState!.openDrawer;
-      //         },
-      //         child: SvgPicture.asset(
-      //           AppImages.burgerLog,
-      //           // width: 24.7.w,
-      //           // height: 24.h,
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      //   title: Text(
-      //     S.current.create_a_dish,
-      //     style: typography?.titleBold16?.copyWith(color: palette?.gray11),
-      //   ),
-      // ),
       appBar: AppBar(
-        // backgroundColor: kcBackground,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -104,9 +73,11 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
             key: _formKey,
             child: Column(
               children: [
-                Text(S.current.create_a_dish_intro,
-                    style: typography?.titleRegular16
-                        ?.copyWith(color: palette?.gray8)),
+                Text(
+                  S.current.create_a_dish_intro,
+                  style: typography?.titleRegular16
+                      ?.copyWith(color: palette?.gray8),
+                ),
                 SizedBox(
                   height: 20.h,
                 ),
