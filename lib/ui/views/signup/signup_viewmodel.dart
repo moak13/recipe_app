@@ -1,6 +1,5 @@
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
-import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/register_model.dart';
 import 'package:receipe_app/data_model/user.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
@@ -22,7 +21,7 @@ class SignupViewModel extends FormViewModel {
   }
 
   void actionRouteToLoginView() {
-    _navigationService.navigateToLoginView();
+    _navigationService.back();
   }
 
   Future<void> signup() async {

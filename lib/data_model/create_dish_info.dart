@@ -6,7 +6,6 @@ class CreateDishInfo {
 
   Map<String, dynamic> toJSON() {
     return {
-      "id": 0,
       "name": name,
       "instructions": instructions,
       "ingredients": ingredients,

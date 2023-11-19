@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/generated/l10n.dart';
+
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
@@ -36,9 +37,10 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
         Widget content = SafeArea(
           child: SingleChildScrollView(
             padding: EdgeInsets.only(
-                left: sidePadding,
-                right: sidePadding,
-                bottom: sidePadding + 20.h),
+              left: sidePadding,
+              right: sidePadding,
+              bottom: sidePadding + 20.h,
+            ),
             child: Form(
               key: _formKey,
               child: Column(
@@ -89,7 +91,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                   TextFormField(
                     controller: passwordController,
                     focusNode: passwordFocusNode,
-                    obscureText: viewModel.hideText,
+                    obscureText: viewModel.hidePassword,
                     validator: Validation.validateField,
                     decoration: InputDecoration(
                       labelText: S.current.password,
@@ -97,9 +99,12 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                       suffixIcon: IconButton(
                         onPressed: viewModel.toggleVisibility,
                         icon: Icon(
-                          viewModel.hideText
+                          viewModel.hidePassword
                               ? Icons.visibility
                               : Icons.visibility_off,
+                          color: viewModel.hidePassword
+                              ? palette!.primary6
+                              : palette!.gray9,
                         ),
                       ),
                     ),
@@ -122,7 +127,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                     TextSpan(
                       text: S.current.dont_have_an_account,
                       style: typography?.titleRegular16?.copyWith(
-                        color: palette?.gray8,
+                        color: palette.gray8,
                         fontSize: 14.sp,
                       ),
                       children: [
@@ -130,7 +135,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                         TextSpan(
                             text: S.current.sign_up,
                             style: typography?.titleBold16?.copyWith(
-                              color: palette?.primary6,
+                              color: palette.primary6,
                               fontSize: 14.sp,
                             ),
                             recognizer: TapGestureRecognizer()

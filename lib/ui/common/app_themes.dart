@@ -9,14 +9,18 @@ class AppThemes {
   // Light Theme
   static ThemeData get lightTheme {
     return ThemeData(
+      useMaterial3: true,
       primaryColor: AppColors.primary6,
+      colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primary6, brightness: Brightness.light),
       brightness: Brightness.light,
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.black)),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
+      ),
       textSelectionTheme:
           const TextSelectionThemeData(cursorColor: AppColors.primary6),
       inputDecorationTheme: InputDecorationTheme(
@@ -65,6 +69,7 @@ class AppThemes {
           gray9: AppColors.gray9,
           gray11: AppColors.gray11,
           primary6: AppColors.primary6,
+          primary11: AppColors.primary11,
           gray12: AppColors.gray12,
           gray13: AppColors.grey13,
           redShade: AppColors.redShade,
@@ -74,6 +79,7 @@ class AppThemes {
           iconBackground3: AppColors.iconBackground3,
           orangeShade: AppColors.orangeShade,
           iconBackground: AppColors.iconBackground,
+          white: AppColors.white,
         ),
       ],
     );
