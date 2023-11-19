@@ -25,21 +25,6 @@ class AppThemes extends BaseViewModel {
       textSelectionTheme:
           const TextSelectionThemeData(cursorColor: AppColors.primary6),
       inputDecorationTheme: InputDecorationTheme(
-        suffixIconColor: MaterialStateColor.resolveWith((states) {
-          if (states.contains(MaterialState.focused)) {
-            return AppColors.primary6;
-          }
-          if (states.contains(MaterialState.selected)) {
-            return AppColors.gray9;
-          }
-          if (states.contains(MaterialState.pressed)) {
-            return AppColors.gray9;
-          }
-          if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray9;
-          }
-          return AppColors.primary6;
-        }),
         hintStyle: AppTextStyles.titleRegular16.copyWith(
           color: AppColors.gray9,
         ),

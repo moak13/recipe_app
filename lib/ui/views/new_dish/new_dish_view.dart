@@ -22,9 +22,7 @@ import 'new_dish_viewmodel.dart';
 class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
   static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  const NewDishView({
-    super.key,
-  });
+  const NewDishView({super.key});
 
   @override
   Widget builder(
@@ -39,7 +37,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
 
     return Scaffold(
       key: newDishScaffoldKey,
-      drawer: AppDrawer(response: viewModel.userdetails),
+      drawer: AppDrawer(),
       appBar: AppBar(
         elevation: 0,
         leading: InkWell(

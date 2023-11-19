@@ -27,7 +27,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
     final homeScaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: homeScaffoldKey,
-      drawer: AppDrawer(response: viewModel.userDetails),
+      drawer: AppDrawer(),
       appBar: AppBar(
         backgroundColor: kcBackground,
         elevation: 0,
@@ -87,9 +87,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          viewModel.navigateToAddProduct();
-        },
+        onPressed: viewModel.navigateToAddProduct,
         backgroundColor: palette!.primary6,
         child: SvgPicture.asset(AppImages.addcon),
       ),

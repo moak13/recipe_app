@@ -9,16 +9,6 @@ class AppDrawerModel extends BaseViewModel {
 
   final _logger = getLogger('App_Drawer');
 
-  bool _currentThemeValue = false;
-
-  bool get currentThemeValue => _currentThemeValue;
-
-  void setCurrentTheme(bool value) {
-    _logger.d(value);
-    _currentThemeValue = value;
-    rebuildUi();
-  }
-
   void navigateToHome() {
     _navigationService.back();
   }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:receipe_app/data_model/user.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
-import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
 import 'package:stacked/stacked.dart';
 import 'app_drawer_model.dart';
 import 'dart:io';
@@ -13,9 +11,7 @@ import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 
 class AppDrawer extends StackedView<AppDrawerModel> {
-  final User? response;
-
-  const AppDrawer({super.key, required this.response});
+  const AppDrawer({super.key});
 
   @override
   AppDrawerModel viewModelBuilder(
@@ -39,18 +35,8 @@ class AppDrawer extends StackedView<AppDrawerModel> {
             decoration: BoxDecoration(
               color: palette!.primary11,
             ),
-            accountName: RichTextWidget(
-              text1: S.current.hi,
-              text2: ', ${response!.firstname!} ${response!.lastName!}',
-              color1: palette.white,
-              color2: palette.white,
-              fontSize1: 22.sp,
-              fontSize2: 22.sp,
-              fontWeight2: FontWeight.w600,
-            ),
-            accountEmail: Text(
-              response!.email!,
-            ),
+            accountName: Text('name'),
+            accountEmail: Text('email'),
           ),
           SizedBox(height: 20.h),
           ListTile(
@@ -97,16 +83,10 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               ),
             ),
             trailing: Platform.isIOS
-                ? CupertinoSwitch(
-                    value: viewModel.currentThemeValue,
-                    onChanged: (bool value) {
-                      viewModel.setCurrentTheme(value);
-                    })
+                ? CupertinoSwitch(value: true, onChanged: (bool value) {})
                 : Switch(
-                    value: viewModel.currentThemeValue,
-                    onChanged: (bool value) {
-                      viewModel.setCurrentTheme(value);
-                    },
+                    value: false,
+                    onChanged: (bool value) {},
                   ),
           ),
           SizedBox(height: 10.h),

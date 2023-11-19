@@ -40,7 +40,7 @@ class LoginViewModel extends FormViewModel {
       _logger.d(response);
       _logger.d(response.user!.firstname);
 
-      _navigationService.navigateToHomepageView();
+      _navigationService.clearStackAndShow(Routes.homepageView);
     } on RecipeException catch (e) {
       _dialogService.showDialog(
         description: e.message,
