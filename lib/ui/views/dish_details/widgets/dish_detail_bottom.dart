@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:receipe_app/data_model/product_model.dart';
+import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
@@ -13,10 +13,10 @@ import 'package:stacked/stacked.dart';
 class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
   const DishDetailBottom({
     super.key,
-    required this.product,
+    required this.recipe,
   });
 
-  final ProductModel product;
+  final Recipe? recipe;
 
   @override
   Widget build(BuildContext context, DishDetailsViewModel viewModel) {
@@ -45,7 +45,7 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
             children: [
               /// Displays the first row of the ingredient body
               /// It displays the name, date and the favorite icon
-              DishTitle(product: product),
+              DishTitle(recipe: recipe),
               verticalSpaceMedium,
               Text(
                 S.current.ingredients,

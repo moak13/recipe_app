@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/ui/extension/app_typography.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:stacked/stacked.dart';
-import 'package:receipe_app/data_model/product_model.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 
 class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
-  final ProductModel product;
+  final Recipe? recipe;
   const DishImageHeader({
-    required this.product,
+    required this.recipe,
   });
 
   @override
@@ -22,7 +22,7 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
     return Stack(
       children: [
         Image.asset(
-          product.image,
+          recipe?.dishImageUrl ?? '',
           fit: BoxFit.fill,
           height: screenHeight(context) * .6,
           width: double.infinity,
