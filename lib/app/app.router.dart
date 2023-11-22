@@ -7,7 +7,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:flutter/material.dart' as _i12;
 import 'package:flutter/material.dart';
-import 'package:receipe_app/data_model/product_model.dart' as _i13;
+import 'package:receipe_app/data_model/recipe.dart' as _i13;
 import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart'
     as _i8;
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart' as _i9;
@@ -148,7 +148,7 @@ class StackedRouter extends _i1.RouterBase {
       final args = data.getArgs<DishDetailsViewArguments>(nullOk: false);
       return _i1.buildAdaptivePageRoute<dynamic>(
         builder: (context) =>
-            _i8.DishDetailsView(key: args.key, product: args.product),
+            _i8.DishDetailsView(key: args.key, recipe: args.recipe),
         settings: data,
       );
     },
@@ -225,27 +225,27 @@ class SignupViewArguments {
 class DishDetailsViewArguments {
   const DishDetailsViewArguments({
     this.key,
-    required this.product,
+    required this.recipe,
   });
 
   final _i12.Key? key;
 
-  final _i13.ProductModel product;
+  final _i13.Recipe? recipe;
 
   @override
   String toString() {
-    return '{"key": "$key", "product": "$product"}';
+    return '{"key": "$key", "recipe": "$recipe"}';
   }
 
   @override
   bool operator ==(covariant DishDetailsViewArguments other) {
     if (identical(this, other)) return true;
-    return other.key == key && other.product == product;
+    return other.key == key && other.recipe == recipe;
   }
 
   @override
   int get hashCode {
-    return key.hashCode ^ product.hashCode;
+    return key.hashCode ^ recipe.hashCode;
   }
 }
 
@@ -340,7 +340,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
 
   Future<dynamic> navigateToDishDetailsView({
     _i12.Key? key,
-    required _i13.ProductModel product,
+    required _i13.Recipe? recipe,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -348,7 +348,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition,
   }) async {
     return navigateTo<dynamic>(Routes.dishDetailsView,
-        arguments: DishDetailsViewArguments(key: key, product: product),
+        arguments: DishDetailsViewArguments(key: key, recipe: recipe),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -487,7 +487,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
 
   Future<dynamic> replaceWithDishDetailsView({
     _i12.Key? key,
-    required _i13.ProductModel product,
+    required _i13.Recipe? recipe,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -495,7 +495,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition,
   }) async {
     return replaceWith<dynamic>(Routes.dishDetailsView,
-        arguments: DishDetailsViewArguments(key: key, product: product),
+        arguments: DishDetailsViewArguments(key: key, recipe: recipe),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

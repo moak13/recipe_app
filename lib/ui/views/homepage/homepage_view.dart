@@ -61,27 +61,55 @@ class HomepageView extends StackedView<HomepageViewModel> {
             SizedBox(
               height: 18.h,
             ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: sidePadding),
-                child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.67,
-                    mainAxisSpacing: 20.h,
-                    crossAxisSpacing: 16.w,
-                    mainAxisExtent: 252.h,
+            Builder(
+              builder: (context) {
+                // Loading
+                if (viewModel.isBusy) {
+                  return Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
+                }
+
+                // Error
+                if (viewModel.hasError) {
+                  return Center(
+                    child: Text(viewModel.modelMessage ?? ''),
+                  );
+                }
+
+                // Empty
+                if (viewModel.data == null || viewModel.data!.isEmpty) {
+                  return Center(
+                    child:
+                        Text('There are no available dish to view currently'),
+                  );
+                }
+
+                // Loaded
+                return Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: sidePadding),
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 0.67,
+                        mainAxisSpacing: 20.h,
+                        crossAxisSpacing: 16.w,
+                        mainAxisExtent: 252.h,
+                      ),
+                      itemCount: viewModel.data?.length,
+                      itemBuilder: (context, index) {
+                        final recipe = viewModel.data?.elementAt(index);
+                        return ProductItem(
+                          recipe: recipe,
+                          onTap: () =>
+                              viewModel.navigateToDishDetailsView(recipe),
+                        );
+                      },
+                    ),
                   ),
-                  itemCount: viewModel.productItems.length,
-                  itemBuilder: (context, index) {
-                    final product = viewModel.productItems.elementAt(index);
-                    return ProductItem(
-                      product: product,
-                      onTap: () => viewModel.navigateToDishDetailsView(product),
-                    );
-                  },
-                ),
-              ),
+                );
+              },
             ),
           ],
         ),

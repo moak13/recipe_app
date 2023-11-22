@@ -1,52 +1,32 @@
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.router.dart';
-import 'package:receipe_app/data_model/product_model.dart';
+import 'package:receipe_app/data_model/recipe.dart';
+import 'package:receipe_app/exceptions/receipe_exceptions.dart';
+import 'package:receipe_app/generated/l10n.dart';
+import 'package:receipe_app/services/dish_service.dart';
 
-import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-class HomepageViewModel extends BaseViewModel {
+class HomepageViewModel extends FutureViewModel<List<Recipe>?> {
   final _navigationService = locator<NavigationService>();
+  final _dishService = locator<DishService>();
 
-  List<ProductModel> productItems = [
-    ProductModel(
-      date: 'May 28, 2023',
-      image: AppImages.spagLog,
-      title: 'Spaghetti',
-      isLiked: false,
-    ),
-    ProductModel(
-      isLiked: false,
-      date: 'May 28, 2023',
-      image: AppImages.spagLogFour,
-      title: 'Spaghetti',
-    ),
-    ProductModel(
-      isLiked: false,
-      date: 'May 28, 2023',
-      image: AppImages.spagLogThree,
-      title: 'Spaghetti',
-    ),
-    ProductModel(
-      isLiked: true,
-      date: 'May 28, 2023',
-      image: AppImages.spagLogTwo,
-      title: 'Spaghetti',
-    ),
-    ProductModel(
-      isLiked: true,
-      date: 'May 28, 2023',
-      image: AppImages.spagLog,
-      title: 'Spaghetti',
-    ),
-    ProductModel(
-      isLiked: false,
-      date: 'May 28, 2023',
-      image: AppImages.spagLogTwo,
-      title: 'Spaghetti',
-    ),
-  ];
+  Future<List<Recipe>?> _getDishes() async {
+    try {
+      final response = await _dishService.getAllDishes();
+      return response.recipes;
+    } on RecipeException catch (e) {
+      setError(true);
+      setMessage(e.message);
+      return null;
+    } catch (e) {
+      setError(true);
+      setMessage(S.current.unknown_error);
+      return null;
+    }
+  }
+
   void navigateToHome() {
     _navigationService.back();
   }
@@ -55,10 +35,10 @@ class HomepageViewModel extends BaseViewModel {
     _navigationService.navigateToNewDishView();
   }
 
-  void navigateToDishDetailsView(ProductModel product) {
-    _navigationService.navigateTo(
-      Routes.dishDetailsView,
-      arguments: DishDetailsViewArguments(product: product),
-    );
+  void navigateToDishDetailsView(Recipe? recipe) {
+    _navigationService.navigateToDishDetailsView(recipe: recipe);
   }
+
+  @override
+  Future<List<Recipe>?> futureToRun() async => await _getDishes();
 }

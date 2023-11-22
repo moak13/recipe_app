@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/product_model.dart';
+import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
 import 'package:receipe_app/ui/views/homepage/widgets/favourite_widget.dart';
 import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
 
 class ProductItem extends StatelessWidget {
-  final ProductModel product;
+  final Recipe? recipe;
   final VoidCallback onTap;
   const ProductItem({
     super.key,
-    required this.product,
+    required this.recipe,
     required this.onTap,
   });
 
@@ -33,11 +34,11 @@ class ProductItem extends StatelessWidget {
               alignment: AlignmentDirectional.topEnd,
               children: [
                 Image.asset(
-                  product.image,
+                  recipe?.dishImageUrl ?? '--',
                   height: 200.h,
                   fit: BoxFit.contain,
                 ),
-                FavoriteWidget(product: product)
+                // FavoriteWidget(product: recipe)
               ],
             ),
             SizedBox(height: 8.h),
@@ -45,13 +46,13 @@ class ProductItem extends StatelessWidget {
               color1: palette?.gray8,
               color2: palette?.primary6,
               text1: S.current.name,
-              text2: product.title,
+              text2: recipe?.name ?? '--',
             ),
             RichTextWidget(
               color1: palette?.gray8,
               color2: palette?.gray11,
               text1: S.current.date_created,
-              text2: product.date,
+              text2: recipe?.datePosted ?? '--',
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:receipe_app/data_model/product_model.dart';
+import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 import 'package:receipe_app/ui/views/dish_details/widgets/dish_detail_bottom.dart';
 import 'package:receipe_app/ui/views/dish_details/widgets/dish_image_header.dart';
@@ -8,10 +9,10 @@ import 'package:stacked/stacked.dart';
 class DishDetailsView extends StackedView<DishDetailsViewModel> {
   const DishDetailsView({
     Key? key,
-    required this.product,
+    required this.recipe,
   }) : super(key: key);
 
-  final ProductModel product;
+  final Recipe? recipe;
 
   @override
   Widget builder(
@@ -23,10 +24,10 @@ class DishDetailsView extends StackedView<DishDetailsViewModel> {
       body: Stack(
         children: [
           ///Displays the image of the Dish
-          DishImageHeader(product: product),
+          DishImageHeader(recipe: recipe),
 
           /// This shows the lower part of the Screen
-          DishDetailBottom(product: product),
+          DishDetailBottom(recipe: recipe),
         ],
       ),
     );

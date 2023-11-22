@@ -35,8 +35,20 @@ class AppDrawer extends StackedView<AppDrawerModel> {
             decoration: BoxDecoration(
               color: palette!.primary11,
             ),
-            accountName: Text('name'),
-            accountEmail: Text('email'),
+            accountName: RichText(
+              text: TextSpan(
+                text: viewModel.user?.firstname ?? '--',
+                children: [
+                  const TextSpan(text: ' '),
+                  TextSpan(
+                    text: viewModel.user?.lastName ?? '--',
+                  ),
+                ],
+              ),
+            ),
+            accountEmail: Text(
+              viewModel.user?.email ?? '--',
+            ),
           ),
           SizedBox(height: 20.h),
           ListTile(
@@ -97,7 +109,7 @@ class AppDrawer extends StackedView<AppDrawerModel> {
             color: palette.gray1,
           ),
           ListTile(
-            onTap: () {},
+            onTap: viewModel.logout,
             leading: SvgPicture.asset(
               AppImages.logout,
               width: 24.7.w,
