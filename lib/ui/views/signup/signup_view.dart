@@ -24,7 +24,7 @@ import 'signup_viewmodel.dart';
 class SignupView extends StackedView<SignupViewModel> with $SignupView {
   SignupView({Key? key}) : super(key: key);
 
-  final GlobalKey<FormState> _signupKey = GlobalKey<FormState>();
+  static final GlobalKey<FormState> _signupKey = GlobalKey<FormState>();
 
   @override
   Widget builder(

@@ -95,7 +95,6 @@ class HomepageView extends StackedView<HomepageViewModel> {
                         childAspectRatio: 0.67,
                         mainAxisSpacing: 20.h,
                         crossAxisSpacing: 16.w,
-                        mainAxisExtent: 252.h,
                       ),
                       itemCount: viewModel.data?.length,
                       itemBuilder: (context, index) {
