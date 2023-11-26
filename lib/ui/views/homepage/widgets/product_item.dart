@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:receipe_app/data_model/product_model.dart';
 import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
-import 'package:receipe_app/ui/views/homepage/widgets/favourite_widget.dart';
 import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
 
 class ProductItem extends StatelessWidget {
@@ -33,12 +31,11 @@ class ProductItem extends StatelessWidget {
             Stack(
               alignment: AlignmentDirectional.topEnd,
               children: [
-                Image.asset(
-                  recipe?.dishImageUrl ?? '--',
+                Image.network(
+                  recipe?.dishImageUrl ?? 'https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=1024x1024&w=is&k=20&c=DTns3r_STc4HRBMouVl8IgHeuWhnBdz8X4DRkbDxWjQ=',
                   height: 200.h,
                   fit: BoxFit.contain,
                 ),
-                // FavoriteWidget(product: recipe)
               ],
             ),
             SizedBox(height: 8.h),
