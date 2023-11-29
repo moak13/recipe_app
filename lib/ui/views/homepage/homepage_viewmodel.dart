@@ -13,8 +13,11 @@ class HomepageViewModel extends FutureViewModel<List<Recipe>?> {
   final _dishService = locator<DishService>();
 
   Future<List<Recipe>?> _getDishes() async {
+    setBusy(true);
     try {
       final response = await _dishService.getAllDishes();
+      setBusy(false);
+      notifyListeners();
       return response.recipes;
     } on RecipeException catch (e) {
       setError(true);

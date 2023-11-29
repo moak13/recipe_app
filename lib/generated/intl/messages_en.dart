@@ -72,6 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_dish": MessageLookupByLibrary.simpleMessage("MY DISH"),
         "name": MessageLookupByLibrary.simpleMessage("Name: "),
         "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
+        "no_dish_available": MessageLookupByLibrary.simpleMessage(
+            "There are no available dish to view currently"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. Please try again later"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(

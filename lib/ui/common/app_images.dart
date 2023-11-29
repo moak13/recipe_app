@@ -19,5 +19,6 @@ class AppImages {
   static String home = "assets/svg/home.svg";
   static String moon = "assets/svg/moon.svg";
   static String gift = "assets/svg/gift.svg";
+  static String noDishFound = "assets/lottie/noDishFound.json";
   static String logout = "assets/svg/logout.svg";
 }

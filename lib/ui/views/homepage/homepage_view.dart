@@ -11,6 +11,7 @@ import 'package:receipe_app/ui/views/homepage/widgets/product_item.dart';
 import 'package:receipe_app/ui/widgets/common/app_drawer/app_drawer.dart';
 import 'package:stacked/stacked.dart';
 import 'homepage_viewmodel.dart';
+import 'package:lottie/lottie.dart';
 
 class HomepageView extends StackedView<HomepageViewModel> {
   const HomepageView({super.key});
@@ -65,23 +66,41 @@ class HomepageView extends StackedView<HomepageViewModel> {
               builder: (context) {
                 // Loading
                 if (viewModel.isBusy) {
-                  return Center(
-                    child: CircularProgressIndicator.adaptive(),
-                  );
+                  return Center(child: CircularProgressIndicator.adaptive());
                 }
-
                 // Error
                 if (viewModel.hasError) {
                   return Center(
-                    child: Text(viewModel.modelMessage ?? ''),
+                    child: Column(
+                      children: [
+                        Lottie.asset(
+                          AppImages.noDishFound,
+                          width: 200,
+                          height: 200,
+                        ),
+                        Text(
+                          viewModel.modelMessage ?? '',
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   );
                 }
 
                 // Empty
                 if (viewModel.data == null || viewModel.data!.isEmpty) {
                   return Center(
-                    child:
-                        Text('There are no available dish to view currently'),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Lottie.asset(
+                          AppImages.noDishFound,
+                          width: 200,
+                          height: 200,
+                        ),
+                        Text(S.current.no_dish_available),
+                      ],
+                    ),
                   );
                 }
 
