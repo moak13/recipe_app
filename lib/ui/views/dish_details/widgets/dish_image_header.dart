@@ -21,8 +21,9 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
 
     return Stack(
       children: [
-        Image.asset(
-          recipe?.dishImageUrl ?? '',
+        Image.network(
+          recipe?.dishImageUrl ??
+              'https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=1024x1024&w=is&k=20&c=DTns3r_STc4HRBMouVl8IgHeuWhnBdz8X4DRkbDxWjQ=',
           fit: BoxFit.fill,
           height: screenHeight(context) * .6,
           width: double.infinity,
