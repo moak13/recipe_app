@@ -92,7 +92,7 @@ class HomepageView extends StackedView<HomepageViewModel> {
                     child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        childAspectRatio: 0.67,
+                        childAspectRatio: 0.90,
                         mainAxisSpacing: 20.h,
                         crossAxisSpacing: 16.w,
                       ),

@@ -55,16 +55,25 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
               ),
               SizedBox(height: 12.h),
               // This shows the list of ingredients of a selected dish
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: viewModel.listOfIngredientContent
-                    .map(
-                      (aDishIngredient) => IngredientContainer(
-                        content: aDishIngredient,
-                      ),
-                    )
-                    .toList(),
-              ),
+
+              Builder(builder: (context) {
+                if (recipe?.ingredients == null ||
+                    recipe!.ingredients!.isEmpty) {
+                  return Text('No Ingredents available');
+                }
+
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: recipe!.ingredients!
+                      .map(
+                        (aDishIngredient) => IngredientContainer(
+                          content: aDishIngredient,
+                        ),
+                      )
+                      .toList(),
+                );
+              }),
+
               SizedBox(height: 25.h),
               Text(
                 S.current.instructions,
@@ -73,25 +82,10 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
                 ),
               ),
               SizedBox(height: 12.h),
-
-              /// This shows the List of instructions
-              ...viewModel.instructionsForADish.entries.map(
-                (entry) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      entry.key,
-                      style: typography?.labelRegular12?.copyWith(
-                        color: palette?.gray12,
-                      ),
-                    ),
-                    Text(
-                      entry.value,
-                      style: typography?.labelRegular12?.copyWith(
-                        color: palette?.gray12,
-                      ),
-                    ),
-                  ],
+              Text(
+                recipe?.instructions ?? '--',
+                style: typography?.labelRegular12?.copyWith(
+                  color: palette?.gray12,
                 ),
               ),
             ],
