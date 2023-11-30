@@ -35,7 +35,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/lottie
+    - assets/lottie/
     - assets/svg/
     - assets/png/
     - assets/sql/
