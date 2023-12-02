@@ -1,36 +1,44 @@
-import 'package:receipe_app/app/app.bottomsheets.dart';
-import 'package:receipe_app/app/app.dialogs.dart';
 import 'package:receipe_app/app/app.locator.dart';
-import 'package:receipe_app/ui/common/app_strings.dart';
+import 'package:receipe_app/app/app.router.dart';
+import 'package:receipe_app/data_model/recipe.dart';
+import 'package:receipe_app/exceptions/receipe_exceptions.dart';
+import 'package:receipe_app/generated/l10n.dart';
+import 'package:receipe_app/services/dish_service.dart';
+
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-class HomeViewModel extends BaseViewModel {
-  final _dialogService = locator<DialogService>();
-  final _bottomSheetService = locator<BottomSheetService>();
+class HomeViewModel extends FutureViewModel<List<Recipe>?> {
+  final _navigationService = locator<NavigationService>();
+  final _dishService = locator<DishService>();
 
-  String get counterLabel => 'Counter is: $_counter';
-
-  int _counter = 0;
-
-  void incrementCounter() {
-    _counter++;
-    rebuildUi();
+  Future<List<Recipe>?> _getDishes() async {
+    try {
+      final response = await _dishService.getAllDishes();
+      return response.recipes;
+    } on RecipeException catch (e) {
+      setError(true);
+      setMessage(e.message);
+      return null;
+    } catch (e) {
+      setError(true);
+      setMessage(S.current.unknown_error);
+      return null;
+    }
   }
 
-  void showDialog() {
-    _dialogService.showCustomDialog(
-      variant: DialogType.infoAlert,
-      title: 'Stacked Rocks!',
-      description: 'Give stacked $_counter stars on Github',
-    );
+  void navigateToHome() {
+    _navigationService.back();
   }
 
-  void showBottomSheet() {
-    _bottomSheetService.showCustomSheet(
-      variant: BottomSheetType.notice,
-      title: ksHomeBottomSheetTitle,
-      description: ksHomeBottomSheetDescription,
-    );
+  void navigateToAddProduct() {
+    _navigationService.navigateToNewDishView();
   }
+
+  void navigateToDishDetailsView(Recipe? recipe) {
+    _navigationService.navigateToDishDetailsView(recipe: recipe);
+  }
+
+  @override
+  Future<List<Recipe>?> futureToRun() async => await _getDishes();
 }

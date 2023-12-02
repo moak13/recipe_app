@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/product_model.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
-import 'package:receipe_app/ui/views/homepage/widgets/liked_widget.dart';
-import 'package:receipe_app/ui/views/homepage/widgets/unliked_widget.dart';
+import 'package:receipe_app/ui/views/home/widgets/liked_widget.dart';
+import 'package:receipe_app/ui/views/home/widgets/unliked_widget.dart';
 
 class FavoriteWidget extends StatelessWidget {
   const FavoriteWidget({
