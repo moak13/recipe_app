@@ -18,6 +18,6 @@ class SplashViewModel extends BaseViewModel {
       return;
     }
 
-    _navigationService.replaceWithHomepageView();
+    _navigationService.replaceWithHomeView();
   }
 }

@@ -11,7 +11,6 @@ import '../ui/views/home/home_view.dart';
 import '../ui/views/startup/startup_view.dart';
 import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart';
 import 'package:receipe_app/ui/views/login/login_view.dart';
-import 'package:receipe_app/ui/views/homepage/homepage_view.dart';
 import 'package:receipe_app/ui/views/signup/signup_view.dart';
 import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart';
 import 'package:receipe_app/services/secure_storage_service.dart';
@@ -29,7 +28,6 @@ import 'package:receipe_app/services/user_service.dart';
     AdaptiveRoute(page: StartupView, initial: true),
     AdaptiveRoute(page: OnboardingView),
     AdaptiveRoute(page: LoginView),
-    AdaptiveRoute(page: HomepageView),
     AdaptiveRoute(page: SignupView),
     AdaptiveRoute(page: DishDetailsView),
     AdaptiveRoute(page: EditDishView),

@@ -5,22 +5,21 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i12;
+import 'package:flutter/material.dart' as _i11;
 import 'package:flutter/material.dart';
-import 'package:receipe_app/data_model/recipe.dart' as _i13;
+import 'package:receipe_app/data_model/recipe.dart' as _i12;
 import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart'
-    as _i8;
-import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart' as _i9;
+    as _i7;
+import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart' as _i8;
 import 'package:receipe_app/ui/views/home/home_view.dart' as _i2;
-import 'package:receipe_app/ui/views/homepage/homepage_view.dart' as _i6;
 import 'package:receipe_app/ui/views/login/login_view.dart' as _i5;
-import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart' as _i10;
+import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart' as _i9;
 import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart' as _i4;
-import 'package:receipe_app/ui/views/signup/signup_view.dart' as _i7;
-import 'package:receipe_app/ui/views/splash/splash_view.dart' as _i11;
+import 'package:receipe_app/ui/views/signup/signup_view.dart' as _i6;
+import 'package:receipe_app/ui/views/splash/splash_view.dart' as _i10;
 import 'package:receipe_app/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i14;
+import 'package:stacked_services/stacked_services.dart' as _i13;
 
 class Routes {
   static const homeView = '/home-view';
@@ -30,8 +29,6 @@ class Routes {
   static const onboardingView = '/onboarding-view';
 
   static const loginView = '/login-view';
-
-  static const homepageView = '/homepage-view';
 
   static const signupView = '/signup-view';
 
@@ -48,7 +45,6 @@ class Routes {
     startupView,
     onboardingView,
     loginView,
-    homepageView,
     signupView,
     dishDetailsView,
     editDishView,
@@ -76,28 +72,24 @@ class StackedRouter extends _i1.RouterBase {
       page: _i5.LoginView,
     ),
     _i1.RouteDef(
-      Routes.homepageView,
-      page: _i6.HomepageView,
-    ),
-    _i1.RouteDef(
       Routes.signupView,
-      page: _i7.SignupView,
+      page: _i6.SignupView,
     ),
     _i1.RouteDef(
       Routes.dishDetailsView,
-      page: _i8.DishDetailsView,
+      page: _i7.DishDetailsView,
     ),
     _i1.RouteDef(
       Routes.editDishView,
-      page: _i9.EditDishView,
+      page: _i8.EditDishView,
     ),
     _i1.RouteDef(
       Routes.newDishView,
-      page: _i10.NewDishView,
+      page: _i9.NewDishView,
     ),
     _i1.RouteDef(
       Routes.splashView,
-      page: _i11.SplashView,
+      page: _i10.SplashView,
     ),
   ];
 
@@ -129,44 +121,38 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
-    _i6.HomepageView: (data) {
-      return _i1.buildAdaptivePageRoute<dynamic>(
-        builder: (context) => const _i6.HomepageView(),
-        settings: data,
-      );
-    },
-    _i7.SignupView: (data) {
+    _i6.SignupView: (data) {
       final args = data.getArgs<SignupViewArguments>(
         orElse: () => const SignupViewArguments(),
       );
       return _i1.buildAdaptivePageRoute<dynamic>(
-        builder: (context) => _i7.SignupView(key: args.key),
+        builder: (context) => _i6.SignupView(key: args.key),
         settings: data,
       );
     },
-    _i8.DishDetailsView: (data) {
+    _i7.DishDetailsView: (data) {
       final args = data.getArgs<DishDetailsViewArguments>(nullOk: false);
       return _i1.buildAdaptivePageRoute<dynamic>(
         builder: (context) =>
-            _i8.DishDetailsView(key: args.key, recipe: args.recipe),
+            _i7.DishDetailsView(key: args.key, recipe: args.recipe),
         settings: data,
       );
     },
-    _i9.EditDishView: (data) {
+    _i8.EditDishView: (data) {
       return _i1.buildAdaptivePageRoute<dynamic>(
-        builder: (context) => const _i9.EditDishView(),
+        builder: (context) => const _i8.EditDishView(),
         settings: data,
       );
     },
-    _i10.NewDishView: (data) {
+    _i9.NewDishView: (data) {
       return _i1.buildAdaptivePageRoute<dynamic>(
-        builder: (context) => const _i10.NewDishView(),
+        builder: (context) => const _i9.NewDishView(),
         settings: data,
       );
     },
-    _i11.SplashView: (data) {
+    _i10.SplashView: (data) {
       return _i1.buildAdaptivePageRoute<dynamic>(
-        builder: (context) => const _i11.SplashView(),
+        builder: (context) => const _i10.SplashView(),
         settings: data,
       );
     },
@@ -181,7 +167,7 @@ class StackedRouter extends _i1.RouterBase {
 class LoginViewArguments {
   const LoginViewArguments({this.key});
 
-  final _i12.Key? key;
+  final _i11.Key? key;
 
   @override
   String toString() {
@@ -203,7 +189,7 @@ class LoginViewArguments {
 class SignupViewArguments {
   const SignupViewArguments({this.key});
 
-  final _i12.Key? key;
+  final _i11.Key? key;
 
   @override
   String toString() {
@@ -228,9 +214,9 @@ class DishDetailsViewArguments {
     required this.recipe,
   });
 
-  final _i12.Key? key;
+  final _i11.Key? key;
 
-  final _i13.Recipe? recipe;
+  final _i12.Recipe? recipe;
 
   @override
   String toString() {
@@ -249,7 +235,7 @@ class DishDetailsViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i14.NavigationService {
+extension NavigatorStateExtension on _i13.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -293,7 +279,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> navigateToLoginView({
-    _i12.Key? key,
+    _i11.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -308,22 +294,8 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToHomepageView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return navigateTo<dynamic>(Routes.homepageView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
   Future<dynamic> navigateToSignupView({
-    _i12.Key? key,
+    _i11.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -339,8 +311,8 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> navigateToDishDetailsView({
-    _i12.Key? key,
-    required _i13.Recipe? recipe,
+    _i11.Key? key,
+    required _i12.Recipe? recipe,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -440,7 +412,7 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> replaceWithLoginView({
-    _i12.Key? key,
+    _i11.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -455,22 +427,8 @@ extension NavigatorStateExtension on _i14.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithHomepageView([
-    int? routerId,
-    bool preventDuplicates = true,
-    Map<String, String>? parameters,
-    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
-        transition,
-  ]) async {
-    return replaceWith<dynamic>(Routes.homepageView,
-        id: routerId,
-        preventDuplicates: preventDuplicates,
-        parameters: parameters,
-        transition: transition);
-  }
-
   Future<dynamic> replaceWithSignupView({
-    _i12.Key? key,
+    _i11.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -486,8 +444,8 @@ extension NavigatorStateExtension on _i14.NavigationService {
   }
 
   Future<dynamic> replaceWithDishDetailsView({
-    _i12.Key? key,
-    required _i13.Recipe? recipe,
+    _i11.Key? key,
+    required _i12.Recipe? recipe,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,

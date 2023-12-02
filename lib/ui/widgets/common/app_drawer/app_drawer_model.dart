@@ -18,6 +18,7 @@ class AppDrawerModel extends ReactiveViewModel {
   final _logger = getLogger('App_Drawer');
 
   void navigateToHome() {
+    _logger.i("go back");
     _navigationService.back();
   }
 

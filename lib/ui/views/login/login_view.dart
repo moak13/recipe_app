@@ -2,12 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/generated/l10n.dart';
-
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/utilities/validation.dart';
+import 'package:receipe_app/ui/widgets/common/overlay_loader/overlay_loader.dart';
 import 'package:receipe_app/ui/widgets/common/primary_button/primary_button.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
@@ -29,13 +28,12 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     LoginViewModel viewModel,
     Widget? child,
   ) {
-    final ThemeData theme = Theme.of(context);
-    final AppTypography? typography = theme.extension<AppTypography>();
-    final Palette? palette = theme.extension<Palette>();
+
     return Scaffold(
-      body: Builder(builder: (context) {
-        Widget content = SafeArea(
-          child: SingleChildScrollView(
+      body: SafeArea(
+        child: OverlayLoader(
+          isBusy: viewModel.isBusy,
+          content: SingleChildScrollView(
             padding: EdgeInsets.only(
               left: sidePadding,
               right: sidePadding,
@@ -56,8 +54,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       S.current.welcome,
-                      style: typography?.headlineBold28
-                          ?.copyWith(color: palette?.gray11),
+                      style: context.typography?.headlineBold28
+                          ?.copyWith(color: context.palette?.gray11),
                     ),
                   ),
                   SizedBox(
@@ -67,8 +65,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       S.current.please_sign_in_to_continue,
-                      style: typography?.titleRegular16
-                          ?.copyWith(color: palette?.gray8),
+                      style: context.typography?.titleRegular16
+                          ?.copyWith(color: context.palette?.gray8),
                     ),
                   ),
                   SizedBox(
@@ -103,8 +101,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                               ? Icons.visibility
                               : Icons.visibility_off,
                           color: viewModel.hidePassword
-                              ? palette!.primary6
-                              : palette!.gray9,
+                              ? context.palette!.primary6
+                              : context.palette!.gray9,
                         ),
                       ),
                     ),
@@ -126,16 +124,16 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                   Text.rich(
                     TextSpan(
                       text: S.current.dont_have_an_account,
-                      style: typography?.titleRegular16?.copyWith(
-                        color: palette.gray8,
+                      style: context.typography?.titleRegular16?.copyWith(
+                        color: context.palette?.gray8,
                         fontSize: 14.sp,
                       ),
                       children: [
                         const TextSpan(text: " "),
                         TextSpan(
                             text: S.current.sign_up,
-                            style: typography?.titleBold16?.copyWith(
-                              color: palette.primary6,
+                            style: context.typography?.titleBold16?.copyWith(
+                              color: context.palette?.primary6,
                               fontSize: 14.sp,
                             ),
                             recognizer: TapGestureRecognizer()
@@ -147,19 +145,9 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               ),
             ),
           ),
-        );
-
-        List<Widget> stackChildren = [content];
-
-        if (viewModel.isBusy) {
-          stackChildren
-              .add(Center(child: CircularProgressIndicator.adaptive()));
-        }
-
-        return Stack(
-          children: stackChildren,
-        );
-      }),
+        ),
+      ),
+   
     );
   }
 

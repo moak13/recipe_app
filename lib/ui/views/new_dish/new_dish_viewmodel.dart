@@ -1,7 +1,6 @@
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/data_model/create_dish_info.dart';
-import 'package:receipe_app/data_model/user.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/services/dish_service.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:receipe_app/data_model/product_model.dart';
 import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 import 'package:receipe_app/ui/views/dish_details/widgets/dish_detail_bottom.dart';
