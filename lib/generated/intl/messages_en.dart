@@ -56,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enter_your_password":
             MessageLookupByLibrary.simpleMessage("Enter your password"),
         "first_name": MessageLookupByLibrary.simpleMessage("First Name"),
+        "generate_recipe_contents":
+            MessageLookupByLibrary.simpleMessage("Generating Recipe contents"),
         "get_started": MessageLookupByLibrary.simpleMessage("Get Started"),
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
         "hi": MessageLookupByLibrary.simpleMessage("Hi"),
@@ -72,6 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "my_dish": MessageLookupByLibrary.simpleMessage("MY DISH"),
         "name": MessageLookupByLibrary.simpleMessage("Name: "),
         "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
+        "no_dish_available": MessageLookupByLibrary.simpleMessage(
+            "There are no available dish to view currently"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. Please try again later"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(

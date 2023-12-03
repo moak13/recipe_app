@@ -559,6 +559,26 @@ class S {
       args: [],
     );
   }
+
+  /// `There are no available dish to view currently`
+  String get no_dish_available {
+    return Intl.message(
+      'There are no available dish to view currently',
+      name: 'no_dish_available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Generating Recipe contents`
+  String get generate_recipe_contents {
+    return Intl.message(
+      'Generating Recipe contents',
+      name: 'generate_recipe_contents',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

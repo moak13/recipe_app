@@ -50,5 +50,7 @@
     "hi": "Hi",
     "my_dish": "MY DISH",
     "dark_mode": "DARK MODE",
-    "logout": "LOGOUT "
+    "logout": "LOGOUT ",
+    "no_dish_available": "There are no available dish to view currently",
+    "generate_recipe_contents": "Generating Recipe contents"
 }
