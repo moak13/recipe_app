@@ -42,10 +42,13 @@ class RichTextWidget extends StatelessWidget {
               color: color2,
               fontWeight: fontWeight2,
               fontSize: fontSize2 ?? 12.sp,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],
       ),
+      softWrap: true,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

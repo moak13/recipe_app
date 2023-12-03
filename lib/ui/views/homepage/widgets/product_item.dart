@@ -22,21 +22,22 @@ class ProductItem extends StatelessWidget {
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
       child: SizedBox(
-        height: 252.h,
+        // height: 252.h,
         width: 171.w,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              alignment: AlignmentDirectional.topEnd,
-              children: [
-                Image.network(
-                  recipe?.dishImageUrl ?? 'https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=1024x1024&w=is&k=20&c=DTns3r_STc4HRBMouVl8IgHeuWhnBdz8X4DRkbDxWjQ=',
-                  height: 200.h,
-                  fit: BoxFit.contain,
-                ),
-              ],
+            // Stack(
+            //   alignment: AlignmentDirectional.topEnd,
+            //   children: [
+
+            //   ],
+            // ),
+            Image.network(
+              recipe?.dishImageUrl ??
+                  'https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=1024x1024&w=is&k=20&c=DTns3r_STc4HRBMouVl8IgHeuWhnBdz8X4DRkbDxWjQ=',
+              fit: BoxFit.contain,
             ),
             SizedBox(height: 8.h),
             RichTextWidget(
