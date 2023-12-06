@@ -41,6 +41,7 @@ class SignupViewModel extends FormViewModel {
         await _dialogService.showDialog(
           description: "Account created successfully.",
         );
+        
       }
     } on RecipeException catch (e) {
       _dialogService.showDialog(
