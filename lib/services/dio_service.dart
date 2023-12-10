@@ -141,6 +141,10 @@ class DioService {
       throw RecipeException(message: S.current.connection_timeout);
     }
 
+    if (e.type == DioExceptionType.connectionError) {
+      throw RecipeException(message: S.current.connection_error);
+    }
+
     if (e.response?.statusCode == 500) {
       throw RecipeException(message: S.current.service_unavailable);
     }

@@ -141,8 +141,6 @@ class HomeView extends StackedView<HomeViewModel> {
                   );
                 },
               ),
-       
-       
             ],
           ),
         ),

@@ -42,4 +42,20 @@ class DishService {
       rethrow;
     }
   }
+
+  Future<RecipesResponseModel> getUserDishes() async {
+    try {
+      final response = await _dioService.get(
+        path: '/dish/user',
+      );
+      _logger.v('gotten dishes: $response');
+      return RecipesResponseModel.fromJson(response);
+    } on RecipeException {
+      _logger.e('Application Error trying to get a dishes');
+      rethrow;
+    } catch (e, s) {
+      _logger.e('Error trying to get a dishes', e, s);
+      rethrow;
+    }
+  }
 }

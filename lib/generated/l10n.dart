@@ -589,6 +589,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Seems like we got a problem connecting to the server. Kindly try again when you have a stronger network`
+  String get connection_error {
+    return Intl.message(
+      'Seems like we got a problem connecting to the server. Kindly try again when you have a stronger network',
+      name: 'connection_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
