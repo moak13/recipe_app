@@ -28,7 +28,6 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     LoginViewModel viewModel,
     Widget? child,
   ) {
-
     return Scaffold(
       body: SafeArea(
         child: OverlayLoader(
@@ -147,7 +146,6 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
           ),
         ),
       ),
-   
     );
   }
 

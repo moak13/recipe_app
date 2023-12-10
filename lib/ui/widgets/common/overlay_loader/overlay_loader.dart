@@ -19,7 +19,6 @@ class OverlayLoader extends StackedView<OverlayLoaderModel> {
     OverlayLoaderModel viewModel,
     Widget? child,
   ) {
-    
     List<Widget> children = [content];
 
     if (isBusy) {

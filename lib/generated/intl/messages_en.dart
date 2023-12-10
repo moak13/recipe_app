@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "logout": MessageLookupByLibrary.simpleMessage("LOGOUT "),
         "my_dish": MessageLookupByLibrary.simpleMessage("MY DISH"),
+        "mydish": MessageLookupByLibrary.simpleMessage("My Dish"),
         "name": MessageLookupByLibrary.simpleMessage("Name: "),
         "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
         "no_dish_available": MessageLookupByLibrary.simpleMessage(

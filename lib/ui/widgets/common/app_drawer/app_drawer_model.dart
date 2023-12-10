@@ -19,11 +19,14 @@ class AppDrawerModel extends ReactiveViewModel {
 
   void navigateToHome() {
     _logger.i("go back");
-    _navigationService.back();
+    _navigationService.replaceWithHomeView();
   }
 
   void navigateToHomefromNewDish() {
     _navigationService.popRepeated(2);
+  }
+  void navigateToSingleUserDish() {
+    _navigationService.replaceWithSingleUserView();
   }
 
   Future<void> logout() async {
