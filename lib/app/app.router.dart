@@ -5,9 +5,9 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i11;
+import 'package:flutter/material.dart' as _i12;
 import 'package:flutter/material.dart';
-import 'package:receipe_app/data_model/recipe.dart' as _i12;
+import 'package:receipe_app/data_model/recipe.dart' as _i13;
 import 'package:receipe_app/ui/views/dish_details/dish_details_view.dart'
     as _i7;
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart' as _i8;
@@ -16,10 +16,11 @@ import 'package:receipe_app/ui/views/login/login_view.dart' as _i5;
 import 'package:receipe_app/ui/views/new_dish/new_dish_view.dart' as _i9;
 import 'package:receipe_app/ui/views/onboarding/onboarding_view.dart' as _i4;
 import 'package:receipe_app/ui/views/signup/signup_view.dart' as _i6;
+import 'package:receipe_app/ui/views/single_user/single_user_view.dart' as _i11;
 import 'package:receipe_app/ui/views/splash/splash_view.dart' as _i10;
 import 'package:receipe_app/ui/views/startup/startup_view.dart' as _i3;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i13;
+import 'package:stacked_services/stacked_services.dart' as _i14;
 
 class Routes {
   static const homeView = '/home-view';
@@ -40,6 +41,8 @@ class Routes {
 
   static const splashView = '/splash-view';
 
+  static const singleUserView = '/single-user-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -50,6 +53,7 @@ class Routes {
     editDishView,
     newDishView,
     splashView,
+    singleUserView,
   };
 }
 
@@ -90,6 +94,10 @@ class StackedRouter extends _i1.RouterBase {
     _i1.RouteDef(
       Routes.splashView,
       page: _i10.SplashView,
+    ),
+    _i1.RouteDef(
+      Routes.singleUserView,
+      page: _i11.SingleUserView,
     ),
   ];
 
@@ -156,6 +164,12 @@ class StackedRouter extends _i1.RouterBase {
         settings: data,
       );
     },
+    _i11.SingleUserView: (data) {
+      return _i1.buildAdaptivePageRoute<dynamic>(
+        builder: (context) => const _i11.SingleUserView(),
+        settings: data,
+      );
+    },
   };
 
   @override
@@ -167,7 +181,7 @@ class StackedRouter extends _i1.RouterBase {
 class LoginViewArguments {
   const LoginViewArguments({this.key});
 
-  final _i11.Key? key;
+  final _i12.Key? key;
 
   @override
   String toString() {
@@ -189,7 +203,7 @@ class LoginViewArguments {
 class SignupViewArguments {
   const SignupViewArguments({this.key});
 
-  final _i11.Key? key;
+  final _i12.Key? key;
 
   @override
   String toString() {
@@ -214,9 +228,9 @@ class DishDetailsViewArguments {
     required this.recipe,
   });
 
-  final _i11.Key? key;
+  final _i12.Key? key;
 
-  final _i12.Recipe? recipe;
+  final _i13.Recipe? recipe;
 
   @override
   String toString() {
@@ -235,7 +249,7 @@ class DishDetailsViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i13.NavigationService {
+extension NavigatorStateExtension on _i14.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -279,7 +293,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> navigateToLoginView({
-    _i11.Key? key,
+    _i12.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -295,7 +309,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> navigateToSignupView({
-    _i11.Key? key,
+    _i12.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -311,8 +325,8 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> navigateToDishDetailsView({
-    _i11.Key? key,
-    required _i12.Recipe? recipe,
+    _i12.Key? key,
+    required _i13.Recipe? recipe,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -369,6 +383,20 @@ extension NavigatorStateExtension on _i13.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToSingleUserView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.singleUserView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -412,7 +440,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> replaceWithLoginView({
-    _i11.Key? key,
+    _i12.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -428,7 +456,7 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> replaceWithSignupView({
-    _i11.Key? key,
+    _i12.Key? key,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -444,8 +472,8 @@ extension NavigatorStateExtension on _i13.NavigationService {
   }
 
   Future<dynamic> replaceWithDishDetailsView({
-    _i11.Key? key,
-    required _i12.Recipe? recipe,
+    _i12.Key? key,
+    required _i13.Recipe? recipe,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -496,6 +524,20 @@ extension NavigatorStateExtension on _i13.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.splashView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithSingleUserView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.singleUserView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

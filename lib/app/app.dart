@@ -20,6 +20,7 @@ import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/services/dish_service.dart';
 import 'package:receipe_app/services/database_service.dart';
 import 'package:receipe_app/services/user_service.dart';
+import 'package:receipe_app/ui/views/single_user/single_user_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -33,6 +34,7 @@ import 'package:receipe_app/services/user_service.dart';
     AdaptiveRoute(page: EditDishView),
     AdaptiveRoute(page: NewDishView),
     AdaptiveRoute(page: SplashView),
+    AdaptiveRoute(page: SingleUserView),
 // @stacked-route
   ],
   dependencies: [

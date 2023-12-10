@@ -140,6 +140,16 @@ class S {
     );
   }
 
+  /// `My Dish`
+  String get mydish {
+    return Intl.message(
+      'My Dish',
+      name: 'mydish',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please sign in to continue`
   String get please_sign_in_to_continue {
     return Intl.message(

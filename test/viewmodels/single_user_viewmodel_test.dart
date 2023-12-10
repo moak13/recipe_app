@@ -4,12 +4,8 @@ import 'package:receipe_app/app/app.locator.dart';
 import '../helpers/test_helpers.dart';
 
 void main() {
-  group('HomeViewmodelTest -', () {
+  group('SingleUserViewModel Tests -', () {
     setUp(() => registerServices());
     tearDown(() => locator.reset());
-
-    group('incrementCounter -', () {});
-
-    group('showBottomSheet -', () {});
   });
 }

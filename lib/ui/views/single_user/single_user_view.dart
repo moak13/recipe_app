@@ -13,15 +13,15 @@ import 'package:receipe_app/ui/widgets/common/app_drawer/app_drawer.dart';
 import 'package:receipe_app/ui/widgets/common/overlay_loader/overlay_loader.dart';
 import 'package:stacked/stacked.dart';
 
-import 'home_viewmodel.dart';
+import 'single_user_viewmodel.dart';
 
-class HomeView extends StackedView<HomeViewModel> {
-  const HomeView({Key? key}) : super(key: key);
+class SingleUserView extends StackedView<SingleUserViewModel> {
+  const SingleUserView({Key? key}) : super(key: key);
 
   @override
   Widget builder(
     BuildContext context,
-    HomeViewModel viewModel,
+    SingleUserViewModel viewModel,
     Widget? child,
   ) {
     ThemeData theme = Theme.of(context);
@@ -55,7 +55,7 @@ class HomeView extends StackedView<HomeViewModel> {
           ),
         ),
         title: Text(
-          S.current.home,
+          S.current.mydish,
           style: typography?.titleBold16?.copyWith(color: palette?.gray11),
         ),
       ),
@@ -67,7 +67,7 @@ class HomeView extends StackedView<HomeViewModel> {
               SizedBox(
                 height: 18.h,
               ),
-              Builder(
+           Builder(
                 builder: (context) {
                   //Error
                   if (viewModel.hasError) {
@@ -132,8 +132,8 @@ class HomeView extends StackedView<HomeViewModel> {
                           final recipe = viewModel.data?.elementAt(index);
                           return ProductItem(
                             recipe: recipe,
-                            onTap: () =>
-                                viewModel.navigateToDishDetailsView(recipe),
+                            onTap: () {}
+                                ,
                           );
                         },
                       ),
@@ -142,22 +142,17 @@ class HomeView extends StackedView<HomeViewModel> {
                 },
               ),
        
-       
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: viewModel.navigateToAddProduct,
-        backgroundColor: palette!.primary6,
-        child: SvgPicture.asset(AppImages.addcon),
-      ),
+      
     );
   }
 
   @override
-  HomeViewModel viewModelBuilder(
+  SingleUserViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      HomeViewModel();
+      SingleUserViewModel();
 }

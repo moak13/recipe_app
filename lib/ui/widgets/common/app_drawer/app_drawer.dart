@@ -64,7 +64,7 @@ class AppDrawer extends StackedView<AppDrawerModel> {
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: viewModel.navigateToSingleUserDish,
             leading: SvgPicture.asset(
               AppImages.gift,
               width: 24.7.w,
