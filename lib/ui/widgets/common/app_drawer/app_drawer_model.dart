@@ -25,6 +25,7 @@ class AppDrawerModel extends ReactiveViewModel {
   void navigateToHomefromNewDish() {
     _navigationService.popRepeated(2);
   }
+
   void navigateToSingleUserDish() {
     _navigationService.replaceWithSingleUserView();
   }

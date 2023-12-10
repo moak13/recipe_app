@@ -67,7 +67,7 @@ class SingleUserView extends StackedView<SingleUserViewModel> {
               SizedBox(
                 height: 18.h,
               ),
-           Builder(
+              Builder(
                 builder: (context) {
                   //Error
                   if (viewModel.hasError) {
@@ -132,8 +132,7 @@ class SingleUserView extends StackedView<SingleUserViewModel> {
                           final recipe = viewModel.data?.elementAt(index);
                           return ProductItem(
                             recipe: recipe,
-                            onTap: () {}
-                                ,
+                            onTap: () {},
                           );
                         },
                       ),
@@ -141,12 +140,10 @@ class SingleUserView extends StackedView<SingleUserViewModel> {
                   );
                 },
               ),
-       
             ],
           ),
         ),
       ),
-      
     );
   }
 

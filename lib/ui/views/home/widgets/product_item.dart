@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/widgets/common/dish_image/dish_image.dart';
 import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
 
 class ProductItem extends StatelessWidget {
@@ -34,10 +35,13 @@ class ProductItem extends StatelessWidget {
 
             //   ],
             // ),
-            Image.network(
-              recipe?.dishImageUrl ??
-                  'https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=1024x1024&w=is&k=20&c=DTns3r_STc4HRBMouVl8IgHeuWhnBdz8X4DRkbDxWjQ=',
-              fit: BoxFit.contain,
+            // Image.network(
+            //   recipe?.dishImageUrl ??
+            //       'https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=1024x1024&w=is&k=20&c=DTns3r_STc4HRBMouVl8IgHeuWhnBdz8X4DRkbDxWjQ=',
+            //   fit: BoxFit.contain,
+            // ),
+            DishImage(
+              imageUrl: recipe?.dishImageUrl ?? '',
             ),
             SizedBox(height: 8.h),
             RichTextWidget(

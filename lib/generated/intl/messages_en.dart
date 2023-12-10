@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "click_done": MessageLookupByLibrary.simpleMessage(
             "Click \"Done\" after your input."),
+        "connection_error": MessageLookupByLibrary.simpleMessage(
+            "Seems like we got a problem connecting to the server. Kindly try again when you have a stronger network"),
         "connection_timeout": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. It seems like the connection timed out"),
         "create_a_dish": MessageLookupByLibrary.simpleMessage("Create a Dish"),

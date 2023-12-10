@@ -7,14 +7,12 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class SingleUserViewModel extends FutureViewModel<List<Recipe>?> {
-  
   final _navigationService = locator<NavigationService>();
   final _dishService = locator<DishService>();
 
-
-  Future<List<Recipe>?> _getDishes() async {
+  Future<List<Recipe>?> _getUserDishes() async {
     try {
-      final response = await _dishService.getAllDishes();
+      final response = await _dishService.getUserDishes();
       return response.recipes;
     } on RecipeException catch (e) {
       setError(true);
@@ -32,12 +30,9 @@ class SingleUserViewModel extends FutureViewModel<List<Recipe>?> {
   void navigateToAddProduct() {}
 
   void navigateToDishDetailsView() {}
-  
+
   @override
-  Future<List<Recipe>?> futureToRun() {
-    // TODO: implement futureToRun
-    throw UnimplementedError();
+  Future<List<Recipe>?> futureToRun() async {
+    return await _getUserDishes();
   }
-
-
 }
