@@ -60,88 +60,92 @@ class HomeView extends StackedView<HomeViewModel> {
         ),
       ),
       body: SafeArea(
-        child: OverlayLoader(
-          isBusy: viewModel.isBusy,
-          content: Column(
-            children: [
-              SizedBox(
-                height: 18.h,
-              ),
-              Builder(
-                builder: (context) {
-                  //Error
-                  if (viewModel.hasError) {
-                    return Center(
-                      child: Column(
-                        children: [
-                          Lottie.asset(
-                            AppImages.noDishFound,
-                            width: 200,
-                            height: 200,
-                          ),
-                          Text(
-                            viewModel.modelMessage ?? S.current.unknown_error,
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    );
-                  }
-                  //Data not yet ready
-                  if (!viewModel.dataReady) {
-                    return Align(
-                      heightFactor: 20,
-                      alignment: Alignment.bottomCenter,
-                      child: Text(
-                        viewModel.modelMessage ??
-                            S.current.generate_recipe_contents,
-                      ),
-                    );
-                  }
-
-                  // Empty
-                  if (viewModel.data == null || viewModel.data!.isEmpty) {
-                    return Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Lottie.asset(
-                            AppImages.noDishFound,
-                            width: 200,
-                            height: 200,
-                          ),
-                          Text(S.current.no_dish_available),
-                        ],
-                      ),
-                    );
-                  }
-
-                  // Loaded
-                  return Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: sidePadding),
-                      child: GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 0.90,
-                          mainAxisSpacing: 20.h,
-                          crossAxisSpacing: 16.w,
+        child: RefreshIndicator.adaptive(
+          onRefresh: () => viewModel.refreshHomeData(),
+          child: OverlayLoader(
+            isBusy: viewModel.isBusy,
+            content: Column(
+              children: [
+                SizedBox(
+                  height: 18.h,
+                ),
+                Builder(
+                  builder: (context) {
+                    //Error
+                    if (viewModel.hasError) {
+                      return Center(
+                        child: Column(
+                          children: [
+                            Lottie.asset(
+                              AppImages.noDishFound,
+                              width: 200,
+                              height: 200,
+                            ),
+                            Text(
+                              viewModel.modelMessage ?? S.current.unknown_error,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
-                        itemCount: viewModel.data?.length,
-                        itemBuilder: (context, index) {
-                          final recipe = viewModel.data?.elementAt(index);
-                          return ProductItem(
-                            recipe: recipe,
-                            onTap: () =>
-                                viewModel.navigateToDishDetailsView(recipe),
-                          );
-                        },
+                      );
+                    }
+                    //Data not yet ready
+                    if (!viewModel.dataReady) {
+                      return Align(
+                        heightFactor: 20,
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                          viewModel.modelMessage ??
+                              S.current.generate_recipe_contents,
+                        ),
+                      );
+                    }
+
+                    // Empty
+                    if (viewModel.data == null || viewModel.data!.isEmpty) {
+                      return Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Lottie.asset(
+                              AppImages.noDishFound,
+                              width: 200,
+                              height: 200,
+                            ),
+                            Text(S.current.no_dish_available),
+                          ],
+                        ),
+                      );
+                    }
+
+                    // Loaded
+                    return Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: sidePadding),
+                        child: GridView.builder(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 0.90,
+                            mainAxisSpacing: 20.h,
+                            crossAxisSpacing: 16.w,
+                          ),
+                          itemCount: viewModel.data?.length,
+                          itemBuilder: (context, index) {
+                            final recipe = viewModel.data?.elementAt(index);
+                            return ProductItem(
+                              recipe: recipe,
+                              onTap: () =>
+                                  viewModel.navigateToDishDetailsView(recipe),
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  );
-                },
-              ),
-            ],
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
