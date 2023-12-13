@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/recipe.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:stacked/stacked.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
@@ -15,10 +14,6 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
 
   @override
   Widget build(BuildContext context, DishDetailsViewModel viewModel) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
-
     return Stack(
       children: [
         Image.network(
@@ -38,7 +33,7 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            color: palette?.popUpBg,
+            color: context.palette?.popUpBg,
             itemBuilder: (context) => [
               ...viewModel.popUpMenuItems.entries.map(
                 (entry) => PopupMenuItem(
@@ -50,9 +45,9 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
                   child: Text(
                     entry.value,
                     style: switch (entry.key == 1) {
-                      true => typography?.labelMedium16,
-                      false => typography?.labelMedium16?.copyWith(
-                          color: palette?.redShade,
+                      true => context.typography?.labelMedium16,
+                      false => context.typography?.labelMedium16?.copyWith(
+                          color: context.palette?.redShade,
                         ),
                     },
                   ),
@@ -61,7 +56,7 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
             ],
             icon: CircleAvatar(
               radius: 20.r,
-              backgroundColor: palette?.iconBackground3,
+              backgroundColor: context.palette?.iconBackground3,
               child: Icon(
                 Icons.more_vert_outlined,
                 color: Colors.black,

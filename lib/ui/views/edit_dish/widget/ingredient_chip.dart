@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 
 class IngredientChip extends StatelessWidget {
   const IngredientChip({
@@ -13,15 +12,11 @@ class IngredientChip extends StatelessWidget {
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
-
     return Container(
       padding: EdgeInsets.all(10.r),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.r),
-        color: palette?.orangeShade,
+        color: context.palette?.orangeShade,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,14 +24,14 @@ class IngredientChip extends StatelessWidget {
         children: [
           Text(
             content,
-            style: typography?.labelRegular12,
+            style: context.typography?.labelRegular12,
           ),
           10.horizontalSpace,
           GestureDetector(
             onTap: onTap,
             child: Icon(
               Icons.cancel,
-              color: palette?.gray13,
+              color: context.palette?.gray13,
             ),
           ),
         ],

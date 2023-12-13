@@ -4,8 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/utilities/validation.dart';
 import 'package:receipe_app/ui/widgets/common/overlay_loader/overlay_loader.dart';
 import 'package:receipe_app/ui/widgets/common/primary_button/primary_button.dart';
@@ -33,10 +32,6 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
     SignupViewModel viewModel,
     Widget? child,
   ) {
-    final ThemeData theme = Theme.of(context);
-    final AppTypography? typography = theme.extension<AppTypography>();
-    final Palette? palette = theme.extension<Palette>();
-
     return Scaffold(
       body: SafeArea(
         child: OverlayLoader(
@@ -61,8 +56,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       S.current.sign_up,
-                      style: typography?.headlineBold28
-                          ?.copyWith(color: palette?.gray11),
+                      style: context.typography?.headlineBold28
+                          ?.copyWith(color: context.palette?.gray11),
                     ),
                   ),
                   SizedBox(
@@ -72,8 +67,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Kindly fill the form to create a Kally Dish account",
-                      style: typography?.titleRegular16
-                          ?.copyWith(color: palette?.gray8),
+                      style: context.typography?.titleRegular16
+                          ?.copyWith(color: context.palette?.gray8),
                     ),
                   ),
                   SizedBox(
@@ -135,8 +130,8 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                               ? Icons.visibility
                               : Icons.visibility_off,
                           color: viewModel.hidePassword
-                              ? palette!.primary6
-                              : palette!.gray9,
+                              ? context.palette!.primary6
+                              : context.palette!.gray9,
                         ),
                       ),
                     ),
@@ -173,14 +168,14 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
                   Text.rich(
                     TextSpan(
                       text: S.current.already_have_an_account,
-                      style: typography?.titleRegular16
-                          ?.copyWith(color: palette.gray8, fontSize: 14.sp),
+                      style: context.typography?.titleRegular16?.copyWith(
+                          color: context.palette?.gray8, fontSize: 14.sp),
                       children: [
                         const TextSpan(text: " "),
                         TextSpan(
                             text: S.current.login,
-                            style: typography?.titleBold16?.copyWith(
-                              color: palette.primary6,
+                            style: context.typography?.titleBold16?.copyWith(
+                              color: context.palette?.primary6,
                               fontSize: 14.sp,
                             ),
                             recognizer: TapGestureRecognizer()

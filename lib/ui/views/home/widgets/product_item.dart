@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/generated/l10n.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/widgets/common/dish_image/dish_image.dart';
 import 'package:receipe_app/ui/widgets/common/richtext_widget.dart';
 
@@ -17,8 +17,6 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    Palette? palette = theme.extension<Palette>();
     return GestureDetector(
       onTap: onTap,
       behavior: HitTestBehavior.opaque,
@@ -45,14 +43,14 @@ class ProductItem extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             RichTextWidget(
-              color1: palette?.gray8,
-              color2: palette?.primary6,
+              color1: context.palette?.gray8,
+              color2: context.palette?.primary6,
               text1: S.current.name,
               text2: recipe?.name ?? '--',
             ),
             RichTextWidget(
-              color1: palette?.gray8,
-              color2: palette?.gray11,
+              color1: context.palette?.gray8,
+              color2: context.palette?.gray11,
               text1: S.current.date_created,
               text2: recipe?.datePosted ?? '--',
             ),

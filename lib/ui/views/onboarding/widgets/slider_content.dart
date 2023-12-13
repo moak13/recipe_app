@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:receipe_app/data_model/slider_data.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 
 class SliderContent extends StatelessWidget {
   final SliderData sliderData;
@@ -15,9 +14,6 @@ class SliderContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -32,8 +28,8 @@ class SliderContent extends StatelessWidget {
         Text(
           sliderData.title ?? '--',
           textAlign: TextAlign.center,
-          style: typography?.headlineBold24?.copyWith(
-            color: palette?.gray11,
+          style: context.typography?.headlineBold24?.copyWith(
+            color: context.palette?.gray11,
           ),
         ),
         SizedBox(
@@ -44,8 +40,8 @@ class SliderContent extends StatelessWidget {
           child: Text(
             sliderData.subtitle ?? '--',
             textAlign: TextAlign.center,
-            style: typography?.titleRegular16?.copyWith(
-              color: palette?.gray7,
+            style: context.typography?.titleRegular16?.copyWith(
+              color: context.palette?.gray7,
             ),
           ),
         ),
