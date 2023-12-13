@@ -3,12 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:stacked/stacked.dart';
 import 'app_drawer_model.dart';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
 
 class AppDrawer extends StackedView<AppDrawerModel> {
   const AppDrawer({super.key});
@@ -25,15 +24,12 @@ class AppDrawer extends StackedView<AppDrawerModel> {
     AppDrawerModel viewModel,
     Widget? child,
   ) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
     return Drawer(
       child: Column(
         children: [
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(
-              color: palette!.primary11,
+              color: context.palette!.primary11,
             ),
             accountName: RichText(
               text: TextSpan(
@@ -60,7 +56,7 @@ class AppDrawer extends StackedView<AppDrawerModel> {
             ),
             title: Text(
               S.current.drawer_home,
-              style: typography?.titleBold16,
+              style: context.typography?.titleBold16,
             ),
           ),
           ListTile(
@@ -74,7 +70,7 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               S.current.my_dish,
               style: TextStyle(
                 fontSize: 15.sp,
-                color: palette.gray11,
+                color: context.palette?.gray11,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -90,7 +86,7 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               S.current.dark_mode,
               style: TextStyle(
                 fontSize: 15.sp,
-                color: palette.gray11,
+                color: context.palette?.gray11,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -102,11 +98,11 @@ class AppDrawer extends StackedView<AppDrawerModel> {
                   ),
           ),
           SizedBox(height: 10.h),
-          Divider(thickness: 15.w, color: palette.gray1),
+          Divider(thickness: 15.w, color: context.palette?.gray1),
           Spacer(),
           Divider(
             thickness: 10.w,
-            color: palette.gray1,
+            color: context.palette?.gray1,
           ),
           ListTile(
             onTap: viewModel.logout,

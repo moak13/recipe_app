@@ -6,13 +6,11 @@ import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_colors.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/views/home/widgets/product_item.dart';
 import 'package:receipe_app/ui/widgets/common/app_drawer/app_drawer.dart';
 import 'package:receipe_app/ui/widgets/common/overlay_loader/overlay_loader.dart';
 import 'package:stacked/stacked.dart';
-
 import 'single_user_viewmodel.dart';
 
 class SingleUserView extends StackedView<SingleUserViewModel> {
@@ -24,11 +22,7 @@ class SingleUserView extends StackedView<SingleUserViewModel> {
     SingleUserViewModel viewModel,
     Widget? child,
   ) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
     final homeScaffoldKey = GlobalKey<ScaffoldState>();
-
     return Scaffold(
       key: homeScaffoldKey,
       drawer: AppDrawer(),
@@ -56,7 +50,8 @@ class SingleUserView extends StackedView<SingleUserViewModel> {
         ),
         title: Text(
           S.current.mydish,
-          style: typography?.titleBold16?.copyWith(color: palette?.gray11),
+          style: context.typography?.titleBold16
+              ?.copyWith(color: context.palette?.gray11),
         ),
       ),
       body: SafeArea(

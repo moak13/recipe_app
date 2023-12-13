@@ -7,7 +7,6 @@ import 'package:receipe_app/ui/views/onboarding/widgets/dot_widget.dart';
 import 'package:receipe_app/ui/views/onboarding/widgets/slider_content.dart';
 import 'package:receipe_app/ui/widgets/common/primary_button/primary_button.dart';
 import 'package:stacked/stacked.dart';
-
 import 'onboarding_viewmodel.dart';
 
 class OnboardingView extends StackedView<OnboardingViewModel> {

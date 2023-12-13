@@ -3,8 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
 import 'package:receipe_app/ui/views/dish_details/widgets/dish_title.dart';
 import 'package:receipe_app/ui/views/dish_details/widgets/ingredient_container.dart';
@@ -20,9 +19,6 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
 
   @override
   Widget build(BuildContext context, DishDetailsViewModel viewModel) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
@@ -49,8 +45,8 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
               verticalSpaceMedium,
               Text(
                 S.current.ingredients,
-                style: typography?.titleBold16?.copyWith(
-                  color: palette?.gray12,
+                style: context.typography?.titleBold16?.copyWith(
+                  color: context.palette?.gray12,
                 ),
               ),
               SizedBox(height: 12.h),
@@ -77,15 +73,15 @@ class DishDetailBottom extends ViewModelWidget<DishDetailsViewModel> {
               SizedBox(height: 25.h),
               Text(
                 S.current.instructions,
-                style: typography?.titleBold16?.copyWith(
-                  color: palette?.gray12,
+                style: context.typography?.titleBold16?.copyWith(
+                  color: context.palette?.gray12,
                 ),
               ),
               SizedBox(height: 12.h),
               Text(
                 recipe?.instructions ?? '--',
-                style: typography?.labelRegular12?.copyWith(
-                  color: palette?.gray12,
+                style: context.typography?.labelRegular12?.copyWith(
+                  color: context.palette?.gray12,
                 ),
               ),
             ],
