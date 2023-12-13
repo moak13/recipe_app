@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:stacked/stacked.dart';
-
 import 'overlay_loader_model.dart';
 
 class OverlayLoader extends StackedView<OverlayLoaderModel> {
@@ -27,7 +27,7 @@ class OverlayLoader extends StackedView<OverlayLoaderModel> {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.grey.shade300,
+              color: context.palette?.gray6,
               borderRadius: BorderRadius.circular(5.r),
             ),
             child: const CircularProgressIndicator.adaptive(),

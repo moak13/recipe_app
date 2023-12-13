@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:receipe_app/generated/l10n.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
-import 'package:receipe_app/ui/extension/palette.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.form.dart';
 import 'package:receipe_app/ui/views/edit_dish/edit_dish_viewmodel.dart';
 import 'package:receipe_app/ui/views/edit_dish/widget/ingredient_chip.dart';
@@ -22,20 +21,16 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
     EditDishViewModel viewModel,
     Widget? child,
   ) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
-    Palette? palette = theme.extension<Palette>();
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        foregroundColor: palette?.gray12,
+        foregroundColor: context.palette?.gray12,
         backgroundColor: Colors.white,
         title: Text(
           S.current.edit_dish,
-          style: typography?.titleBold16?.copyWith(
-            color: palette?.gray12,
+          style: context.typography?.titleBold16?.copyWith(
+            color: context.palette?.gray12,
           ),
         ),
       ),
@@ -46,8 +41,8 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
           children: [
             Text(
               S.current.kindly_edit,
-              style: typography?.labelRegular14?.copyWith(
-                color: palette?.gray8,
+              style: context.typography?.labelRegular14?.copyWith(
+                color: context.palette?.gray8,
               ),
             ),
             SizedBox(height: 25.h),
@@ -89,7 +84,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
                         .addTextFieldInputToList(ingredientsController.text),
                     child: Icon(
                       Icons.check,
-                      color: palette?.gray7,
+                      color: context.palette?.gray7,
                     ),
                   ),
                 ),
@@ -101,7 +96,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
               duration: Duration(milliseconds: 500),
               child: Text(
                 S.current.click_done,
-                style: typography?.labelRegular12,
+                style: context.typography?.labelRegular12,
               ),
             ),
             Wrap(

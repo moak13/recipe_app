@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:receipe_app/ui/extension/app_typography.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 
 class RichTextWidget extends StatelessWidget {
   const RichTextWidget({
@@ -25,12 +25,10 @@ class RichTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    AppTypography? typography = theme.extension<AppTypography>();
     return Text.rich(
       TextSpan(
         text: text1,
-        style: typography?.labelRegular12?.copyWith(
+        style: context.typography?.labelRegular12?.copyWith(
           color: color1,
           fontWeight: fontWeight1,
           fontSize: fontSize1 ?? 12.sp,
@@ -38,7 +36,7 @@ class RichTextWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: text2,
-            style: typography?.labelRegular12?.copyWith(
+            style: context.typography?.labelRegular12?.copyWith(
               color: color2,
               fontWeight: fontWeight2,
               fontSize: fontSize2 ?? 12.sp,
