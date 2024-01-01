@@ -36,7 +36,8 @@ class DishTitle extends ViewModelWidget<DishDetailsViewModel> {
               color2: palette?.gray12,
               text1: S.current.date_created,
               fontWeight1: FontWeight.w300,
-              text2: recipe?.datePosted ?? '',
+              // *** fixed the overflow error on datePosted *** //
+              text2: recipe?.datePosted.toString().substring(0, 16) ?? '',
               fontWeight2: FontWeight.w500,
               fontSize1: 14.sp,
               fontSize2: 16.sp,
