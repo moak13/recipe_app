@@ -1,14 +1,35 @@
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
 import 'package:receipe_app/data_model/create_dish_info.dart';
+import 'package:receipe_app/data_model/image_model.dart';
 import 'package:receipe_app/exceptions/receipe_exceptions.dart';
 import 'package:receipe_app/services/dio_service.dart';
-
 import '../data_model/recipes_response.dart';
 
 class DishService {
   final _logger = getLogger('DishService');
   final _dioService = locator<DioService>();
+
+  Future<String?> uploadDishImage({required ImageModel dishImage}) async {
+    try {
+      _logger.d(dishImage.toJson());
+      final response = await _dioService.put(
+        path: '/dish/images/',
+        data: dishImage.toJson(),
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        _logger.i('Image uploaded successfully');
+      }
+      return response['message'];
+    } on RecipeException {
+      _logger.e('Application Error trying to upload image');
+      rethrow;
+    } catch (e) {
+      _logger.e('Error trying to upload image');
+      rethrow;
+    }
+  }
 
   Future<String?> createDish(CreateDishInfo info) async {
     try {

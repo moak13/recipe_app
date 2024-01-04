@@ -1,9 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/utilities/validation.dart';
 import 'package:receipe_app/ui/views/new_dish/new_dish_view.form.dart';
 import 'package:receipe_app/ui/widgets/common/app_drawer/app_drawer.dart';
@@ -117,8 +119,35 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                   ),
                 ),
                 SizedBox(
-                  height: 80.h,
+                  height: 20.h,
                 ),
+                ElevatedButton(
+                  onPressed: () => viewModel.selectImage(),
+                  child: Text('Add Dish Image'),
+                ),
+                Center(
+                  child: viewModel.selectedDishImage == null
+                      ? Container(
+                          color: context.palette?.gray13,
+                          height: 50,
+                          width: 150,
+                          child: Center(child: Text('Image Preview')),
+                        )
+                      : Container(
+                          color: context.palette?.gray6,
+                          height: 150,
+                          width: 150,
+                          //Tosin
+                          //Image.file(File(file.path)),
+                          child: Image.file(
+                            File(viewModel.selectedDishImage!.path),
+                            fit: BoxFit.cover,
+                          ),
+                          //Before
+                          // child: Image.file(viewModel.selectedDishImage!,fit: BoxFit.cover,),
+                        ),
+                ),
+                SizedBox(height: 25),
                 PrimaryButton(
                   buttonText: S.current.create_dish,
                   onTap: () {
@@ -126,7 +155,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                       viewModel.createDish();
                     }
                   },
-                )
+                ),
               ],
             ),
           ),

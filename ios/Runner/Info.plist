@@ -24,6 +24,12 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>Request Permission for Recipe App to pick Image</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Request Permission for Recipe App to use Camera</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Request Permission for Recipe App to use Audio</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

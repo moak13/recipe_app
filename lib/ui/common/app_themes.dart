@@ -14,9 +14,9 @@ class AppThemes {
       colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primary6, brightness: Brightness.light),
       brightness: Brightness.light,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: AppColors.white,
       appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.black),
