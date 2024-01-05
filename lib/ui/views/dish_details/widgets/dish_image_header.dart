@@ -4,7 +4,9 @@ import 'package:receipe_app/data_model/recipe.dart';
 import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:stacked/stacked.dart';
 import 'package:receipe_app/ui/common/ui_helpers.dart';
+import 'package:receipe_app/ui/extension/build_context_extension.dart';
 import 'package:receipe_app/ui/views/dish_details/dish_details_viewmodel.dart';
+import 'package:stacked/stacked.dart';
 
 class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
   final Recipe? recipe;
@@ -19,7 +21,8 @@ class DishImageHeader extends ViewModelWidget<DishDetailsViewModel> {
         Image.network(
           recipe?.dishImageUrl ??
               'https://media.istockphoto.com/id/1404501005/photo/jollof-rice.jpg?s=1024x1024&w=is&k=20&c=DTns3r_STc4HRBMouVl8IgHeuWhnBdz8X4DRkbDxWjQ=',
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
+          // *** Changed from fill to cover *** //
           height: screenHeight(context) * .6,
           width: double.infinity,
         ),
