@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <user-permisiion android: name= "android.permission.INTERNET"/>
     <application
         android:label="receipe_app"
         android:name="${applicationName}"
@@ -31,3 +32,4 @@
             android:value="2" />
     </application>
 </manifest>
+S

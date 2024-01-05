@@ -27,7 +27,6 @@ class NewDishViewModel extends FormViewModel {
       );
 
       final response = await _dishService.createDish(info);
-
       if (response != null) {
         DialogResponse<dynamic>? dialogResponse =
             await _dialogService.showDialog(
