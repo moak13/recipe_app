@@ -27,6 +27,10 @@ class HomeViewModel extends FutureViewModel<List<Recipe>?> {
     }
   }
 
+  Future refreshHomeData() async {
+    await initialise();
+  }
+
   void navigateToHome() {
     _navigationService.back();
   }
