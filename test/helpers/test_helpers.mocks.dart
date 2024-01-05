@@ -7,21 +7,24 @@ import 'dart:async' as _i6;
 import 'dart:ui' as _i7;
 
 import 'package:flutter/material.dart' as _i5;
+import 'package:image_picker/image_picker.dart' as _i23;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:receipe_app/data_model/create_dish_info.dart' as _i18;
+import 'package:receipe_app/data_model/create_dish_info.dart' as _i19;
 import 'package:receipe_app/data_model/event.dart' as _i9;
+import 'package:receipe_app/data_model/image_model.dart' as _i18;
 import 'package:receipe_app/data_model/login_model.dart' as _i14;
 import 'package:receipe_app/data_model/login_response.dart' as _i13;
 import 'package:receipe_app/data_model/recipes_response.dart' as _i2;
 import 'package:receipe_app/data_model/register_model.dart' as _i16;
 import 'package:receipe_app/data_model/user.dart' as _i15;
 import 'package:receipe_app/services/authentication_service.dart' as _i12;
-import 'package:receipe_app/services/database_service.dart' as _i19;
+import 'package:receipe_app/services/database_service.dart' as _i20;
 import 'package:receipe_app/services/dio_service.dart' as _i11;
 import 'package:receipe_app/services/dish_service.dart' as _i17;
 import 'package:receipe_app/services/event_service.dart' as _i8;
+import 'package:receipe_app/services/image_picker_service.dart' as _i22;
 import 'package:receipe_app/services/secure_storage_service.dart' as _i10;
-import 'package:receipe_app/services/user_service.dart' as _i20;
+import 'package:receipe_app/services/user_service.dart' as _i21;
 import 'package:sqflite/sqflite.dart' as _i3;
 import 'package:stacked_services/stacked_services.dart' as _i4;
 
@@ -912,7 +915,18 @@ class MockAuthenticationService extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockDishService extends _i1.Mock implements _i17.DishService {
   @override
-  _i6.Future<String?> createDish(_i18.CreateDishInfo? info) =>
+  _i6.Future<String?> uploadDishImage({required _i18.ImageModel? dishImage}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #uploadDishImage,
+          [],
+          {#dishImage: dishImage},
+        ),
+        returnValue: _i6.Future<String?>.value(),
+        returnValueForMissingStub: _i6.Future<String?>.value(),
+      ) as _i6.Future<String?>);
+  @override
+  _i6.Future<String?> createDish(_i19.CreateDishInfo? info) =>
       (super.noSuchMethod(
         Invocation.method(
           #createDish,
@@ -944,12 +958,35 @@ class MockDishService extends _i1.Mock implements _i17.DishService {
           ),
         )),
       ) as _i6.Future<_i2.RecipesResponseModel>);
+  @override
+  _i6.Future<_i2.RecipesResponseModel> getUserDishes() => (super.noSuchMethod(
+        Invocation.method(
+          #getUserDishes,
+          [],
+        ),
+        returnValue: _i6.Future<_i2.RecipesResponseModel>.value(
+            _FakeRecipesResponseModel_0(
+          this,
+          Invocation.method(
+            #getUserDishes,
+            [],
+          ),
+        )),
+        returnValueForMissingStub: _i6.Future<_i2.RecipesResponseModel>.value(
+            _FakeRecipesResponseModel_0(
+          this,
+          Invocation.method(
+            #getUserDishes,
+            [],
+          ),
+        )),
+      ) as _i6.Future<_i2.RecipesResponseModel>);
 }
 
 /// A class which mocks [DatabaseService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDatabaseService extends _i1.Mock implements _i19.DatabaseService {
+class MockDatabaseService extends _i1.Mock implements _i20.DatabaseService {
   @override
   _i3.Database get database => (super.noSuchMethod(
         Invocation.getter(#database),
@@ -1011,7 +1048,7 @@ class MockDatabaseService extends _i1.Mock implements _i19.DatabaseService {
 /// A class which mocks [UserService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockUserService extends _i1.Mock implements _i20.UserService {
+class MockUserService extends _i1.Mock implements _i21.UserService {
   @override
   int get listenersCount => (super.noSuchMethod(
         Invocation.getter(#listenersCount),
@@ -1069,4 +1106,20 @@ class MockUserService extends _i1.Mock implements _i20.UserService {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [ImagePickerService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockImagePickerService extends _i1.Mock
+    implements _i22.ImagePickerService {
+  @override
+  _i6.Future<_i23.XFile?> pickImageFromGallery() => (super.noSuchMethod(
+        Invocation.method(
+          #pickImageFromGallery,
+          [],
+        ),
+        returnValue: _i6.Future<_i23.XFile?>.value(),
+        returnValueForMissingStub: _i6.Future<_i23.XFile?>.value(),
+      ) as _i6.Future<_i23.XFile?>);
 }

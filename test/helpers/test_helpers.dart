@@ -10,6 +10,7 @@ import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/services/dish_service.dart';
 import 'package:receipe_app/services/database_service.dart';
 import 'package:receipe_app/services/user_service.dart';
+import 'package:receipe_app/services/image_picker_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -25,6 +26,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<DishService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DatabaseService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<UserService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<ImagePickerService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -38,6 +40,7 @@ void registerServices() {
   getAndRegisterDishService();
   getAndRegisterDatabaseService();
   getAndRegisterUserService();
+  getAndRegisterImagePickerService();
 // @stacked-mock-register
 }
 
@@ -140,6 +143,13 @@ MockUserService getAndRegisterUserService() {
   _removeRegistrationIfExists<UserService>();
   final service = MockUserService();
   locator.registerSingleton<UserService>(service);
+  return service;
+}
+
+MockImagePickerService getAndRegisterImagePickerService() {
+  _removeRegistrationIfExists<ImagePickerService>();
+  final service = MockImagePickerService();
+  locator.registerSingleton<ImagePickerService>(service);
   return service;
 }
 // @stacked-mock-create

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -114,8 +115,31 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                   ),
                 ),
                 SizedBox(
-                  height: 80.h,
+                  height: 20.h,
                 ),
+                ElevatedButton(
+                  onPressed: () => viewModel.selectImage(),
+                  child: Text(S.current.add_dish_image),
+                ),
+                Center(
+                  child: viewModel.selectedDishImage == null
+                      ? Container(
+                          color: context.palette?.gray13,
+                          height: 50,
+                          width: 150,
+                          child: Center(child: Text(S.current.image_preview)),
+                        )
+                      : Container(
+                          color: context.palette?.gray6,
+                          height: 150,
+                          width: 150,
+                          child: Image.file(
+                            File(viewModel.selectedDishImage!.path),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                ),
+                SizedBox(height: 25),
                 PrimaryButton(
                   buttonText: S.current.create_dish,
                   onTap: () {
@@ -123,7 +147,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                       viewModel.createDish();
                     }
                   },
-                )
+                ),
               ],
             ),
           ),

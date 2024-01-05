@@ -21,6 +21,7 @@ import 'package:receipe_app/services/dish_service.dart';
 import 'package:receipe_app/services/database_service.dart';
 import 'package:receipe_app/services/user_service.dart';
 import 'package:receipe_app/ui/views/single_user/single_user_view.dart';
+import 'package:receipe_app/services/image_picker_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -49,6 +50,7 @@ import 'package:receipe_app/ui/views/single_user/single_user_view.dart';
     LazySingleton(classType: DatabaseMigrationService),
     InitializableSingleton(classType: DatabaseService),
     LazySingleton(classType: UserService),
+    LazySingleton(classType: ImagePickerService),
 // @stacked-service
   ],
   bottomsheets: [
