@@ -12,7 +12,7 @@ class DishService {
 
   Future<String?> uploadDishImage({required ImageModel dishImage}) async {
     try {
-      _logger.d(dishImage.toJson());
+      _logger.d('dish json - ${dishImage.toJson()}');
       final response = await _dioService.put(
         path: '/dish/images/',
         data: dishImage.toJson(),
@@ -31,7 +31,7 @@ class DishService {
     }
   }
 
-  Future<String?> createDish(CreateDishInfo info) async {
+  Future<String?> uploadDish(CreateDishInfo info) async {
     try {
       final response = await _dioService.post(
         path: '/dish',

@@ -54,7 +54,7 @@ class NewDishViewModel extends FormViewModel {
       final uploadImageResponse =
           await _dishService.uploadDishImage(dishImage: dishImage);
 
-      final response = await _dishService.createDish(info);
+      final response = await _dishService.uploadDish(info);
 
       if (response != null || uploadImageResponse != null) {
         DialogResponse<dynamic>? dialogResponse =
