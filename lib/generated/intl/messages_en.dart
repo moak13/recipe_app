@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "add_dish_image":
+            MessageLookupByLibrary.simpleMessage("Add Dish Image"),
         "already_have_an_account":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "are_you_sure": MessageLookupByLibrary.simpleMessage(
@@ -64,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "hello_word": MessageLookupByLibrary.simpleMessage("Hello World"),
         "hi": MessageLookupByLibrary.simpleMessage("Hi"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "image_preview": MessageLookupByLibrary.simpleMessage("Image Preview"),
         "ingredient_of_dish":
             MessageLookupByLibrary.simpleMessage("Ingredients of Dish"),
         "ingredients": MessageLookupByLibrary.simpleMessage("Ingredients"),
@@ -79,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "name_of_dish": MessageLookupByLibrary.simpleMessage("Name of Dish"),
         "no_dish_available": MessageLookupByLibrary.simpleMessage(
             "There are no available dish to view currently"),
+        "no_image_selected":
+            MessageLookupByLibrary.simpleMessage("No Image Selected"),
         "no_internet": MessageLookupByLibrary.simpleMessage(
             "No Internet Connection. Please try again later"),
         "onboarding_subtitle_one": MessageLookupByLibrary.simpleMessage(

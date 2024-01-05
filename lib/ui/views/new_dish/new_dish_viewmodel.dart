@@ -34,7 +34,7 @@ class NewDishViewModel extends FormViewModel {
     } catch (e, s) {
       _logger.e('An error occurred while selecting Image', e, s);
       _dialogService.showDialog(
-        description: 'No Image Selected',
+        description: S.current.no_image_selected,
       );
     }
   }

@@ -123,7 +123,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                 ),
                 ElevatedButton(
                   onPressed: () => viewModel.selectImage(),
-                  child: Text('Add Dish Image'),
+                  child: Text(S.current.add_dish_image),
                 ),
                 Center(
                   child: viewModel.selectedDishImage == null
@@ -131,20 +131,16 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                           color: context.palette?.gray13,
                           height: 50,
                           width: 150,
-                          child: Center(child: Text('Image Preview')),
+                          child: Center(child: Text(S.current.image_preview)),
                         )
                       : Container(
                           color: context.palette?.gray6,
                           height: 150,
                           width: 150,
-                          //Tosin
-                          //Image.file(File(file.path)),
                           child: Image.file(
                             File(viewModel.selectedDishImage!.path),
                             fit: BoxFit.cover,
                           ),
-                          //Before
-                          // child: Image.file(viewModel.selectedDishImage!,fit: BoxFit.cover,),
                         ),
                 ),
                 SizedBox(height: 25),

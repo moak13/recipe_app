@@ -54,5 +54,8 @@
     "logout": "LOGOUT ",
     "no_dish_available": "There are no available dish to view currently",
     "generate_recipe_contents": "Generating Recipe contents",
-    "connection_error": "Seems like we got a problem connecting to the server. Kindly try again when you have a stronger network"
+    "connection_error": "Seems like we got a problem connecting to the server. Kindly try again when you have a stronger network",
+    "add_dish_image": "Add Dish Image",
+    "image_preview": "Image Preview",
+    "no_image_selected": "No Image Selected"
 }

@@ -599,6 +599,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Add Dish Image`
+  String get add_dish_image {
+    return Intl.message(
+      'Add Dish Image',
+      name: 'add_dish_image',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image Preview`
+  String get image_preview {
+    return Intl.message(
+      'Image Preview',
+      name: 'image_preview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No Image Selected`
+  String get no_image_selected {
+    return Intl.message(
+      'No Image Selected',
+      name: 'no_image_selected',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
