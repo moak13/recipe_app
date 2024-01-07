@@ -27,8 +27,6 @@ class SingleUserView extends StackedView<SingleUserViewModel> {
       key: homeScaffoldKey,
       drawer: AppDrawer(),
       appBar: AppBar(
-        backgroundColor: kcBackground,
-        elevation: 0,
         leading: InkWell(
           onTap: () {
             homeScaffoldKey.currentState!.openDrawer();
@@ -48,20 +46,14 @@ class SingleUserView extends StackedView<SingleUserViewModel> {
             ),
           ),
         ),
-        title: Text(
-          S.current.mydish,
-          style: context.typography?.titleBold16
-              ?.copyWith(color: context.palette?.gray11),
-        ),
+        title: Text(S.current.mydish, style: context.typography?.titleBold16),
       ),
       body: SafeArea(
         child: OverlayLoader(
           isBusy: viewModel.isBusy,
           content: Column(
             children: [
-              SizedBox(
-                height: 18.h,
-              ),
+              SizedBox(height: 18.h),
               Builder(
                 builder: (context) {
                   //Error

@@ -27,7 +27,7 @@ class OverlayLoader extends StackedView<OverlayLoaderModel> {
           child: Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: context.palette?.gray6,
+              color: context.palette?.gray9,
               borderRadius: BorderRadius.circular(5.r),
             ),
             child: const CircularProgressIndicator.adaptive(),

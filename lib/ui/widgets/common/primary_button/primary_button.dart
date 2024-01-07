@@ -43,12 +43,11 @@ class PrimaryButton extends StackedView<PrimaryButtonModel> {
             height: 56.h,
             width: double.infinity,
             child: Center(
-              child: Text(
-                buttonText,
-                style: context.typography?.titleBold16?.copyWith(
-                  color: textColor ?? context.palette?.gray1,
-                ),
-              ),
+              child: Text(buttonText, style: context.typography?.titleBold16
+                  // copyWith(
+                  //   color: textColor ?? context.palette?.gray1,
+                  // ),
+                  ),
             ),
           ),
         ),

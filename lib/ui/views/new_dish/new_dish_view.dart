@@ -35,7 +35,6 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
       key: newDishScaffoldKey,
       drawer: AppDrawer(),
       appBar: AppBar(
-        elevation: 0,
         leading: InkWell(
           onTap: () {
             newDishScaffoldKey.currentState!.openDrawer();
@@ -57,8 +56,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
         ),
         title: Text(
           S.current.create_a_dish,
-          style: context.typography?.titleBold16
-              ?.copyWith(color: context.palette?.gray11),
+          style: context.typography?.titleBold16,
         ),
       ),
       body: Builder(builder: (context) {

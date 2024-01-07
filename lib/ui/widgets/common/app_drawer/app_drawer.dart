@@ -70,7 +70,7 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               S.current.my_dish,
               style: TextStyle(
                 fontSize: 15.sp,
-                color: context.palette?.gray11,
+                //color: context.palette?.gray11,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -86,23 +86,39 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               S.current.dark_mode,
               style: TextStyle(
                 fontSize: 15.sp,
-                color: context.palette?.gray11,
                 fontWeight: FontWeight.bold,
               ),
             ),
             trailing: Platform.isIOS
-                ? CupertinoSwitch(value: true, onChanged: (bool value) {})
+                ? CupertinoSwitch(
+                    value: viewModel.switchValue,
+                    onChanged: (bool value) {
+                      viewModel.toggleThemeMode(value);
+                    },
+                  )
                 : Switch(
-                    value: false,
-                    onChanged: (bool value) {},
+                    value: viewModel.switchValue,
+                    onChanged: (bool value) {
+                      // viewModel.themeValue = newValue
+                      viewModel.toggleThemeMode(value);
+                    },
                   ),
           ),
           SizedBox(height: 10.h),
-          Divider(thickness: 15.w, color: context.palette?.gray1),
+          // MaterialButton(
+          //   onPressed: () {
+          //     viewModel.toggleThemeMode();
+          //   },
+          //   child: Text('switch'),
+          // ),
+          Divider(
+            thickness: 15.w,
+            //color: context.palette?.gray1,
+          ),
           Spacer(),
           Divider(
             thickness: 10.w,
-            color: context.palette?.gray1,
+            //color: context.palette?.gray1,
           ),
           ListTile(
             onTap: viewModel.logout,
