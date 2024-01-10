@@ -12,9 +12,7 @@ class AppThemes {
     return ThemeData(
       useMaterial3: true,
       primaryColor: AppColors.primary6,
-      //colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary6, brightness: Brightness.light),
       colorScheme: lightColorScheme,
-      //brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.white,
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
