@@ -7,13 +7,18 @@ import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';
 
 import 'package:stacked_services/stacked_services.dart';
+import 'package:stacked_themes/stacked_themes.dart';
 
 class AppDrawerModel extends ReactiveViewModel {
   final _navigationService = locator<NavigationService>();
   final _userService = locator<UserService>();
   final _secureStorageService = locator<SecureStorageService>();
-
+  final _themeService = locator<ThemeService>();
   User? get user => _userService.user;
+
+  //bool? _switchValue = false;
+  // bool get switchValue => _switchValue;
+  bool get switchValue => _themeService.isDarkMode;
 
   final _logger = getLogger('App_Drawer');
 
@@ -35,6 +40,15 @@ class AppDrawerModel extends ReactiveViewModel {
     await _secureStorageService.deleteAccessToken();
     await _secureStorageService.deleteRefreshToken();
     _navigationService.clearStackAndShow(Routes.loginView);
+  }
+
+  ///toggleThemeMode acts as a function and a setter
+  void toggleThemeMode(bool themeValue) {
+    //if (themeValue == true || themeValue == false) {
+    _themeService.toggleDarkLightTheme();
+    //}
+    //_switchValue = themeValue;
+    rebuildUi();
   }
 
   @override

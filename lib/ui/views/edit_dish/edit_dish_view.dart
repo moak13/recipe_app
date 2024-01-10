@@ -26,7 +26,7 @@ class EditDishView extends StackedView<EditDishViewModel> with $EditDishView {
         centerTitle: true,
         elevation: 0,
         foregroundColor: context.palette?.gray12,
-        backgroundColor: Colors.white,
+        //backgroundColor: Colors.white,
         title: Text(
           S.current.edit_dish,
           style: context.typography?.titleBold16?.copyWith(

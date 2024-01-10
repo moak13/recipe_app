@@ -4,6 +4,7 @@ import 'package:receipe_app/ui/views/edit_dish/edit_dish_view.dart';
 import 'package:sqflite_migration_service/sqflite_migration_service.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:stacked_themes/stacked_themes.dart';
 import '../services/event_service.dart';
 import '../ui/bottom_sheets/notice/notice_sheet.dart';
 import '../ui/dialogs/info_alert/info_alert_dialog.dart';
@@ -49,6 +50,7 @@ import 'package:receipe_app/ui/views/single_user/single_user_view.dart';
     LazySingleton(classType: DatabaseMigrationService),
     InitializableSingleton(classType: DatabaseService),
     LazySingleton(classType: UserService),
+    Singleton(classType: ThemeService, resolveUsing: ThemeService.getInstance)
 // @stacked-service
   ],
   bottomsheets: [

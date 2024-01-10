@@ -944,6 +944,29 @@ class MockDishService extends _i1.Mock implements _i17.DishService {
           ),
         )),
       ) as _i6.Future<_i2.RecipesResponseModel>);
+  @override
+  _i6.Future<_i2.RecipesResponseModel> getUserDishes() => (super.noSuchMethod(
+        Invocation.method(
+          #getUserDishes,
+          [],
+        ),
+        returnValue: _i6.Future<_i2.RecipesResponseModel>.value(
+            _FakeRecipesResponseModel_0(
+          this,
+          Invocation.method(
+            #getUserDishes,
+            [],
+          ),
+        )),
+        returnValueForMissingStub: _i6.Future<_i2.RecipesResponseModel>.value(
+            _FakeRecipesResponseModel_0(
+          this,
+          Invocation.method(
+            #getUserDishes,
+            [],
+          ),
+        )),
+      ) as _i6.Future<_i2.RecipesResponseModel>);
 }
 
 /// A class which mocks [DatabaseService].

@@ -27,7 +27,7 @@ class HomeView extends StackedView<HomeViewModel> {
       key: homeScaffoldKey,
       drawer: AppDrawer(),
       appBar: AppBar(
-        backgroundColor: kcBackground,
+        //backgroundColor: kcBackground,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -48,11 +48,7 @@ class HomeView extends StackedView<HomeViewModel> {
             ),
           ),
         ),
-        title: Text(
-          S.current.home,
-          style: context.typography?.titleBold16
-              ?.copyWith(color: context.palette?.gray11),
-        ),
+        title: Text(S.current.home, style: context.typography?.titleBold16),
       ),
       body: SafeArea(
         child: OverlayLoader(

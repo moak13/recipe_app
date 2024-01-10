@@ -50,7 +50,7 @@ class ProductItem extends StatelessWidget {
             ),
             RichTextWidget(
               color1: context.palette?.gray8,
-              color2: context.palette?.gray11,
+              color2: context.palette?.gray9,
               text1: S.current.date_created,
               text2: recipe?.datePosted ?? '--',
             ),
