@@ -42,11 +42,11 @@ class SignupViewModel extends FormViewModel {
         await _dialogService.showDialog(
           description: S.current.unknown_error,
         );
-      } else {
-        await _dialogService.showDialog(
-          description: S.current.account_created_successfully,
-        );
       }
+
+      await _dialogService.showDialog(
+        description: S.current.account_created_successfully,
+      );
     } on RecipeException catch (e) {
       _dialogService.showDialog(
         description: e.message,
