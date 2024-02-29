@@ -7,6 +7,7 @@ import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/ui/views/signup/signup_view.form.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:receipe_app/generated/l10n.dart';
 
 class SignupViewModel extends FormViewModel {
   final _navigationService = locator<NavigationService>();
@@ -37,11 +38,15 @@ class SignupViewModel extends FormViewModel {
       final User? response =
           await _authenticationService.register(registerModel);
 
-      if (response != null) {
+      if (response == null) {
         await _dialogService.showDialog(
-          description: "Account created successfully.",
+          description: S.current.unknown_error,
         );
       }
+
+      await _dialogService.showDialog(
+        description: S.current.account_created_successfully,
+      );
     } on RecipeException catch (e) {
       _dialogService.showDialog(
         description: e.message,

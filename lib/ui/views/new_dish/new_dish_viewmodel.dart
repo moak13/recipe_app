@@ -10,9 +10,9 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class NewDishViewModel extends FormViewModel {
-  final _navigationService = locator<NavigationService>();
+  final NavigationService _navigationService = locator<NavigationService>();
   final DishService _dishService = locator<DishService>();
-  final _dialogService = locator<DialogService>();
+  final DialogService _dialogService = locator<DialogService>();
 
   final _logger = getLogger('NewDishViewModel');
 
@@ -28,16 +28,18 @@ class NewDishViewModel extends FormViewModel {
 
       final response = await _dishService.createDish(info);
 
-      if (response != null) {
-        DialogResponse<dynamic>? dialogResponse =
-            await _dialogService.showDialog(
-          description: response,
+      _logger.i('create dish response: $response');
+
+      // Null first Approach - cases API returns NULL
+      if (response == null) {
+        _dialogService.showDialog(
+          title: S.current.unknown_error,
         );
-        if (dialogResponse?.confirmed == true) {
-          _navigationService.back();
-        }
       }
-    } on RecipeException catch (e) {
+
+      await _dialogService.showDialog(title: response);
+    } on RecipeException catch (e, s) {
+      _logger.e('Network connection Error in creating dish', e, s);
       _dialogService.showDialog(
         description: e.message,
       );
