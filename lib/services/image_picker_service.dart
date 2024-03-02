@@ -11,7 +11,7 @@ class ImagePickerService {
 
     if (pickedGalleryImage == null) {
       logger.d('Null Image path from gallery:::${pickedGalleryImage!.path}');
-      //return File('Empty path');
+      return null;
     }
 
     logger.i('Image name from gallery:::${pickedGalleryImage.name}');

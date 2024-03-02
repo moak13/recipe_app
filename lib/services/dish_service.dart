@@ -10,6 +10,7 @@ class DishService {
   final _logger = getLogger('DishService');
   final _dioService = locator<DioService>();
 
+  //service function to upload Recipe Image in NewDish
   Future<String?> uploadDishImage({required ImageModel dishImage}) async {
     try {
       _logger.d('dish json - ${dishImage.toJson()}');
@@ -21,7 +22,8 @@ class DishService {
       if (response.statusCode == 200 || response.statusCode == 201) {
         _logger.i('Image uploaded successfully');
       }
-      return response['message'];
+      var result = response['message'];
+      return result;
     } on RecipeException {
       _logger.e('Application Error trying to upload image');
       rethrow;
