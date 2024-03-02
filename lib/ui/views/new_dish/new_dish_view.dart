@@ -122,7 +122,7 @@ class NewDishView extends StackedView<NewDishViewModel> with $NewDishView {
                   height: 20.h,
                 ),
                 ElevatedButton(
-                  onPressed: () => viewModel.selectImage(),
+                  onPressed: () => viewModel.selectImage,
                   child: Text(S.current.add_dish_image),
                 ),
                 Center(
