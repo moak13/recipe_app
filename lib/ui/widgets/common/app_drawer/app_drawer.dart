@@ -9,6 +9,10 @@ import 'app_drawer_model.dart';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 
+enum Languages { english, french }
+
+//Languages selectedLanguage = Languages.english;
+
 class AppDrawer extends StackedView<AppDrawerModel> {
   const AppDrawer({super.key});
 
@@ -98,6 +102,29 @@ class AppDrawer extends StackedView<AppDrawerModel> {
                   ),
           ),
           SizedBox(height: 10.h),
+          Divider(thickness: 15.w, color: context.palette?.gray1),
+          ListTile(
+            leading: Icon(Icons.translate),
+            title: DropdownButton(
+              padding: EdgeInsets.all(20),
+              isExpanded: true,
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              value: viewModel.selectedLanguages,
+              items: Languages.values
+                  .map(
+                    (language) => DropdownMenuItem(
+                      value: language,
+                      child: Text(language.name.toUpperCase()),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (value) {
+                if (value == null) return;
+
+                viewModel.toggleLanguage = value;
+              },
+            ),
+          ),
           Divider(thickness: 15.w, color: context.palette?.gray1),
           Spacer(),
           Divider(
