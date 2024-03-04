@@ -1,0 +1,1 @@
+enum Languages { english, french }

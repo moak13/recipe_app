@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:receipe_app/enums/languages.dart';
 import 'package:receipe_app/generated/l10n.dart';
 import 'package:receipe_app/ui/common/app_images.dart';
 import 'package:receipe_app/ui/extension/build_context_extension.dart';
@@ -8,10 +9,6 @@ import 'package:stacked/stacked.dart';
 import 'app_drawer_model.dart';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
-
-enum Languages { english, french }
-
-//Languages selectedLanguage = Languages.english;
 
 class AppDrawer extends StackedView<AppDrawerModel> {
   const AppDrawer({super.key});
@@ -109,7 +106,7 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               padding: EdgeInsets.all(20),
               isExpanded: true,
               borderRadius: BorderRadius.all(Radius.circular(10)),
-              value: viewModel.selectedLanguages,
+              value: viewModel.selectedLanguage,
               items: Languages.values
                   .map(
                     (language) => DropdownMenuItem(
@@ -121,7 +118,9 @@ class AppDrawer extends StackedView<AppDrawerModel> {
               onChanged: (value) {
                 if (value == null) return;
 
-                viewModel.toggleLanguage = value;
+                final subtag = value.name.substring(0, 2);
+                S.load(Locale.fromSubtags(languageCode: subtag));
+                viewModel.toggleLanguage(value);
               },
             ),
           ),

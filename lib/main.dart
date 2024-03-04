@@ -16,6 +16,7 @@ Future<void> main() async {
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
+  await S.load(const Locale.fromSubtags(languageCode: 'en'));
   runApp(const MainApp());
 }
 
@@ -37,6 +38,7 @@ class MainApp extends StatelessWidget {
           navigatorObservers: [
             StackedService.routeObserver,
           ],
+          //locale: ,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
