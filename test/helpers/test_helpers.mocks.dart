@@ -20,6 +20,7 @@ import 'package:receipe_app/services/database_service.dart' as _i19;
 import 'package:receipe_app/services/dio_service.dart' as _i11;
 import 'package:receipe_app/services/dish_service.dart' as _i17;
 import 'package:receipe_app/services/event_service.dart' as _i8;
+import 'package:receipe_app/services/localiazation_service.dart' as _i21;
 import 'package:receipe_app/services/secure_storage_service.dart' as _i10;
 import 'package:receipe_app/services/user_service.dart' as _i20;
 import 'package:sqflite/sqflite.dart' as _i3;
@@ -944,6 +945,29 @@ class MockDishService extends _i1.Mock implements _i17.DishService {
           ),
         )),
       ) as _i6.Future<_i2.RecipesResponseModel>);
+  @override
+  _i6.Future<_i2.RecipesResponseModel> getUserDishes() => (super.noSuchMethod(
+        Invocation.method(
+          #getUserDishes,
+          [],
+        ),
+        returnValue: _i6.Future<_i2.RecipesResponseModel>.value(
+            _FakeRecipesResponseModel_0(
+          this,
+          Invocation.method(
+            #getUserDishes,
+            [],
+          ),
+        )),
+        returnValueForMissingStub: _i6.Future<_i2.RecipesResponseModel>.value(
+            _FakeRecipesResponseModel_0(
+          this,
+          Invocation.method(
+            #getUserDishes,
+            [],
+          ),
+        )),
+      ) as _i6.Future<_i2.RecipesResponseModel>);
 }
 
 /// A class which mocks [DatabaseService].
@@ -1070,3 +1094,9 @@ class MockUserService extends _i1.Mock implements _i20.UserService {
         returnValueForMissingStub: null,
       );
 }
+
+/// A class which mocks [LocaliazationService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockLocaliazationService extends _i1.Mock
+    implements _i21.LocaliazationService {}
