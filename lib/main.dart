@@ -38,7 +38,7 @@ class MainApp extends StatelessWidget {
           navigatorObservers: [
             StackedService.routeObserver,
           ],
-          //locale: ,
+          //locale: Locale.fromSubtags(languageCode: 'en') ,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
