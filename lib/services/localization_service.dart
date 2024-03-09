@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:receipe_app/enums/languages.dart';
 
 class LocalizationService {
-  //Locale.fromSubtags(languageCode: 'en'),
-
   //Hold current app locale
   Locale _currentLocale = Locale.fromSubtags(languageCode: 'en');
   Locale get currentLocale => _currentLocale;

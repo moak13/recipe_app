@@ -21,8 +21,6 @@ class AppDrawerModel extends ReactiveViewModel {
 
   User? get user => _userService.user;
 
-  //Languages _selectedLanguage = Languages.english;
-
   Languages get selectedLanguage => _localizationService.selectedLocale;
 
   //toggle and refresh Language dropdown
