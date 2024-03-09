@@ -20,7 +20,7 @@ import 'package:receipe_app/services/database_service.dart' as _i19;
 import 'package:receipe_app/services/dio_service.dart' as _i11;
 import 'package:receipe_app/services/dish_service.dart' as _i17;
 import 'package:receipe_app/services/event_service.dart' as _i8;
-import 'package:receipe_app/services/localiazation_service.dart' as _i21;
+import 'package:receipe_app/services/localization_service.dart' as _i21;
 import 'package:receipe_app/services/secure_storage_service.dart' as _i10;
 import 'package:receipe_app/services/user_service.dart' as _i20;
 import 'package:sqflite/sqflite.dart' as _i3;
@@ -1095,8 +1095,8 @@ class MockUserService extends _i1.Mock implements _i20.UserService {
       );
 }
 
-/// A class which mocks [LocaliazationService].
+/// A class which mocks [LocalizationService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockLocaliazationService extends _i1.Mock
-    implements _i21.LocaliazationService {}
+class MockLocalizationService extends _i1.Mock
+    implements _i21.LocalizationService {}

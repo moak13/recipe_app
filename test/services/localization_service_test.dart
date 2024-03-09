@@ -4,7 +4,7 @@ import 'package:receipe_app/app/app.locator.dart';
 import '../helpers/test_helpers.dart';
 
 void main() {
-  group('LocaliazationServiceTest -', () {
+  group('LocalizationServiceTest -', () {
     setUp(() => registerServices());
     tearDown(() => locator.reset());
   });

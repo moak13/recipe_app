@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:receipe_app/services/localization_service.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'app/app.bottomsheets.dart';
 import 'app/app.dialogs.dart';
@@ -38,7 +39,8 @@ class MainApp extends StatelessWidget {
           navigatorObservers: [
             StackedService.routeObserver,
           ],
-          locale: Locale.fromSubtags(languageCode: 'fr'),
+          //locale: Locale.fromSubtags(languageCode: 'en'),
+          //locale: LocalizationService,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
