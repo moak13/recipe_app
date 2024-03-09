@@ -40,7 +40,7 @@ class MainApp extends StatelessWidget {
             StackedService.routeObserver,
           ],
           //locale: Locale.fromSubtags(languageCode: 'en'),
-          //locale: LocalizationService,
+          locale: LocalizationService().currentLocale,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

@@ -15,19 +15,21 @@ class AppDrawerModel extends ReactiveViewModel {
   final _navigationService = locator<NavigationService>();
   final _userService = locator<UserService>();
   final _secureStorageService = locator<SecureStorageService>();
-  //final _localizationService = locator<LocaliazationServiceService>;
+  final _localizationService = locator<LocalizationService>();
 
-  final _logger = getLogger('App_Drawer');
+  final _logger = getLogger('App_Drawer ViewModel');
 
   User? get user => _userService.user;
 
-  Languages _selectedLanguage = Languages.english;
+  //Languages _selectedLanguage = Languages.english;
 
-  Languages get selectedLanguage => _selectedLanguage;
+  Languages get selectedLanguage => _localizationService.selectedLanguage;
 
-  //setter to toggle and refresh Language dropdown
+  //toggle and refresh Language dropdown
   void toggleLanguage(Languages value) {
-    _selectedLanguage = value;
+    _logger.i(value);
+
+    _localizationService.assignLocale(value);
     rebuildUi();
   }
 
