@@ -10,11 +10,11 @@ class LocalizationService {
   Locale get currentLocale => _currentLocale;
 
   //refactoring app-drawer VM localization
-  Languages _selectedLanguage = Languages.english;
-  Languages get selectedLanguage => _selectedLanguage;
+  Languages _selectedLocale = Languages.english;
+  Languages get selectedLocale => _selectedLocale;
 
   //function to assign locale
   void assignLocale(Languages value) {
-    _selectedLanguage = value;
+    _selectedLocale = value;
   }
 }
