@@ -13,7 +13,6 @@ class ImagePickerService {
       logger.d('Null Image path from gallery:::${pickedGalleryImage!.path}');
       return null;
     }
-
     logger.i('Image name from gallery:::${pickedGalleryImage.name}');
     logger.i('Image path from gallery:::${pickedGalleryImage.path}');
 
