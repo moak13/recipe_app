@@ -10,6 +10,7 @@ import 'package:receipe_app/services/authentication_service.dart';
 import 'package:receipe_app/services/dish_service.dart';
 import 'package:receipe_app/services/database_service.dart';
 import 'package:receipe_app/services/user_service.dart';
+import 'package:receipe_app/services/localization_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -25,6 +26,8 @@ import 'test_helpers.mocks.dart';
   MockSpec<DishService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<DatabaseService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<UserService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<LocalizationService>(onMissingStub: OnMissingStub.returnDefault),
+
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -38,6 +41,7 @@ void registerServices() {
   getAndRegisterDishService();
   getAndRegisterDatabaseService();
   getAndRegisterUserService();
+  getAndRegisterLocalizationService();
 // @stacked-mock-register
 }
 
@@ -142,6 +146,15 @@ MockUserService getAndRegisterUserService() {
   locator.registerSingleton<UserService>(service);
   return service;
 }
+
+MockLocalizationService getAndRegisterLocalizationService() {
+  _removeRegistrationIfExists<LocalizationService>();
+  final service = MockLocalizationService();
+  locator.registerSingleton<LocalizationService>(service);
+  return service;
+}
+
+//
 // @stacked-mock-create
 
 void _removeRegistrationIfExists<T extends Object>() {
