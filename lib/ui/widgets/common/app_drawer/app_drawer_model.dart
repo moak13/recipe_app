@@ -1,11 +1,9 @@
 import 'package:receipe_app/app/app.router.dart';
 import 'package:receipe_app/data_model/user.dart';
 import 'package:receipe_app/enums/languages.dart';
-//import 'package:receipe_app/services/localiazation_service_service.dart';
 import 'package:receipe_app/services/localization_service.dart';
 import 'package:receipe_app/services/secure_storage_service.dart';
 import 'package:receipe_app/services/user_service.dart';
-import 'package:receipe_app/ui/widgets/common/app_drawer/app_drawer.dart';
 import 'package:stacked/stacked.dart';
 import 'package:receipe_app/app/app.locator.dart';
 import 'package:receipe_app/app/app.logger.dart';

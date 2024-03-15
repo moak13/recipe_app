@@ -122,9 +122,11 @@ class AppDrawer extends StackedView<AppDrawerModel> {
                 _logger.i(value);
 
                 final subtag = value.name.substring(0, 2);
-                S.load(Locale.fromSubtags(
-                    languageCode:
-                        subtag)); //Load the current locale using the subtag
+                S.load(
+                  Locale.fromSubtags(
+                    languageCode: subtag,
+                  ),
+                ); //Load the current locale using the subtag
                 viewModel.toggleLanguage(value);
               },
             ),
